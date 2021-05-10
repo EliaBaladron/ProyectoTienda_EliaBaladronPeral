@@ -42,6 +42,23 @@ public class DetallesPedidosDAO {
 		return detallesPedidos;
 		
 	}
+	public static ArrayList<DetallesPedido> getDetallesPedidos(int idPedido) {
+		
+		Session s = HibernateUtil.getSessionFactory().openSession();
+		
+		logger.info("Obteniendo los detalles de pedidos");
+		
+		String hQuery = " from DetallesPedido e " +
+                " where e.idPedido = :idPedido";
+		ArrayList<DetallesPedido> detallesPedidos = (ArrayList<DetallesPedido>)s.createQuery(hQuery, DetallesPedido.class)
+				.setParameter("id", idPedido)
+				.list();
+		
+		s.close();
+		
+		return detallesPedidos;
+		
+	}
 	public static void addDetallesPedido(DetallesPedido detallesPedidos) {
 		Session s = HibernateUtil.getSessionFactory().openSession();
 		

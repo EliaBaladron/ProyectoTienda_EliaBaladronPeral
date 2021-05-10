@@ -17,6 +17,9 @@ public class DetallesPedidosService {
 		return DetallesPedidosDAO.getDetallesPedidos();
 		
 	}
+	public static ArrayList<DetallesPedido> getDetallesPedidos(int idPedido) {
+		return getDetallesPedidos(idPedido);
+	}
 	public static void addDetallesPedido(DetallesPedido detallesPedidos) {
 		DetallesPedidosDAO.addDetallesPedido(detallesPedidos);
 	}
