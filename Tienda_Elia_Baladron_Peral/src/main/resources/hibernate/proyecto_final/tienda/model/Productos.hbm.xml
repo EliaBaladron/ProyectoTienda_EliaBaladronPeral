@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 10 may. 2021 2:51:03 by Hibernate Tools 5.4.3.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="tienda_online" dynamic-insert="false" dynamic-update="false" mutable="true" name="proyecto_final.tienda.model.Productos" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="productos">
+        <id name="id" type="java.lang.Integer">
+            <column name="id"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one class="proyecto_final.tienda.model.Categorias" embed-xml="true" fetch="select" insert="true" name="categorias" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="id_categoria"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="nombre" optimistic-lock="true" type="string" unique="false">
+            <column name="nombre"/>
+        </property>
+        <property generated="never" lazy="false" name="descripcion" optimistic-lock="true" type="string" unique="false">
+            <column name="descripcion"/>
+        </property>
+        <property generated="never" lazy="false" name="precio" optimistic-lock="true" type="java.lang.Double" unique="false">
+            <column name="precio" precision="22" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="stock" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="stock"/>
+        </property>
+        <property generated="never" lazy="false" name="fechaAlta" optimistic-lock="true" type="timestamp" unique="false">
+            <column length="19" name="fecha_alta" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="fechaBaja" optimistic-lock="true" type="timestamp" unique="false">
+            <column length="19" name="fecha_baja" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="impuesto" optimistic-lock="true" type="java.lang.Float" unique="false">
+            <column name="impuesto" precision="12" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="imagen" optimistic-lock="true" type="string" unique="false">
+            <column name="imagen"/>
+        </property>
+    </class>
+</hibernate-mapping>

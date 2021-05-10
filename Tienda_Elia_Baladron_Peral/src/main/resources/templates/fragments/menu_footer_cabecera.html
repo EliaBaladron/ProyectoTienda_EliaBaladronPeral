@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/" class="h-100">
+	<head>
+		<meta charset="UTF-8">
+		<title>Menu</title>
+		
+		<link href="../../static/css/bootstrap.min.css" rel="stylesheet">
+		
+	    <style>
+	      .bd-placeholder-img {
+	        font-size: 1.125rem;
+	        text-anchor: middle;
+	        -webkit-user-select: none;
+	        -moz-user-select: none;
+	        user-select: none;
+	      }
+	
+	      @media (min-width: 768px) {
+	        .bd-placeholder-img-lg {
+	          font-size: 3.5rem;
+	        }
+	      }
+	    </style>
+	    
+		<link href="../../static/css/sticky-footer-navbar.css" rel="stylesheet">
+		
+	</head>
+	<body class="d-flex flex-column h-100">
+		
+		<!-- Menú -->
+		<header th:fragment="menu">
+			<!-- Fixed navbar -->
+			<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+				<div class="container-fluid">
+					<a class="navbar-brand" href="#">Tienda</a>
+					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarCollapse">
+						<ul class="navbar-nav me-auto mb-2 mb-md-0">
+							<li class="nav-item">
+								<a class="nav-link active" aria-current="page" href="#">Home</a>
+							</li>
+							
+							<li class="nav-item">
+								<a class="nav-link" href="#">Catálogo</a>
+							</li>
+							
+						</ul>
+						
+						<ul class="navbar-nav mb-2 mb-md-0">
+							<li class="nav-item">
+								<a class="nav-link" href="#">Carrito</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</header>
+
+		<!-- Cabecera -->
+		<div class="flex-shrink-0" th:fragment="cabecera">
+			<div class="container">
+			    <h2 class="mt-5">Buscar producto</h2>
+			    
+				<form class="d-flex">
+					<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+					<button class="btn btn-outline-success" type="submit">Buscar</button>
+				</form>
+		  	</div>
+		</div>
+		
+		<!-- Footer -->
+		<footer class="footer mt-auto py-3 bg-light"  th:fragment="footer">
+			<div class="container">
+		    	<span class="text-muted">&#174;Elia Baladrón Peral 2021</span>
+			</div>
+		</footer>
+		
+		<script src="../../static/js/bootstrap.bundle.min.js"></script>
+		
+	</body>
+</html>

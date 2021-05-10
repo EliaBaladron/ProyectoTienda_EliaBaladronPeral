@@ -2,9 +2,18 @@
 <html xmlns:th="https://www.thymeleaf.org/">
 	<head>
 		<meta charset="UTF-8">
-		<title>Insert title here</title>
+		<title>Index</title>
+		
+		<link href="../static/css/bootstrap.min.css" rel="stylesheet">
+		
+		<!-- <th:block th:insert="fragments/menu_footer_cabecera.html :: cabecera"></th:block> -->
 	</head>
-	<body>
-	
+	<body th:insert="fragments/menu_footer_cabecera :: cabecera">
+		
+		<!-- <div th:insert="fragments/menu_footer_cabecera.html :: cabecera"></div> -->
+		<!-- <div th:insert="fragments/menu_footer_cabecera :: cabecera">egwer</div> -->
+		
+		
+		<!-- <footer th:replace="fragments/menu_footer_cabecera :: footer" /></footer> -->
 	</body>
 </html>

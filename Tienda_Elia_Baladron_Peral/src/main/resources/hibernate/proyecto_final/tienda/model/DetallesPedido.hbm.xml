@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 10 may. 2021 2:51:03 by Hibernate Tools 5.4.3.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="tienda_online" dynamic-insert="false" dynamic-update="false" mutable="true" name="proyecto_final.tienda.model.DetallesPedido" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="detalles_pedido">
+        <id name="id" type="java.lang.Integer">
+            <column name="id"/>
+            <generator class="identity"/>
+        </id>
+        <property generated="never" lazy="false" name="idPedido" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="id_pedido"/>
+        </property>
+        <property generated="never" lazy="false" name="idProducto" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="id_producto"/>
+        </property>
+        <property generated="never" lazy="false" name="precioUnidad" optimistic-lock="true" type="java.lang.Float" unique="false">
+            <column name="precio_unidad" precision="12" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="unidades" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="unidades"/>
+        </property>
+        <property generated="never" lazy="false" name="impuesto" optimistic-lock="true" type="java.lang.Float" unique="false">
+            <column name="impuesto" precision="12" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="total" optimistic-lock="true" type="java.lang.Double" unique="false">
+            <column name="total" precision="22" scale="0"/>
+        </property>
+    </class>
+</hibernate-mapping>
