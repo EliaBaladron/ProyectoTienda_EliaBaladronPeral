@@ -1,15 +1,18 @@
 package proyecto_final.tienda.controller;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import proyecto_final.tienda.model.Productos;
 import proyecto_final.tienda.service.ProductosService;;
 
-
+@Controller
+@RequestMapping("")
 public class ProductosController {
 	
 	@GetMapping("/productos")

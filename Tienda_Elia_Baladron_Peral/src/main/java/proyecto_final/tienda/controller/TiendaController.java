@@ -34,7 +34,7 @@ public class TiendaController {
 		session.setAttribute("Usuario", usuario);
 		
 		
-		return "redirect:/";
+		return "index";
 	}
 	
 	

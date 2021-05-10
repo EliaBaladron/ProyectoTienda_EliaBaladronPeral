@@ -16,7 +16,7 @@ public class HibernateUtil {
 		String methodName = HibernateUtil.class.getSimpleName() + ".buildSessionFactory()";
 		// configure settings from hibernate.cfg.xml
 		final StandardServiceRegistry standardRegistry = new StandardServiceRegistryBuilder()
-                                                          		.configure("hibernate.cfg.xml").build();
+                                                          		.configure("hibernate/hibernate.cfg.xml").build();
 
 		try {
 			Metadata metadata = new MetadataSources(standardRegistry).getMetadataBuilder().build();

@@ -10,16 +10,16 @@
 	</head>
 	<body class="text-center">
 		<main class="form-signin">
-			<form th:action="@{/login}" th:object="${usuario}" method="">
+			<form th:action="@{/login}" th:object="${usuario}" method="post">
 				<h1 class="h3 mb-3 fw-normal">Datos de acceso</h1>
 						
 				<div class="form-floating">
 					<label for="user">Usuario</label>
-					<input th:field="*{user}" type="email" name="user" id="user" class="form-control" />
+					<input th:field="*{email}" type="email" name="user" id="user" class="form-control" />
 				</div>
 				<div class="form-floating">
 					<label for="password">Password</label>
-					<input th:field="*{password}" type="password" name="password" id="password" class="form-control" />
+					<input th:field="*{clave}" type="password" name="password" id="password" class="form-control" />
 				</div>
 				
 				<button id="button-login" name="button-login" class="w-100 btn btn-lg btn-primary">Iniciar sesion</button>
