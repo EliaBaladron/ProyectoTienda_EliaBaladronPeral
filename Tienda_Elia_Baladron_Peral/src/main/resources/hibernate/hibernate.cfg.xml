@@ -7,5 +7,20 @@
   <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/tienda_online</property>
   <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
   <property name="hibernate.connection.username">root</property>
+  
+  <mapping resource="Categorias.hbm.xml"/>
+  <mapping resource="Configuracion.hbm.xml"/>
+  <mapping resource="Descuentos.hbm.xml"/>
+  <mapping resource="DetallesPedido.hbm.xml"/>
+  <mapping resource="Impuestos.hbm.xml"/>
+  <mapping resource="MetodosPago.hbm.xml"/>
+  <mapping resource="OpcionesMenu.hbm.xml"/>
+  <mapping resource="Pedidos.hbm.xml"/>
+  <mapping resource="Productos.hbm.xml"/>
+  <mapping resource="Proveedores.hbm.xml"/>
+  <mapping resource="Roles.hbm.xml"/>
+  <mapping resource="Usuarios.hbm.xml"/>
+  <mapping resource="Valoraciones.hbm.xml"/>
+  
  </session-factory>
 </hibernate-configuration>

@@ -17,7 +17,7 @@ public class TiendaController {
 	
 	//Login
 	
-	@GetMapping("")
+	@GetMapping("/login")
 	public String loginForm(Model model) {
 		
 		model.addAttribute("usuario", new Usuarios());
@@ -25,7 +25,7 @@ public class TiendaController {
 		return "login_form";
 	}
 	
-	@GetMapping("/login")
+	@GetMapping("/login/login")
 	public String loginSaludo(HttpSession session, Model  model, @ModelAttribute Usuarios usuario) {
 		
 		//Comprobar usuario
