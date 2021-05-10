@@ -63,4 +63,12 @@ public class Valoraciones implements java.io.Serializable {
 		this.comentario = comentario;
 	}
 
+	@Override
+	public String toString() {
+		return "Valoraciones [id=" + id + ", idProducto=" + idProducto + ", idUsuario=" + idUsuario + ", valoracion="
+				+ valoracion + ", comentario=" + comentario + "]";
+	}
+	
+	
+
 }

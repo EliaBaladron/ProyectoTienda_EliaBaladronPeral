@@ -89,4 +89,12 @@ public class Pedidos implements java.io.Serializable {
 		this.total = total;
 	}
 
+	@Override
+	public String toString() {
+		return "Pedidos [id=" + id + ", idUsuario=" + idUsuario + ", fecha=" + fecha + ", metodoPago=" + metodoPago
+				+ ", estado=" + estado + ", numFactura=" + numFactura + ", total=" + total + "]";
+	}
+
+	
+	
 }

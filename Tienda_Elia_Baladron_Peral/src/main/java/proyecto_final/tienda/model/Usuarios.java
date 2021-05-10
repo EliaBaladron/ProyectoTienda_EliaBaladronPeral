@@ -134,4 +134,14 @@ public class Usuarios implements java.io.Serializable {
 		this.dni = dni;
 	}
 
+	@Override
+	public String toString() {
+		return "Usuarios [id=" + id + ", idRol=" + idRol + ", email=" + email + ", clave=" + clave + ", nombre="
+				+ nombre + ", apellido1=" + apellido1 + ", apellido2=" + apellido2 + ", direccion=" + direccion
+				+ ", provincia=" + provincia + ", localidad=" + localidad + ", telefono=" + telefono + ", dni=" + dni
+				+ "]";
+	}
+	
+	
+
 }

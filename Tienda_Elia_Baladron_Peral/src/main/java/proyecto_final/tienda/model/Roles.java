@@ -33,4 +33,11 @@ public class Roles implements java.io.Serializable {
 		this.rol = rol;
 	}
 
+	@Override
+	public String toString() {
+		return "Roles [id=" + id + ", rol=" + rol + "]";
+	}
+
+	
+	
 }

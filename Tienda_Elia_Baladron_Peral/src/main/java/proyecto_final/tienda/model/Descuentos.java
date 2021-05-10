@@ -70,4 +70,12 @@ public class Descuentos implements java.io.Serializable {
 		this.fechaFin = fechaFin;
 	}
 
+	@Override
+	public String toString() {
+		return "Descuentos [id=" + id + ", codigo=" + codigo + ", descuento=" + descuento + ", fechaInicio="
+				+ fechaInicio + ", fechaFin=" + fechaFin + "]";
+	}
+	
+	
+
 }

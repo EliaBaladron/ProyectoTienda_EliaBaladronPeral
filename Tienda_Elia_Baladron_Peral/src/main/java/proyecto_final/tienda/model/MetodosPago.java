@@ -33,4 +33,11 @@ public class MetodosPago implements java.io.Serializable {
 		this.metodoPago = metodoPago;
 	}
 
+	@Override
+	public String toString() {
+		return "MetodosPago [id=" + id + ", metodoPago=" + metodoPago + "]";
+	}
+
+	
+	
 }

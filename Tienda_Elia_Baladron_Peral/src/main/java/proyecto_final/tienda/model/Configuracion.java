@@ -53,4 +53,11 @@ public class Configuracion implements java.io.Serializable {
 		this.tipo = tipo;
 	}
 
+	@Override
+	public String toString() {
+		return "Configuracion [id=" + id + ", clave=" + clave + ", valor=" + valor + ", tipo=" + tipo + "]";
+	}
+	
+	
+
 }

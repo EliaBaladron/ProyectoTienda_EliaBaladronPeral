@@ -56,4 +56,10 @@ public class Categorias implements java.io.Serializable {
 		this.productoses = productoses;
 	}
 
+	@Override
+	public String toString() {
+		return "Categorias [id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", productoses="
+				+ productoses + "]";
+	}
+
 }

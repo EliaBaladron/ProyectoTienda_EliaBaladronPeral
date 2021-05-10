@@ -53,4 +53,12 @@ public class OpcionesMenu implements java.io.Serializable {
 		this.urlOpcion = urlOpcion;
 	}
 
+	@Override
+	public String toString() {
+		return "OpcionesMenu [id=" + id + ", idRol=" + idRol + ", nombreOpcion=" + nombreOpcion + ", urlOpcion="
+				+ urlOpcion + "]";
+	}
+	
+	
+
 }

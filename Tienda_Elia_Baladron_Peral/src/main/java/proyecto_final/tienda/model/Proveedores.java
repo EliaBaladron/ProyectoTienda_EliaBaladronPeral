@@ -94,4 +94,12 @@ public class Proveedores implements java.io.Serializable {
 		this.email = email;
 	}
 
+	@Override
+	public String toString() {
+		return "Proveedores [id=" + id + ", nombre=" + nombre + ", direccion=" + direccion + ", localidad=" + localidad
+				+ ", provincia=" + provincia + ", telefono=" + telefono + ", cif=" + cif + ", email=" + email + "]";
+	}
+	
+	
+
 }

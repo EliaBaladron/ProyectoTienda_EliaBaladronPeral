@@ -33,4 +33,11 @@ public class Impuestos implements java.io.Serializable {
 		this.impuesto = impuesto;
 	}
 
+	@Override
+	public String toString() {
+		return "Impuestos [id=" + id + ", impuesto=" + impuesto + "]";
+	}
+	
+	
+
 }

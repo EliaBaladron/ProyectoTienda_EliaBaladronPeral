@@ -84,4 +84,12 @@ public class DetallesPedido implements java.io.Serializable {
 		this.total = total;
 	}
 
+	@Override
+	public String toString() {
+		return "DetallesPedido [id=" + id + ", idPedido=" + idPedido + ", idProducto=" + idProducto + ", precioUnidad="
+				+ precioUnidad + ", unidades=" + unidades + ", impuesto=" + impuesto + ", total=" + total + "]";
+	}
+	
+	
+
 }

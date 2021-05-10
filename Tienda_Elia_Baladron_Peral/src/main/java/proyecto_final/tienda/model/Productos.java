@@ -121,4 +121,13 @@ public class Productos implements java.io.Serializable {
 		this.imagen = imagen;
 	}
 
+	@Override
+	public String toString() {
+		return "Productos [id=" + id + ", categorias=" + categorias + ", nombre=" + nombre + ", descripcion="
+				+ descripcion + ", precio=" + precio + ", stock=" + stock + ", fechaAlta=" + fechaAlta + ", fechaBaja="
+				+ fechaBaja + ", impuesto=" + impuesto + ", imagen=" + imagen + "]";
+	}
+	
+	
+
 }
