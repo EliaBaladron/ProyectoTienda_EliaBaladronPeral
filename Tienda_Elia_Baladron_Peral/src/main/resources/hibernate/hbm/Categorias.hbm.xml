@@ -1,22 +1,26 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Generated 10 may. 2021 2:51:03 by Hibernate Tools 5.4.3.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
-    <class catalog="tienda_online" dynamic-insert="false" dynamic-update="false" mutable="true" name="proyecto_final.tienda.model.Categorias" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="categorias">
-        <id name="id" type="java.lang.Integer">
-            <column name="id"/>
-            <generator class="identity"/>
-        </id>
-        <property generated="never" lazy="false" name="nombre" optimistic-lock="true" type="string" unique="false">
-            <column name="nombre"/>
-        </property>
-        <property generated="never" lazy="false" name="descripcion" optimistic-lock="true" type="string" unique="false">
-            <column name="descripcion"/>
-        </property>
-        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="productoses" optimistic-lock="true" sort="unsorted" table="productos">
-            <key on-delete="noaction">
-                <column name="id_categoria"/>
-            </key>
-            <one-to-many class="proyecto_final.tienda.model.Productos" embed-xml="true" not-found="exception"/>
-        </set>
-    </class>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 10 may. 2021 2:51:03 by Hibernate Tools 5.4.3.Final -->
+<hibernate-mapping>
+ <class catalog="tienda_online"
+  name="proyecto_final.tienda.model.Categorias" table="categorias">
+  <id name="id" type="java.lang.Integer">
+   <column name="id"/>
+   <generator class="identity"/>
+  </id>
+  <property generated="never" lazy="false" name="nombre" type="string">
+   <column name="nombre"/>
+  </property>
+  <property generated="never" lazy="false" name="descripcion" type="string">
+   <column name="descripcion"/>
+  </property>
+  <set fetch="select" inverse="true" lazy="true" name="productoses"
+   sort="unsorted" table="productos">
+   <key>
+    <column name="id_categoria"/>
+   </key>
+   <one-to-many class="proyecto_final.tienda.model.Productos"/>
+  </set>
+ </class>
 </hibernate-mapping>
