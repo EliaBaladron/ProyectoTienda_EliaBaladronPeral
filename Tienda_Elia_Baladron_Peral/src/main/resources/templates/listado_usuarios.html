@@ -35,10 +35,10 @@
 			<td th:text="${usuario.telefono}">Teléfono</td>
 			<td th:text="${usuario.dni}">DNI</td>
 			<td>
-				<a th:href="@{/delete(id=${usuario.id})}">Eliminar usuario</a>
+				<a th:href="@{/usuarios/delete(id=${usuario.id})}">Eliminar usuario</a>
 			</td>
 			<td>
-				<a th:href="@{/edit(id=${usuario.id})}">Editar usuario</a>
+				<a th:href="@{/usuarios/edit(id=${usuario.id})}">Editar usuario</a>
 			</td>
 		</tr>
 	</table>

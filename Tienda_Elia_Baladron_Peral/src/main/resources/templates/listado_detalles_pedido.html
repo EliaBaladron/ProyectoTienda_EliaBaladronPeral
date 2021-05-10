@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+<head>
+	<meta charset="UTF-8">
+	<title>Mostrar detalles pedido</title>
+	<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+</head>
+<body>
+	<table class="table table-striped">
+		<tr>
+			<th>Id</th>
+			<th>Pedido</th>
+			<th>Producto</th>
+			<th>Precio unidad</th>
+			<th>Unidades</th>
+			<th>Impuesto</th>
+			<th>Total</th>
+		</tr>
+		<tr th:each="detalle : ${lista_detalles}">
+			<td th:text="${detalle.id}"></td>
+			<td th:text="${detalle.idPedido}"></td>
+			<td th:text="${detalle.idProducto}"></td>
+			<td th:text="${detalle.precioUnidad}"></td>
+			<td th:text="${detalle.unidades}"></td>
+			<td th:text="${detalle.impuesto}"></td>
+			<td th:text="${detalle.total}"></td>
+			<td>
+				<a th:href="@{/detalles_pedido/delete(id=${producto.id})}">Eliminar</a>
+			</td>
+			<td>
+				<a th:href="@{/detalles_pedido/edit(id=${producto.id})}">Editar</a>
+			</td>
+		</tr>
+	</table>
+</body>
+</html>
