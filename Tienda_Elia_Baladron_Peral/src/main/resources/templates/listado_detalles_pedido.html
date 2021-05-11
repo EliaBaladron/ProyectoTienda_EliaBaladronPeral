@@ -16,7 +16,7 @@
 			<th>Impuesto</th>
 			<th>Total</th>
 		</tr>
-		<tr th:each="detalle : ${lista_detalles}">
+		<tr th:each="detalle : ${lista_detalles_pedido}">
 			<td th:text="${detalle.id}"></td>
 			<td th:text="${detalle.idPedido}"></td>
 			<td th:text="${detalle.idProducto}"></td>
@@ -25,10 +25,10 @@
 			<td th:text="${detalle.impuesto}"></td>
 			<td th:text="${detalle.total}"></td>
 			<td>
-				<a th:href="@{/detalles_pedido/delete(id=${producto.id})}">Eliminar</a>
+				<a th:href="@{/detalles_pedido/delete(id=${detalle.id})}">Eliminar</a>
 			</td>
 			<td>
-				<a th:href="@{/detalles_pedido/edit(id=${producto.id})}">Editar</a>
+				<a th:href="@{/detalles_pedido/edit(id=${detalle.id})}">Editar</a>
 			</td>
 		</tr>
 	</table>

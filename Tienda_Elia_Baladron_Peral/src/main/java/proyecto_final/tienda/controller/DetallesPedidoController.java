@@ -26,7 +26,7 @@ public class DetallesPedidoController {
 		
 		model.addAttribute("detalles_pedido", new DetallesPedido());
 		
-		return "detalles_pedido_registro";
+		return "detalles_pedido";
 	}
 	@PostMapping("/detalles_pedido/registro/registrar")
 	public String registrar(Model model, @ModelAttribute DetallesPedido detallesPedido) {
@@ -49,7 +49,7 @@ public class DetallesPedidoController {
 		
 		model.addAttribute("detalles_pedido", DetallesPedidosService.getDetallesPedido(Integer.parseInt(id)));
 		
-		return "detalles_pedido_editar";
+		return "detalles_pedido";
 	}
 	@PostMapping("/detalles_pedido/edit/editar")
 	public String editSubmit(Model model, @ModelAttribute DetallesPedido detallesPedido) {

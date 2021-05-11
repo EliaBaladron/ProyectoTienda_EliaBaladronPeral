@@ -10,12 +10,16 @@
 	
 				<!-- Form Name -->
 				<legend>Registro usuario</legend>
-	
+				
+				
+				<!-- <input id="id" th:field="*{id}" name="id" type="hidden" placeholder=""
+						class="form-control input-md">-->
+				
 				<!-- Text input-->
 				<div class="form-group">
 					<label class="col-md-4 control-label" for="usuarios_id_rol">Rol</label>
 					<div class="col-md-4">
-						<input th:field="*{idRol}" id="usuarios_id_rol" name="usuarios_id_rol" type="text"
+						<input th:field="*{idRol}" id="usuarios_id_rol" name="usuarios_id_rol" type="number"
 							class="form-control input-md" required="required"> <span
 							class="help-block">Introduce el rol del usuario</span>
 					</div>

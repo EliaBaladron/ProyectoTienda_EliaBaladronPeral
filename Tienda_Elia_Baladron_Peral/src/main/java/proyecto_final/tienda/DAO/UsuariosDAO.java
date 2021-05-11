@@ -7,6 +7,7 @@ import org.apache.logging.log4j.Logger;
 import org.hibernate.Session;
 
 import proyecto_final.tienda.model.Usuarios;
+import proyecto_final.tienda.service.UsuariosService;
 import proyecto_final.tienda.utils.HibernateUtil;
 
 public class UsuariosDAO {
@@ -22,10 +23,10 @@ public class UsuariosDAO {
 		String hQuery = " from Usuarios e " +
 	                  " where e.id = :id";
 		
-		Usuarios usuario = s.createQuery(hQuery, Usuarios.class)
-	                   .setParameter("id", id)
-	                   .setMaxResults(1)
-	                   .uniqueResult();
+		Usuarios usuario = (Usuarios)s.createQuery(hQuery, Usuarios.class)
+				.setParameter("id", id)
+				.setMaxResults(1)
+				.uniqueResult();
 		return usuario;
 	}
 	public static ArrayList<Usuarios> getUsuarios() {
@@ -69,4 +70,10 @@ public class UsuariosDAO {
 		
 		s.close();
 	}
+	
+	public static void main(String[] args) {
+		Usuarios u = UsuariosService.getUsuario(1);
+		System.out.println(u.toString());
+	}
+	
 }

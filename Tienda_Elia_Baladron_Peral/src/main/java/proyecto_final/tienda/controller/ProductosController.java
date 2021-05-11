@@ -19,10 +19,7 @@ import proyecto_final.tienda.service.ProductosService;;
 public class ProductosController {
 	
 
-	@GetMapping("")
-	public String productos(Model model) {
-		return productosAnonimo(model);
-	}
+	
 	@GetMapping("/productos_admin")
 	public String productosAdmin(Model model) {
 		model.addAttribute("lista_productos", ProductosService.getProductos());

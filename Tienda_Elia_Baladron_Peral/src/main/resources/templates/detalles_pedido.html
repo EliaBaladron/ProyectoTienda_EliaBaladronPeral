@@ -5,7 +5,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form class="form-horizontal" th:action="@{/detalles_pedido/registro/registrar}" th:object="${detalles_pedido}" method="post">
+	<form class="form-horizontal" th:action="${detalles_pedido.id !=0} ? @{/detalles_pedido/edit/editar} : @{/detalles_pedido/registro/registrar}" th:object="${detalles_pedido}" method="post">
 		<fieldset>
 
 			<!-- Form Name -->
@@ -15,7 +15,7 @@
 			<div class="form-group">
 				<div class="col-md-4">
 					<input id="detalles_pedido_id" name="detalles_pedido_id"
-						type="text" placeholder="" class="form-control input-md"
+						type="hidden" placeholder="" class="form-control input-md"
 						th:field="*{id}">
 
 				</div>

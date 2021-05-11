@@ -26,7 +26,7 @@ public class UsuariosController {
 		
 		model.addAttribute("usuario", new Usuarios());
 		
-		return "usuarios_registro";
+		return "usuarios";
 	}
 	@PostMapping("/usuarios/registro/registrar")
 	public String registrar(Model model, @ModelAttribute Usuarios usuario) {
@@ -46,10 +46,11 @@ public class UsuariosController {
 	
 	@GetMapping("/usuarios/edit")
 	public String editar(Model model, @RequestParam String id) {
+		Usuarios u = UsuariosService.getUsuario(Integer.parseInt(id));
+		//Usuarios u = UsuariosService.getUsuario(1);
+		model.addAttribute("usuario", u);
 		
-		model.addAttribute("usuario", UsuariosService.getUsuario(Integer.parseInt(id)));
-		
-		return "usuarios_editar";
+		return "usuarios";
 	}
 	@PostMapping("/usuarios/edit/editar")
 	public String editSubmit(Model model, @ModelAttribute Usuarios usuario) {
