@@ -1,6 +1,7 @@
 package proyecto_final.tienda.service;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import proyecto_final.tienda.DAO.ProductosDAO;
 import proyecto_final.tienda.model.Productos;
@@ -24,6 +25,10 @@ public class ProductosService {
 		ProductosDAO.deleteProducto(producto);
 	}
 	public static void updateProducto(Productos producto) {
+		ProductosDAO.updateProducto(producto);
+	}
+	public static void darDeBaja(Productos producto) {
+		producto.setFechaBaja(new Date());
 		ProductosDAO.updateProducto(producto);
 	}
 	

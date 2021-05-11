@@ -30,11 +30,9 @@
 			<td th:text="${producto.fechaBaja}"></td>
 			<td th:text="${producto.impuesto}"></td>
 			<td th:text="${producto.imagen}"></td>
-			<td>
-				<a th:href="@{/productos/delete(id=${producto.id})}">Eliminar</a>
-			</td>
-			<td>
-				<a th:href="@{/productos/edit(id=${producto.id})}">Editar</a>
+			
+			<td th:each="opcion : ${opciones_producto}">
+				<a th:href="${opcion.url}" th:text="${opcion.nombre}">></a>
 			</td>
 		</tr>
 	</table>

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import proyecto_final.tienda.model.Usuarios;
+import proyecto_final.tienda.service.OpcionesMenuService;
 
 
 @Controller
@@ -37,6 +38,11 @@ public class TiendaController {
 		return "index";
 	}
 	
-	
+	public void iniciarRol(Model model, HttpSession session) {
+		int idRol = 4;
+		if(session.getAttribute("rol") == null)
+			idRol = Integer.getInteger(session.getAttribute("rol").toString());
+		model.addAttribute("opciones_menu", OpcionesMenuService.getRoles(idRol));
+	}
 	
 }
