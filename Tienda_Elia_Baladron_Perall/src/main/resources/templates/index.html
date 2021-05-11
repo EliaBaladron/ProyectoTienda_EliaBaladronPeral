@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Insert title here</title>
+	<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+</head>
+<body>
+	<form class="form-horizontal">
+		<fieldset>
+
+			<!-- Form Name -->
+			<legend>Menu</legend>
+			
+			<th:block th:insert="mostrar.html"/>
+			
+			<ul>
+				<li><a th:href="@{/registro}">Añadir usuario</a></li>
+				<!-- <li><a th:href="@{/eliminar}">Eliminar usuario</a></li> -->
+				<!-- <li><a th:href="@{/mostrar}">Mostrar usuarios</a></li> -->
+			</ul>
+
+		</fieldset>
+	</form>
+
+</body>
+</html>
