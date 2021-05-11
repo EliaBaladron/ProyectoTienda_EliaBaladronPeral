@@ -5,7 +5,7 @@
 		<title>Editar usuario</title>
 	</head>
 	<body>
-		<form class="form-horizontal" th:action="${producto.id !=0} ? @{/productos/edit/editar} : @{/productos/registro/registrar}" th:object="${producto}" method="post">
+		<form class="form-horizontal" th:action="${producto.id != 0} ? @{/productos/edit/editar} : @{/productos/registro/registrar}" th:object="${producto}" method="post">
 			<fieldset>
 	
 				<!-- Form Name -->
@@ -21,7 +21,7 @@
 					<div class="col-md-4">
 						<input id="producto_id_categoria" name="producto_id_categoria"
 							type="text" placeholder="" class="form-control input-md"
-							th:field="*{categorias}">
+							th:field="*{idCategoria}">
 						<span class="help-block">Introduce la categoria</span>
 					</div>
 				</div>
@@ -76,7 +76,7 @@
 						de alta</label>
 					<div class="col-md-4">
 						<input id="producto_fecha_alta" name="producto_fecha_alta"
-							type="text" placeholder="" class="form-control input-md"
+							type="datetime-local" placeholder="" class="form-control input-md"
 							th:field="*{fechaAlta}">
 						<span class="help-block">Introduce la fecha de alta</span>
 					</div>
@@ -88,7 +88,7 @@
 						de baja</label>
 					<div class="col-md-4">
 						<input id="producto_fecha_baja" name="producto_fecha_baja"
-							type="text" placeholder="" class="form-control input-md"
+							type="datetime-local" placeholder="" class="form-control input-md"
 							th:field="*{fechaBaja}">
 						<span class="help-block">Introduce la fecha de baja</span>
 					</div>

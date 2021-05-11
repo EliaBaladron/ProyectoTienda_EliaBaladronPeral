@@ -16,7 +16,7 @@ public class Productos {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	private Categorias categorias;
+	private Long idCategoria;
 	private String nombre;
 	private String descripcion;
 	private Double precio;
@@ -33,10 +33,10 @@ public class Productos {
 		this.fechaAlta = fechaAlta;
 		this.fechaBaja = fechaBaja;
 	}
-	public Productos(Long id, Categorias categorias, String nombre, String descripcion, Double precio, Integer stock,
+	public Productos(Long id, Long idCategoria, String nombre, String descripcion, Double precio, Integer stock,
 			Date fechaAlta, Date fechaBaja, Float impuesto, String imagen) {
 		this.id = id;
-		this.categorias = categorias;
+		this.idCategoria = idCategoria;
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 		this.precio = precio;
@@ -46,9 +46,9 @@ public class Productos {
 		this.impuesto = impuesto;
 		this.imagen = imagen;
 	}
-	public Productos(Categorias categorias, String nombre, String descripcion, Double precio, Integer stock,
+	public Productos(Long idCategoria, String nombre, String descripcion, Double precio, Integer stock,
 			Date fechaAlta, Date fechaBaja, Float impuesto, String imagen) {
-		this.categorias = categorias;
+		this.idCategoria = idCategoria;
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 		this.precio = precio;
@@ -67,12 +67,12 @@ public class Productos {
 		this.id = id;
 	}
 
-	public Categorias getCategorias() {
-		return this.categorias;
+	public Long getIdCategoria() {
+		return this.idCategoria;
 	}
 
-	public void setCategorias(Categorias categorias) {
-		this.categorias = categorias;
+	public void setCategorias(Long idCategoria) {
+		this.idCategoria = idCategoria;
 	}
 
 	public String getNombre() {
@@ -141,7 +141,7 @@ public class Productos {
 
 	@Override
 	public String toString() {
-		return "Productos [id=" + id + ", categorias=" + categorias + ", nombre=" + nombre + ", descripcion="
+		return "Productos [id=" + id + ", categorias=" + idCategoria + ", nombre=" + nombre + ", descripcion="
 				+ descripcion + ", precio=" + precio + ", stock=" + stock + ", fechaAlta=" + fechaAlta + ", fechaBaja="
 				+ fechaBaja + ", impuesto=" + impuesto + ", imagen=" + imagen + "]";
 	}

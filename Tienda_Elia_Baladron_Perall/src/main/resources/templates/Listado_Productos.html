@@ -21,7 +21,7 @@
 		</tr>
 		<tr th:each="producto : ${lista_productos}">
 			<td th:text="${producto.id}"></td>
-			<td th:text="${producto.categorias}"></td>
+			<td th:text="${producto.idCategoria}"></td>
 			<td th:text="${producto.nombre}"></td>
 			<td th:text="${producto.descripcion}"></td>
 			<td th:text="${producto.precio}"></td>
@@ -31,10 +31,10 @@
 			<td th:text="${producto.impuesto}"></td>
 			<td th:text="${producto.imagen}"></td>
 			<td>
-				<a th:href="@{/productos/delete(id=${usuario.id})}">Eliminar producto</a>
+				<a th:href="@{/productos/delete(id=${producto.id})}">Eliminar producto</a>
 			</td>
 			<td>
-				<a th:href="@{/productos/edit(id=${usuario.id})}">Editar producto</a>
+				<a th:href="@{/productos/edit(id=${producto.id})}">Editar producto</a>
 			</td>
 		</tr>
 		<tr>
