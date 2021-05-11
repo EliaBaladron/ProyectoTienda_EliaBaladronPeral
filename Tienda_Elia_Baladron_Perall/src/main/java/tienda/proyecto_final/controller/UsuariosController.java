@@ -26,14 +26,14 @@ public class UsuariosController {
 		return "index";
 	}
 	
-	@GetMapping("/registro")
+	@GetMapping("/usuarios/registro")
 	public String getRegistro(Model model) {
 		
 		model.addAttribute("usuario", new Usuarios());
 		
-		return "registro";
+		return "Usuarios";
 	}
-	@PostMapping("/registro/registrar")
+	@PostMapping("/usuarios/registro/registrar")
 	public String registrar(Model model, @ModelAttribute Usuarios usuario) {
 		
 		sc.addUsuario(usuario);
@@ -41,7 +41,7 @@ public class UsuariosController {
 		return "redirect:/";
 	}
 	
-	@GetMapping("/delete")
+	@GetMapping("/usuarios/delete")
 	public String borrar(Model model, @RequestParam String id) {
 		
 		sc.deleteUsuario(Long.parseLong(id));
@@ -50,15 +50,15 @@ public class UsuariosController {
 		return "redirect:/";
 	}
 	
-	@GetMapping("/edit")
+	@GetMapping("/usuarios/edit")
 	public String editar(Model model, @RequestParam String id) {
 		
 		model.addAttribute("usuario", sc.getUsuario(Long.parseLong(id)));
 		//model.addAttribute("usuario", sc.getUsuario(Integer.parseInt(id)));
 		
-		return "editar";
+		return "Usuarios";
 	}
-	@PostMapping("/edit/editar")
+	@PostMapping("/usuarios/edit/editar")
 	public String editSubmit(Model model, @ModelAttribute Usuarios usuario) {
 		sc.editUsuario(usuario);
 		
