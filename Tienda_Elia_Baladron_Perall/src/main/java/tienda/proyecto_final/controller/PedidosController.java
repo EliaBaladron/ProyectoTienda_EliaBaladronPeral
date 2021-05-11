@@ -9,57 +9,55 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import tienda.proyecto_final.model.Productos;
-import tienda.proyecto_final.service.ProductosService;;
+import tienda.proyecto_final.model.Pedidos;
+import tienda.proyecto_final.service.PedidosService;
 
 
 @Controller
 @RequestMapping("")
-public class ProductosController {
-
+public class PedidosController {
 	@Autowired
-	private ProductosService sc;
+	private PedidosService sc;
 	
 	/*@GetMapping("")
 	public String index(Model model) {
-		model.addAttribute("lista_productos", sc.getListaProductos());
+		model.addAttribute("lista_pedidos", sc.getListaPedidos());
 		return "index";
 	}*/
 	
-	@GetMapping("/productos/registro")
+	@GetMapping("/pedidos/registro")
 	public String getRegistro(Model model) {
 		
-		model.addAttribute("producto", new Productos());
+		model.addAttribute("pedido", new Pedidos());
 		
-		return "Productos";
+		return "Pedidos";
 	}
-	@PostMapping("/productos/registro/registrar")
-	public String registrar(Model model, @ModelAttribute Productos producto) {
+	@PostMapping("/pedidos/registro/registrar")
+	public String registrar(Model model, @ModelAttribute Pedidos pedido) {
 		
-		sc.addProducto(producto);
+		sc.addPedido(pedido);
 		
 		return "redirect:/";
 	}
 	
-	@GetMapping("/productos/delete")
+	@GetMapping("/pedidos/delete")
 	public String borrar(Model model, @RequestParam String id) {
 		
-		sc.deleteProducto(Long.parseLong(id));
-		//sc.deleteUsuario(Integer.parseInt((id)));
+		sc.deletePedido(Long.parseLong(id));
 		
 		return "redirect:/";
 	}
 	
-	@GetMapping("/productos/edit")
+	@GetMapping("/pedidos/edit")
 	public String editar(Model model, @RequestParam String id) {
 		
-		model.addAttribute("producto", sc.getProducto(Long.parseLong(id)));
+		model.addAttribute("pedido", sc.getPedido(Long.parseLong(id)));
 		
-		return "Productos";
+		return "Pedidos";
 	}
-	@PostMapping("/productos/edit/editar")
-	public String editSubmit(Model model, @ModelAttribute Productos producto) {
-		sc.editProducto(producto);
+	@PostMapping("/pedidos/edit/editar")
+	public String editSubmit(Model model, @ModelAttribute Pedidos pedido) {
+		sc.editPedido(pedido);
 		
 		return "redirect:/";
 	}

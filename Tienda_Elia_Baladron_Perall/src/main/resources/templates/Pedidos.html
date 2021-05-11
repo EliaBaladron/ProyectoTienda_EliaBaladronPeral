@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Pedido</title>
+	</head>
+	<body>
+		<form class="form-horizontal" th:action="${pedido.id !=0} ? @{/pedidos/edit/editar} : @{/pedidos/registro/registrar}" th:object="${pedido}" method="post">
+			<fieldset>
+	
+				<!-- Form Name -->
+				<legend>Registro pedido</legend>
+				
+				<input id="pedido_id" th:field="*{id}" name="pedido_id" type="hidden" placeholder=""
+						class="form-control input-md">
+	
+				<div class="form-group">
+					<label class="col-md-4 control-label" for="pedido_id_usuario">Usuario</label>
+					<div class="col-md-4">
+						<input th:field="*{idUsuario}" id="pedido_id_usuario" name="pedido_id_usuario" type="text" placeholder="1"
+							class="form-control input-md" required="required">
+						<span class="help-block">Introduce el usuario</span>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-md-4 control-label" for="pedido_fecha">Fecha</label>
+					<div class="col-md-4">
+						<input th:field="*{fecha}" id="pedido_fecha" name="pedido_fecha" type="date"
+							class="form-control input-md" required="required">
+						<span class="help-block">Introduce la fecha</span>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-md-4 control-label" for="pedido_metodo_pago">Método de pago</label>
+					<div class="col-md-4">
+						<input th:field="*{metodoPago}" id="pedido_metodo_pago" name="pedido_metodo_pago" type="text" placeholder="Pepe"
+							class="form-control input-md" required="required"> <span
+							class="help-block">Introduce el método de pago</span>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-md-4 control-label" for="pedido_estado">Primer
+						apellido</label>
+					<div class="col-md-4">
+						<input th:field="*{estado}" id="pedido_estado" name="pedido_estado" type="text"
+							placeholder="García" class="form-control input-md"> <span
+							class="help-block">Introduce el estado del pedido</span>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-md-4 control-label" for="pedido_num_factura">Segundo
+						apellido</label>
+					<div class="col-md-4">
+						<input th:field="*{numFactura}" id="pedido_num_factura" name="pedido_num_factura" type="text"
+							placeholder="García" class="form-control input-md"> <span
+							class="help-block">Introduce el número de factura</span>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-md-4 control-label" for="pedido_total">Total</label>
+					<div class="col-md-4">
+						<input th:field="*{total}" id="pedido_total" name="pedido_total" type="text"
+							placeholder="Avd. Requejo" class="form-control input-md">
+						<span class="help-block">Introduce el total</span>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-md-4 control-label" for="registrar_bt"></label>
+					<div class="col-md-4">
+						<button id="registrar_bt" name="registrar_bt"
+							class="btn btn-primary">Guardar</button>
+					</div>
+				</div>
+	
+			</fieldset>
+		</form>
+	</body>
+</html>

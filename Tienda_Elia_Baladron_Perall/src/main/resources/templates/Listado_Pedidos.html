@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+<head>
+	<meta charset="UTF-8">
+	<title>Mostrar pedidos</title>
+	<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+</head>
+<body>
+	<table class="table table-striped">
+		<tr>
+			<th>Id</th>
+			<th>Usuario</th>
+			<th>Fecha</th>
+			<th>Metodo de pago</th>
+			<th>Estado</th>
+			<th>Factura</th>
+			<th>Total</th>
+		</tr>
+		<tr th:each="pedido : ${lista_pedidos}">
+			<td th:text="${pedido.id}">Id</td>
+			<td th:text="${pedido.idUsuario}">Usuario</td>
+			<td th:text="${pedido.fecha}">Fecha</td>
+			<td th:text="${pedido.metodoPago}">Metodo de pago</td>
+			<td th:text="${pedido.estado}">Estado</td>
+			<td th:text="${pedido.numFactura}">Factura</td>
+			<td th:text="${pedido.total}">Total</td>
+			<td>
+				<a th:href="@{/pedidos/delete(id=${pedido.id})}">Eliminar pedido</a>
+			</td>
+			<td>
+				<a th:href="@{/pedidos/edit(id=${pedido.id})}">Editar pedido</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<a th:href="@{/pedidos/registro}">Añadir pedido</a>
+			</td>
+		</tr>
+	</table>
+</body>
+</html>
