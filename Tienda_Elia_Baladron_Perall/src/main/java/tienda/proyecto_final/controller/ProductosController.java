@@ -9,58 +9,57 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import tienda.proyecto_final.model.Usuarios;
-import tienda.proyecto_final.service.UsuariosService;
+import tienda.proyecto_final.model.Productos;
+import tienda.proyecto_final.service.ProductosService;;
 
 
 @Controller
 @RequestMapping("")
-public class UsuariosController {
+public class ProductosController {
 
 	@Autowired
-	private UsuariosService sc;
+	private ProductosService sc;
 	
-	/*@GetMapping("")
+	@GetMapping("")
 	public String index(Model model) {
-		model.addAttribute("lista_usuarios", sc.getListaUsuarios());
+		model.addAttribute("lista_productos", sc.getListaProductos());
 		return "index";
-	}*/
+	}
 	
-	@GetMapping("/usuarios/registro")
+	@GetMapping("/productos/registro")
 	public String getRegistro(Model model) {
 		
-		model.addAttribute("usuario", new Usuarios());
+		model.addAttribute("producto", new Productos());
 		
-		return "Usuarios";
+		return "Productos";
 	}
-	@PostMapping("/usuarios/registro/registrar")
-	public String registrar(Model model, @ModelAttribute Usuarios usuario) {
+	@PostMapping("/productos/registro/registrar")
+	public String registrar(Model model, @ModelAttribute Productos producto) {
 		
-		sc.addUsuario(usuario);
+		sc.addProducto(producto);
 		
 		return "redirect:/";
 	}
 	
-	@GetMapping("/usuarios/delete")
+	@GetMapping("/productos/delete")
 	public String borrar(Model model, @RequestParam String id) {
 		
-		sc.deleteUsuario(Long.parseLong(id));
+		sc.deleteProducto(Long.parseLong(id));
 		//sc.deleteUsuario(Integer.parseInt((id)));
 		
 		return "redirect:/";
 	}
 	
-	@GetMapping("/usuarios/edit")
+	@GetMapping("/productos/edit")
 	public String editar(Model model, @RequestParam String id) {
 		
-		model.addAttribute("usuario", sc.getUsuario(Long.parseLong(id)));
-		//model.addAttribute("usuario", sc.getUsuario(Integer.parseInt(id)));
+		model.addAttribute("usuario", sc.getProducto(Long.parseLong(id)));
 		
-		return "Usuarios";
+		return "Productos";
 	}
-	@PostMapping("/usuarios/edit/editar")
-	public String editSubmit(Model model, @ModelAttribute Usuarios usuario) {
-		sc.editUsuario(usuario);
+	@PostMapping("/productos/edit/editar")
+	public String editSubmit(Model model, @ModelAttribute Productos producto) {
+		sc.editProducto(producto);
 		
 		return "redirect:/";
 	}
