@@ -58,7 +58,7 @@ public class UsuariosController {
 		
 		sc.addUsuario(usuario);
 		
-		return "redirect:/";
+		return "redirect:/usuarios";
 	}
 	
 	@GetMapping("/usuarios/delete")
@@ -67,7 +67,15 @@ public class UsuariosController {
 		sc.deleteUsuario(Long.parseLong(id));
 		//sc.deleteUsuario(Integer.parseInt((id)));
 		
-		return "redirect:/";
+		return "redirect:/usuarios";
+	}
+	
+	@GetMapping("/usuarios/baja")
+	public String darDeBaja(Model model, @RequestParam String id) {
+		
+		sc.deleteUsuario(Long.parseLong(id));
+		
+		return "redirect:/usuarios";
 	}
 	
 	@GetMapping("/usuarios/edit")
@@ -82,7 +90,7 @@ public class UsuariosController {
 	public String editSubmit(Model model, @ModelAttribute Usuarios usuario) {
 		sc.editUsuario(usuario);
 		
-		return "redirect:/";
+		return "redirect:/usuarios";
 	}
 	
 	
