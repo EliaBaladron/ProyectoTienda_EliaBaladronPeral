@@ -3,9 +3,14 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Mostrar usuarios</title>
-	<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+	
+	<th:block th:replace="fragments/menu_footer_cabecera :: head">
 </head>
 <body>
+	
+	<header th:insert="fragments/menu_footer_cabecera :: menu"></header>
+	<div th:insert="fragments/menu_footer_cabecera :: cabecera"></div>
+	
 	<table class="table table-striped">
 		<tr>
 			<th>Id</th>
@@ -47,5 +52,8 @@
 			</td>
 		</tr>
 	</table>
+	
+	<footer th:insert="fragments/menu_footer_cabecera :: footer"></footer>
+	
 </body>
 </html>

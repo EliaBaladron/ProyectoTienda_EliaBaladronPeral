@@ -8,11 +8,12 @@
 	
 </head>
 <body>
+
+	<header th:insert="fragments/menu_footer_cabecera :: menu"></header>
+	<div th:insert="fragments/menu_footer_cabecera :: cabecera"></div>
+	
 	<form class="form-horizontal">
 		<fieldset>
-
-			<header th:insert="fragments/menu_footer_cabecera :: menu"></header>
-			<div th:insert="fragments/menu_footer_cabecera :: cabecera"></div>
 			
 			<!-- <th:block th:insert="Listado_Usuarios.html"/> -->
 			<th:block th:insert="Listado_Productos.html"/>
@@ -23,10 +24,10 @@
 			
 			
 			<h2 th:text="${session.rol}"></h2>
-			
-			<footer th:insert="fragments/menu_footer_cabecera :: footer"></footer>
 		</fieldset>
 	</form>
-
+			
+	<footer th:insert="fragments/menu_footer_cabecera :: footer"></footer>
+	
 </body>
 </html>
