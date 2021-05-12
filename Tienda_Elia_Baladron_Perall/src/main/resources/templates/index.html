@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html xmlns:th="https://www.thymeleaf.org/">
-<head>
+<head th:insert="fragments/menu_footer_cabecera :: head">
 	<meta charset="ISO-8859-1">
-	<title>Insert title here</title>
+	<title>Inicioo</title>
 	<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
 </head>
 <body>
 	<form class="form-horizontal">
 		<fieldset>
 
-			<!-- Form Name -->
-			<legend>Menu</legend>
+			<header th:insert="fragments/menu_footer_cabecera :: menu"></header>
+			<div th:insert="fragments/menu_footer_cabecera :: cabecera"></div>
 			
 			<!-- <th:block th:insert="Listado_Usuarios.html"/> -->
 			<!-- <th:block th:insert="Listado_Productos.html"/> -->
@@ -18,7 +18,8 @@
 			<!-- <th:block th:insert="Listado_DetallesPedidos.html"/> -->
 			
 			<th:block th:insert="Listado_DetallesPedidos.html"/>
-
+			
+			<footer th:insert="fragments/menu_footer_cabecera :: footer"></footer>
 		</fieldset>
 	</form>
 
