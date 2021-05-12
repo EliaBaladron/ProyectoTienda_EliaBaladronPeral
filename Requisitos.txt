@@ -1,6 +1,6 @@
 1
 2
-3	Mostrar productos dividos por categorias
+3
 4	Filtro de búsqueda
 5
 6
@@ -38,27 +38,6 @@ Admin
 
 
 
-
-	Anonimo
-Ver
-Ver detalles
-Añadir al carrito
-
-	Cliente
-Ver
-Ver detalles
-Añadir al carrito
-
-	Empleado
-altas
-bajas
-actualizaciones
-
-	Admin
-altas
-bajas
-actualizaciones
-eliminaciones
 
 
 
