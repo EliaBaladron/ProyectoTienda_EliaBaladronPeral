@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html xmlns:th="https://www.thymeleaf.org/" class="h-100">
-	<head th:fragment="head">
+	<head>
 		<meta charset="UTF-8">
 		<title>Inicio</title>
 		
-		<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
-		<link th:href="@{/css/sticky-footer-navbar.css}" rel="stylesheet">
+		<th:block th:fragment="head">
+			<!-- <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+			<link th:href="@{/css/sticky-footer-navbar.css}" rel="stylesheet"> -->
+			
+			<link href="/css/bootstrap.min.css" rel="stylesheet">
+			<link href="/css/sticky-footer-navbar.css" rel="stylesheet">
+		</th:block>
 	</head>
 	<body class="d-flex flex-column h-100">
 		
@@ -48,7 +53,8 @@
 			</div>
 		</footer>
 		
-		<script src="@{/js/bootstrap.bundle.min.js}"></script>
+		<!-- <script src="@{/js/bootstrap.bundle.min.js}"></script> -->
+		<script src="/js/bootstrap.bundle.min.js"></script>
 		
 	</body>
 </html>

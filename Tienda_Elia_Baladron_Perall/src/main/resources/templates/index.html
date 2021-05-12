@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="https://www.thymeleaf.org/">
-<head th:insert="fragments/menu_footer_cabecera :: head">
+<head>
 	<meta charset="ISO-8859-1">
 	<title>Inicioo</title>
-	<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+	
+	<th:block th:replace="fragments/menu_footer_cabecera :: head">
+	
 </head>
 <body>
 	<form class="form-horizontal">
