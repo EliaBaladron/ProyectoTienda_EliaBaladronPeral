@@ -31,18 +31,18 @@ public class UsuariosController {
 	//TODO: añadir solo los clientes y no todos los usuarios
 	@GetMapping("/clientes_admin")
 	public String indexClientesAdmin(Model model) {
-		model.addAttribute("lista_usuarios", sc.getListaUsuarios());
+		model.addAttribute("lista_usuarios", sc.getListaUsuariosRol(Roles.CLIENTE));
 		return "Listado_Usuarios";
 	}
 	@GetMapping("/clientes_emple")
 	public String indexClientesEmple(Model model) {
-		model.addAttribute("lista_usuarios", sc.getListaUsuarios());
+		model.addAttribute("lista_usuarios", sc.getListaUsuariosRol(Roles.CLIENTE));
 		return "Listado_Usuarios";
 	}
 	//TODO: añadir solo los empleados y no todos los usuarios
 	@GetMapping("/empleados_admin")
 	public String indexEmpleadosAdmin(Model model) {
-		model.addAttribute("lista_usuarios", sc.getListaUsuarios());
+		model.addAttribute("lista_usuarios", sc.getListaUsuariosRol(Roles.EMPLEADO));
 		return "Listado_Usuarios";
 	}
 	

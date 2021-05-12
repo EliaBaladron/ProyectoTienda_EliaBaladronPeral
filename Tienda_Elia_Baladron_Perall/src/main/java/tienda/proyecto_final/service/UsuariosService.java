@@ -28,7 +28,7 @@ public class UsuariosService {
 				"direccion2", "provincia2", "localidad2", "987654322", "87654322B"
 			));
 		this.usuarioRepository.save(new Usuarios(
-				Roles.EMPLEADO, "mail3@mail3.com", "4323", "nombre3", "apellido13", "apellido23",
+				Roles.CLIENTE, "mail3@mail3.com", "4323", "nombre3", "apellido13", "apellido23",
 				"direccion3", "provincia3", "localidad3", "987654323", "87654323C"
 			));
 		
@@ -36,6 +36,9 @@ public class UsuariosService {
 
 	public Iterable<Usuarios> getListaUsuarios() {
         return usuarioRepository.findAll();
+    }
+	public Iterable<Usuarios> getListaUsuariosRol(Long idRol) {
+        return usuarioRepository.findByIdRol(idRol);
     }
 
     public void addUsuario(Usuarios contacto) {
