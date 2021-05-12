@@ -18,13 +18,13 @@ public class OpcionesMenuController {
 	@Autowired
 	private OpcionesMenuService sc;
 	
-	@GetMapping("")
+	/*@GetMapping("")
 	public String index(Model model, HttpSession session) {
 		
 		iniciarRol(session, 0l);
 		
 		return "index";
-	}
+	}*/
 	
 	public void iniciarRol(HttpSession session, Long rol) {
 		Long idRol = 4l;

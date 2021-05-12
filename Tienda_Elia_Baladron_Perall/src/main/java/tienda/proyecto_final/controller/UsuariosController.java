@@ -1,5 +1,7 @@
 package tienda.proyecto_final.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -63,5 +65,43 @@ public class UsuariosController {
 		sc.editUsuario(usuario);
 		
 		return "redirect:/";
+	}
+	
+	
+	
+	@GetMapping("login")
+	public String loginForm(Model model) {
+		
+		model.addAttribute("usuario", new Usuarios());
+		
+		return "login_form";
+	}
+
+	
+	@PostMapping("/login/comprobar")
+	public String loginSaludo(Model  model, @ModelAttribute Usuarios usuario, HttpSession session) {
+		boolean correcto = false;
+		
+		Usuarios usuarioCorrecto = null;
+		
+		for(Usuarios u: sc.getListaUsuarios()) {
+			if(u.getEmail().equals(usuario.getEmail())) {
+				if(u.getClave().equals(usuario.getClave())) {
+					usuarioCorrecto = u;
+					correcto = true;
+					break;
+				}
+			}
+		}
+		
+		if(correcto) {
+			session.setAttribute("rol", usuarioCorrecto.getIdRol());
+			return "redirect:/";
+		}
+		else {
+			model.addAttribute("usuario", usuario);
+			model.addAttribute("error", "El usuario o la contraseña no es correcto");
+			return "login_form";
+		}
 	}
 }
