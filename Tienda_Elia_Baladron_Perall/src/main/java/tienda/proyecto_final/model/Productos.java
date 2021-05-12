@@ -31,8 +31,7 @@ public class Productos {
 	}
 	public Productos(boolean b) {
 		this.fechaAlta = Date.valueOf(LocalDate.now());
-		//this.fechaBaja = Date.valueOf(LocalDate.of(0000, 1, 1));
-		this.fechaBaja = null;
+		this.fechaBaja = Date.valueOf(LocalDate.of(0000, 1, 1));
 	}
 
 	public Productos(Date fechaAlta, Date fechaBaja) {
@@ -72,8 +71,7 @@ public class Productos {
 		this.precio = precio;
 		this.stock = stock;
 		this.fechaAlta = Date.valueOf(LocalDate.now());
-		//this.fechaBaja = Date.valueOf(LocalDate.of(0000, 1, 1));
-		this.fechaBaja = null;
+		this.fechaBaja = Date.valueOf(LocalDate.of(0000, 1, 1));
 		this.impuesto = impuesto;
 		this.imagen = imagen;
 	}
