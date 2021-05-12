@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Editar usuario</title>
+	</head>
+	<body>
+		<form class="form-horizontal" th:action="@{/productos}" th:object="${producto}" method="post">
+			<fieldset>
+	
+				<!-- Form Name -->
+				<legend>Registro producto</legend>
+				
+				
+				<div class="form-group">
+					<label class="col-md-4 control-label" for="producto_id_categoria">ID
+						categoria</label>
+					<div class="col-md-4">
+						<input id="producto_id" name="producto_id"
+							type="text" placeholder="" class="form-control input-md"
+							th:field="*{id}" disabled>
+					</div>
+				</div>
+	
+				<!-- Text input-->
+				<div class="form-group">
+					<label class="col-md-4 control-label" for="producto_id_categoria">ID
+						categoria</label>
+					<div class="col-md-4">
+						<input id="producto_id_categoria" name="producto_id_categoria"
+							type="text" placeholder="" class="form-control input-md"
+							th:field="*{idCategoria}" disabled>
+					</div>
+				</div>
+	
+				<!-- Text input-->
+				<div class="form-group">
+					<label class="col-md-4 control-label" for="producto_nombre">Nombre</label>
+					<div class="col-md-4">
+						<input id="producto_nombre" name="producto_nombre" type="text"
+							placeholder="" class="form-control input-md"
+							th:field="*{nombre}" disabled>
+					</div>
+				</div>
+	
+				<!-- Text input-->
+				<div class="form-group">
+					<label class="col-md-4 control-label" for="producto_descripcion">Descripción</label>
+					<div class="col-md-4">
+						<input id="producto_descripcion" name="producto_descripcion"
+							type="text" placeholder="" class="form-control input-md"
+							th:field="*{descripcion}" disabled>
+					</div>
+				</div>
+	
+				<!-- Text input-->
+				<div class="form-group">
+					<label class="col-md-4 control-label" for="producto_precio">Precio</label>
+					<div class="col-md-4">
+						<input id="producto_precio" name="producto_precio" type="text"
+							placeholder="" class="form-control input-md"
+							th:field="*{precio}" disabled>
+					</div>
+				</div>
+	
+				<!-- Text input-->
+				<div class="form-group">
+					<label class="col-md-4 control-label" for="producto_stock">Stock</label>
+					<div class="col-md-4">
+						<input id="producto_stock" name="producto_stock" type="text"
+							placeholder="" class="form-control input-md"
+							th:field="*{stock}" disabled>
+					</div>
+				</div>
+	
+				<!-- Text input-->
+				<div class="form-group">
+					<label class="col-md-4 control-label" for="producto_fecha_alta">Fecha
+						de alta</label>
+					<div class="col-md-4">
+						<input id="producto_fecha_alta" name="producto_fecha_alta"
+							type="text" placeholder="" class="form-control input-md"
+							th:field="*{fechaAlta}" disabled>
+					</div>
+				</div>
+	
+				<!-- Text input-->
+				<div class="form-group">
+					<label class="col-md-4 control-label" for="producto_fecha_baja">Fecha
+						de baja</label>
+					<div class="col-md-4">
+						<input id="producto_fecha_baja" name="producto_fecha_baja"
+							type="text" placeholder="" class="form-control input-md"
+							th:field="*{fechaBaja}" disabled>
+					</div>
+				</div>
+	
+				<!-- Text input-->
+				<div class="form-group">
+					<label class="col-md-4 control-label" for="producto_impuesto">Impuesto</label>
+					<div class="col-md-4">
+						<input id="producto_impuesto" name="producto_impuesto" type="text"
+							placeholder="" class="form-control input-md"
+							th:field="*{impuesto}" disabled>
+					</div>
+				</div>
+	
+				<!-- Text input-->
+				<div class="form-group">
+					<label class="col-md-4 control-label" for="producto_imagen">Imagen</label>
+					<div class="col-md-4">
+						<input id="producto_imagen" name="producto_imagen" type="text"
+							placeholder="" class="form-control input-md"
+							th:field="*{imagen}" disabled>
+					</div>
+				</div>
+				
+				<!-- Button -->
+				<div class="form-group">
+					<label class="col-md-4 control-label" for="registrar_bt"></label>
+					<div class="col-md-4">
+						<button id="registrar_bt" name="registrar_bt"
+							class="btn btn-primary">Volver</button>
+					</div>
+				</div>
+	
+			</fieldset>
+		</form>
+	</body>
+</html>

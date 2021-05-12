@@ -30,8 +30,9 @@ public class Productos {
 	public Productos() {
 	}
 	public Productos(boolean b) {
-		this.fechaAlta = Date.valueOf(LocalDate.of(2021, 5, 14));
-		this.fechaBaja = Date.valueOf(LocalDate.of(0000, 1, 1));
+		this.fechaAlta = Date.valueOf(LocalDate.now());
+		//this.fechaBaja = Date.valueOf(LocalDate.of(0000, 1, 1));
+		this.fechaBaja = null;
 	}
 
 	public Productos(Date fechaAlta, Date fechaBaja) {
@@ -70,8 +71,9 @@ public class Productos {
 		this.descripcion = descripcion;
 		this.precio = precio;
 		this.stock = stock;
-		this.fechaAlta = Date.valueOf(LocalDate.of(2021, 5, 14));
-		this.fechaBaja = Date.valueOf(LocalDate.of(0000, 1, 1));
+		this.fechaAlta = Date.valueOf(LocalDate.now());
+		//this.fechaBaja = Date.valueOf(LocalDate.of(0000, 1, 1));
+		this.fechaBaja = null;
 		this.impuesto = impuesto;
 		this.imagen = imagen;
 	}
@@ -154,6 +156,10 @@ public class Productos {
 
 	public void setImagen(String imagen) {
 		this.imagen = imagen;
+	}
+	
+	public void darDeBaja() {
+		this.fechaBaja = Date.valueOf(LocalDate.now());
 	}
 
 	@Override

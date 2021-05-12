@@ -47,28 +47,6 @@ public class ProductosController {
 		model.addAttribute("lista_productosXcategoria", iniciarProductosXCategoria());
 		return "index";
 	}
-	/*
-	@GetMapping("/productos_admin")
-	public String indexAdmin(Model model) {
-		model.addAttribute("lista_productos", sc.getListaProductos());
-		return "index";
-	}
-	@GetMapping("/productos_emple")
-	public String indexEmple(Model model) {
-		model.addAttribute("lista_productos", sc.getListaProductos());
-		return "index";
-	}
-	@GetMapping("/productos_cliente")
-	public String indexCliente(Model model) {
-		model.addAttribute("lista_productos", sc.getListaProductos());
-		return "index";
-	}
-	@GetMapping("/productos_anonimo")
-	public String indexAnonimo(Model model) {
-		model.addAttribute("lista_productos", sc.getListaProductos());
-		return "index";
-	}
-	*/
 	@GetMapping("/productos_admin")
 	public String indexAdmin(Model model) {
 		return "redirect:/";
@@ -122,6 +100,31 @@ public class ProductosController {
 		sc.editProducto(producto);
 		
 		return "redirect:/";
+	}
+	
+	@GetMapping("/productos/carrito")
+	public String carrito(Model model, @RequestParam String id) {
+		//TODO: implementar carrito
+		return "redirect:/";
+	}
+	
+	@GetMapping("/productos/baja")
+	public String baja(Model model, @RequestParam String id) {
+		
+		Productos producto = sc.getProducto(Long.parseLong(id));
+		producto.darDeBaja();
+		
+		sc.editProducto(producto);
+		
+		return "redirect:/";
+	}
+	
+	@GetMapping("/productos/detalles")
+	public String detalles(Model model, @RequestParam String id) {
+		
+		model.addAttribute("producto", sc.getProducto(Long.parseLong(id)));
+		
+		return "ProductosMostrar";
 	}
 	
 	
