@@ -20,11 +20,27 @@ public class ProductosController {
 	@Autowired
 	private ProductosService sc;
 	
-	/*@GetMapping("")
-	public String index(Model model) {
+	//TODO: cambiar las opciones de los productos según el rol
+	@GetMapping("/productos_admin")
+	public String indexAdmin(Model model) {
 		model.addAttribute("lista_productos", sc.getListaProductos());
 		return "index";
-	}*/
+	}
+	@GetMapping("/productos_emple")
+	public String indexEmple(Model model) {
+		model.addAttribute("lista_productos", sc.getListaProductos());
+		return "index";
+	}
+	@GetMapping("/productos_cliente")
+	public String indexCliente(Model model) {
+		model.addAttribute("lista_productos", sc.getListaProductos());
+		return "index";
+	}
+	@GetMapping("/productos_anonimo")
+	public String indexAnonimo(Model model) {
+		model.addAttribute("lista_productos", sc.getListaProductos());
+		return "index";
+	}
 	
 	@GetMapping("/productos/registro")
 	public String getRegistro(Model model) {

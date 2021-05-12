@@ -52,6 +52,7 @@ public class OpcionesMenuService {
 				0l, 1l, "Pedidos", "/pedidos_cliente"
 			));
 		
+		//TODO: añadir opciones de ver perfil
 		this.opcionesMenuRepository.save(new OpcionesMenu(
 				0l, 1l, "Perfil", "/perfil_emple"
 			));
@@ -59,6 +60,7 @@ public class OpcionesMenuService {
 				0l, 1l, "Perfil", "/perfil_cliente"
 			));
 		
+		//TODO: añadir opciones carrito
 		this.opcionesMenuRepository.save(new OpcionesMenu(
 				0l, 1l, "Carrito", "/carrito_cliente"
 			));

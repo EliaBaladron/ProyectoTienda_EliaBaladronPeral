@@ -20,11 +20,11 @@ public class DetallesPedidosController {
 	@Autowired
 	private DetallesPedidosService sc;
 	
-	/*@GetMapping("")
+	@GetMapping("/detalles_pedido")
 	public String index(Model model) {
 		model.addAttribute("lista_detalles_pedido", sc.getListaDetallesPedidos());
 		return "index";
-	}*/
+	}
 	
 	@GetMapping("/detalles_pedido/registro")
 	public String getRegistro(Model model) {

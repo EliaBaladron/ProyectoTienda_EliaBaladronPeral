@@ -22,11 +22,28 @@ public class UsuariosController {
 	@Autowired
 	private UsuariosService sc;
 	
-	/*@GetMapping("")
+	@GetMapping("/usuarios")
 	public String index(Model model) {
 		model.addAttribute("lista_usuarios", sc.getListaUsuarios());
 		return "index";
-	}*/
+	}
+	//TODO: añadir solo los clientes y no todos los usuarios
+	@GetMapping("/clientes_admin")
+	public String indexClientesAdmin(Model model) {
+		model.addAttribute("lista_usuarios", sc.getListaUsuarios());
+		return "index";
+	}
+	@GetMapping("/clientes_emple")
+	public String indexClientesEmple(Model model) {
+		model.addAttribute("lista_usuarios", sc.getListaUsuarios());
+		return "index";
+	}
+	//TODO: añadir solo los empleados y no todos los usuarios
+	@GetMapping("/empleados_admin")
+	public String indexEmpleadosAdmin(Model model) {
+		model.addAttribute("lista_usuarios", sc.getListaUsuarios());
+		return "index";
+	}
 	
 	@GetMapping("/usuarios/registro")
 	public String getRegistro(Model model) {
@@ -96,6 +113,7 @@ public class UsuariosController {
 		
 		if(correcto) {
 			session.setAttribute("rol", usuarioCorrecto.getIdRol());
+			session.setAttribute("usuarioLogeado", usuarioCorrecto);
 			return "redirect:/";
 		}
 		else {

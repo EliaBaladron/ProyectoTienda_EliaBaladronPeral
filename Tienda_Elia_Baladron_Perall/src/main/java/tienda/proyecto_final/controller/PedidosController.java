@@ -20,11 +20,21 @@ public class PedidosController {
 	@Autowired
 	private PedidosService sc;
 	
-	/*@GetMapping("")
-	public String index(Model model) {
+	@GetMapping("/pedidos_admin")
+	public String indexPedidosAdmin(Model model) {
 		model.addAttribute("lista_pedidos", sc.getListaPedidos());
 		return "index";
-	}*/
+	}
+	@GetMapping("/pedidos_emple")
+	public String indexPedidosEmple(Model model) {
+		model.addAttribute("lista_pedidos", sc.getListaPedidos());
+		return "index";
+	}
+	@GetMapping("/pedidos_cliente")
+	public String indexPedidosCliente(Model model) {
+		model.addAttribute("lista_pedidos", sc.getListaPedidos());
+		return "index";
+	}
 	
 	@GetMapping("/pedidos/registro")
 	public String getRegistro(Model model) {

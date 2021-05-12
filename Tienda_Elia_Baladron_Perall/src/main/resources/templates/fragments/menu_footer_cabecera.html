@@ -28,6 +28,13 @@
 							<li class="nav-item" th:each="opcion : ${session.opciones_menu}">
 								<a class="nav-link" th:href="${opcion.urlOpcion}" th:text="${opcion.nombreOpcion}">Opcion</a>
 							</li>
+							
+							<li class="nav-item" th:if="${session.usuarioLogeado == null}">
+								<a class="nav-link" href="/login">Log in</a>
+							</li>
+							<li class="nav-item" th:if="${session.usuarioLogeado != null}">
+								<a class="nav-link" href="/logout">Log out</a>
+							</li>
 						</ul>
 					</div>
 				</div>

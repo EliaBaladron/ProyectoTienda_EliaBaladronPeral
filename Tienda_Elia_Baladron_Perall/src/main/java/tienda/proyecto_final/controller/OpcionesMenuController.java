@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import tienda.proyecto_final.model.OpcionesMenu;
+import tienda.proyecto_final.model.Usuarios;
 import tienda.proyecto_final.service.OpcionesMenuService;
 
 @Controller
@@ -20,10 +21,11 @@ public class OpcionesMenuController {
 	
 	@GetMapping("")
 	public String index(Model model, HttpSession session) {
-		
 		iniciarRol(session, 0l);
+		Usuarios usuarioLogeado = null;
+		session.setAttribute("usuarioLogeado", usuarioLogeado);
 		
-		return "index";
+		return "redirect:/productos_anonimo";
 	}
 	
 	public void iniciarRol(HttpSession session, Long rol) {
@@ -34,7 +36,8 @@ public class OpcionesMenuController {
 			
 			if(r != null)
 				//idRol = Integer.getInteger(r.toString());
-				idRol = (Long)r;
+				//idRol = (Long)r;
+				idRol = Long.getLong(r.toString());
 			else
 				session.setAttribute("rol", idRol);
 		}else {
