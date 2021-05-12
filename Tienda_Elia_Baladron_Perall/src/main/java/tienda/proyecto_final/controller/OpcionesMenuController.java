@@ -29,7 +29,7 @@ public class OpcionesMenuController {
 			iniciarRol(session, usuarioLogeado.getIdRol());
 		}
 		
-		return "redirect:/productos_anonimo";
+		return "redirect:/productos";
 	}
 	@GetMapping("/Tienda_Elia_Baladron_Peral")
 	public String index() {

@@ -34,3 +34,35 @@ Admin
 26	Clientes	altas, bajas, actualizaciones, eliminaciones
 27	Empleados	altas, bajas, actualizaciones, eliminaciones
 28	Procesar cancelaciones	de pendiente a cancelado
+
+
+
+
+
+	Anonimo
+Ver
+Ver detalles
+Añadir al carrito
+
+	Cliente
+Ver
+Ver detalles
+Añadir al carrito
+
+	Empleado
+altas
+bajas
+actualizaciones
+
+	Admin
+altas
+bajas
+actualizaciones
+eliminaciones
+
+
+
+
+
+
+

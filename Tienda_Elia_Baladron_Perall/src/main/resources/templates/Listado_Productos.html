@@ -3,45 +3,53 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Mostrar productos</title>
-	<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+	<!-- <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet"> -->
 </head>
 <body>
-	<table class="table table-striped">
-		<tr>
-			<th>Id</th>
-			<th>Categorias</th>
-			<th>Nombre</th>
-			<th>Descripcion</th>
-			<th>Precio</th>
-			<th>Stock</th>
-			<th>Fecha alta</th>
-			<th>Fecha baja</th>
-			<th>Impuesto</th>
-			<th>imagen</th>
-		</tr>
-		<tr th:each="producto : ${lista_productos}">
-			<td th:text="${producto.id}"></td>
-			<td th:text="${producto.idCategoria}"></td>
-			<td th:text="${producto.nombre}"></td>
-			<td th:text="${producto.descripcion}"></td>
-			<td th:text="${producto.precio}"></td>
-			<td th:text="${producto.stock}"></td>
-			<td th:text="${producto.fechaAlta}"></td>
-			<td th:text="${producto.fechaBaja}"></td>
-			<td th:text="${producto.impuesto}"></td>
-			<td th:text="${producto.imagen}"></td>
-			<td>
-				<a th:href="@{/productos/delete(id=${producto.id})}">Eliminar producto</a>
-			</td>
-			<td>
-				<a th:href="@{/productos/edit(id=${producto.id})}">Editar producto</a>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<a th:href="@{/productos/registro}">Añadir producto</a>
-			</td>
-		</tr>
-	</table>
+	<div  th:each="productosXcategoria : ${lista_productosXcategoria}">
+		
+		<table class="table table-striped">
+			<tr>
+				<td><h2 th:text="${productosXcategoria.categoria}"></h2></td>
+				<td><a th:href="@{/productos/registro}">Añadir producto</a></td>
+			</tr>
+			<tr>
+				<th>Id</th>
+				<th>Categorias</th>
+				<th>Nombre</th>
+				<th>Descripcion</th>
+				<th>Precio</th>
+				<th>Stock</th>
+				<th>Fecha alta</th>
+				<th>Fecha baja</th>
+				<th>Impuesto</th>
+				<th>Imagen</th>
+			</tr>
+			<tr th:each="producto : ${productosXcategoria.productos}">
+				<td th:text="${producto.id}" th:href="@{/productos/detalles(id=${producto.id})}"></td>
+				<td th:text="${producto.idCategoria}"></td>
+				<td th:text="${producto.nombre}"></td>
+				<td th:text="${producto.descripcion}"></td>
+				<td th:text="${producto.precio}"></td>
+				<td th:text="${producto.stock}"></td>
+				<td th:text="${producto.fechaAlta}"></td>
+				<td th:text="${producto.fechaBaja}"></td>
+				<td th:text="${producto.impuesto}"></td>
+				<td th:text="${producto.imagen}"></td>
+				<td>
+					<a th:href="@{/productos/carrito(id=${producto.id})}">Añadir al carrito</a>
+				</td>
+				<td>
+					<a th:href="@{/productos/baja(id=${producto.id})}">Dar de baja</a>
+				</td>
+				<td>
+					<a th:href="@{/productos/edit(id=${producto.id})}">Editar producto</a>
+				</td>
+				<td>
+					<a th:href="@{/productos/delete(id=${producto.id})}">Eliminar producto</a>
+				</td>
+			</tr>
+		</table>
+	</div>
 </body>
 </html>
