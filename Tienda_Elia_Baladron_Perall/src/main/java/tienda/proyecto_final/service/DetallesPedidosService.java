@@ -20,13 +20,13 @@ public class DetallesPedidosService {
 		this.detallesPedidosRepository = detallesPedidosRepository;
 		
 		this.detallesPedidosRepository.save(new DetallesPedido(
-				0l, 1l, 1l, 12.1f, 1, 12.1f, 21.1d
+				1l, 1l, 12.1f, 1, 12.1f, 21.1d
 			));
 		this.detallesPedidosRepository.save(new DetallesPedido(
-				0l, 2l, 2l, 12.2f, 2, 12.2f, 21.2d
+				2l, 2l, 12.2f, 2, 12.2f, 21.2d
 			));
 		this.detallesPedidosRepository.save(new DetallesPedido(
-				0l, 3l, 3l, 12.3f, 3, 12.3f, 21.3d
+				3l, 3l, 12.3f, 3, 12.3f, 21.3d
 			));
 		
 	}

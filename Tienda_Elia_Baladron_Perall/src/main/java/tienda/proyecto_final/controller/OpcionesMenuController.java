@@ -21,9 +21,16 @@ public class OpcionesMenuController {
 	
 	@GetMapping("")
 	public String index(Model model, HttpSession session) {
-		iniciarRol(session, 0l);
-		Usuarios usuarioLogeado = null;
-		session.setAttribute("usuarioLogeado", usuarioLogeado);
+		
+		if(session.getAttribute("usuarioLogeado") == null) {
+			//Usuarios usuarioLogeado = null;
+			//session.setAttribute("usuarioLogeado", usuarioLogeado);
+			//session.setAttribute("usuarioLogeado", null);
+			iniciarRol(session, 0l);
+		}else {
+			Usuarios usuarioLogeado = (Usuarios)session.getAttribute("usuarioLogeado");
+			iniciarRol(session, usuarioLogeado.getIdRol());
+		}
 		
 		return "redirect:/productos_anonimo";
 	}
@@ -34,10 +41,12 @@ public class OpcionesMenuController {
 			
 			Object r = session.getAttribute("rol");
 			
-			if(r != null)
+			if(r != null) {
 				//idRol = Integer.getInteger(r.toString());
-				//idRol = (Long)r;
-				idRol = Long.getLong(r.toString());
+				idRol = (Long)r;
+				//idRol = Long.getLong(r.toString());
+				System.out.println(idRol);
+			}
 			else
 				session.setAttribute("rol", idRol);
 		}else {

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import tienda.proyecto_final.model.Roles;
 import tienda.proyecto_final.model.Usuarios;
 import tienda.proyecto_final.service.UsuariosService;
 
@@ -25,24 +26,24 @@ public class UsuariosController {
 	@GetMapping("/usuarios")
 	public String index(Model model) {
 		model.addAttribute("lista_usuarios", sc.getListaUsuarios());
-		return "index";
+		return "Listado_Usuarios";
 	}
 	//TODO: añadir solo los clientes y no todos los usuarios
 	@GetMapping("/clientes_admin")
 	public String indexClientesAdmin(Model model) {
 		model.addAttribute("lista_usuarios", sc.getListaUsuarios());
-		return "index";
+		return "Listado_Usuarios";
 	}
 	@GetMapping("/clientes_emple")
 	public String indexClientesEmple(Model model) {
 		model.addAttribute("lista_usuarios", sc.getListaUsuarios());
-		return "index";
+		return "Listado_Usuarios";
 	}
 	//TODO: añadir solo los empleados y no todos los usuarios
 	@GetMapping("/empleados_admin")
 	public String indexEmpleadosAdmin(Model model) {
 		model.addAttribute("lista_usuarios", sc.getListaUsuarios());
-		return "index";
+		return "Listado_Usuarios";
 	}
 	
 	@GetMapping("/usuarios/registro")
@@ -87,16 +88,15 @@ public class UsuariosController {
 	
 	
 	@GetMapping("login")
-	public String loginForm(Model model) {
+	public String login(Model model) {
 		
 		model.addAttribute("usuario", new Usuarios());
 		
 		return "login_form";
 	}
-
 	
 	@PostMapping("/login/comprobar")
-	public String loginSaludo(Model  model, @ModelAttribute Usuarios usuario, HttpSession session) {
+	public String comprobarLogin(Model  model, @ModelAttribute Usuarios usuario, HttpSession session) {
 		boolean correcto = false;
 		
 		Usuarios usuarioCorrecto = null;
@@ -112,7 +112,10 @@ public class UsuariosController {
 		}
 		
 		if(correcto) {
-			session.setAttribute("rol", usuarioCorrecto.getIdRol());
+			Long idRol = usuarioCorrecto.getIdRol();
+			System.out.println(idRol);
+			//session.setAttribute("rol", usuarioCorrecto.getIdRol());
+			session.setAttribute("rol", idRol);
 			session.setAttribute("usuarioLogeado", usuarioCorrecto);
 			return "redirect:/";
 		}
@@ -121,5 +124,13 @@ public class UsuariosController {
 			model.addAttribute("error", "El usuario o la contraseña no es correcto");
 			return "login_form";
 		}
+	}
+	
+	@GetMapping("/logout")
+	public String logout(Model model, HttpSession session) {
+		
+		session.setAttribute("rol", Roles.ANONIMO);
+		session.setAttribute("usuarioLogeado", null);
+		return "redirect:/";
 	}
 }

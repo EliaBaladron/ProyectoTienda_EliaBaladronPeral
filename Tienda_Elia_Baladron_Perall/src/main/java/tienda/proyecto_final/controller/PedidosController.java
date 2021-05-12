@@ -23,17 +23,17 @@ public class PedidosController {
 	@GetMapping("/pedidos_admin")
 	public String indexPedidosAdmin(Model model) {
 		model.addAttribute("lista_pedidos", sc.getListaPedidos());
-		return "index";
+		return "Listado_Pedidos";
 	}
 	@GetMapping("/pedidos_emple")
 	public String indexPedidosEmple(Model model) {
 		model.addAttribute("lista_pedidos", sc.getListaPedidos());
-		return "index";
+		return "Listado_Pedidos";
 	}
 	@GetMapping("/pedidos_cliente")
 	public String indexPedidosCliente(Model model) {
 		model.addAttribute("lista_pedidos", sc.getListaPedidos());
-		return "index";
+		return "Listado_Pedidos";
 	}
 	
 	@GetMapping("/pedidos/registro")

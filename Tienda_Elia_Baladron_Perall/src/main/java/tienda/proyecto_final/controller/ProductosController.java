@@ -1,5 +1,7 @@
 package tienda.proyecto_final.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import tienda.proyecto_final.model.Productos;
+import tienda.proyecto_final.model.Roles;
+import tienda.proyecto_final.model.Usuarios;
 import tienda.proyecto_final.service.ProductosService;;
 
 
@@ -21,6 +25,24 @@ public class ProductosController {
 	private ProductosService sc;
 	
 	//TODO: cambiar las opciones de los productos según el rol
+	@GetMapping("/productos")
+	public String index(Model model, HttpSession session) {
+		
+		Usuarios usuarioLogeado = (Usuarios)session.getAttribute("usuarioLogeado");
+		if(usuarioLogeado.getIdRol().equals(Roles.ADMIN)) {
+			return "redirect:/productos_admin";
+		}
+		else if(usuarioLogeado.getIdRol().equals(Roles.EMPLEADO)) {
+			return "redirect:/productos_emple";
+		}
+		else if(usuarioLogeado.getIdRol().equals(Roles.CLIENTE)) {
+			return "redirect:/productos_cliente";
+		}
+		else {
+			return "redirect:/productos_anonimo";
+		}
+		
+	}
 	@GetMapping("/productos_admin")
 	public String indexAdmin(Model model) {
 		model.addAttribute("lista_productos", sc.getListaProductos());

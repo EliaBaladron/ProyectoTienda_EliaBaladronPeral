@@ -14,7 +14,7 @@ public class Usuarios{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	private Integer idRol;
+	private Long idRol;
 	private String email;
 	private String clave;
 	private String nombre;
@@ -28,7 +28,7 @@ public class Usuarios{
 
 	public Usuarios() {
 	}
-	public Usuarios(Long id, Integer idRol, String email, String clave, String nombre, String apellido1, String apellido2,
+	public Usuarios(Long id, Long idRol, String email, String clave, String nombre, String apellido1, String apellido2,
 			String direccion, String provincia, String localidad, String telefono, String dni) {
 		this.id = id;
 		this.idRol = idRol;
@@ -43,7 +43,7 @@ public class Usuarios{
 		this.telefono = telefono;
 		this.dni = dni;
 	}
-	public Usuarios(Integer idRol, String email, String clave, String nombre, String apellido1, String apellido2,
+	public Usuarios(Long idRol, String email, String clave, String nombre, String apellido1, String apellido2,
 			String direccion, String provincia, String localidad, String telefono, String dni) {
 		this.idRol = idRol;
 		this.email = email;
@@ -66,11 +66,11 @@ public class Usuarios{
 		this.id = id;
 	}
 
-	public Integer getIdRol() {
+	public Long getIdRol() {
 		return this.idRol;
 	}
 
-	public void setIdRol(Integer idRol) {
+	public void setIdRol(Long idRol) {
 		this.idRol = idRol;
 	}
 

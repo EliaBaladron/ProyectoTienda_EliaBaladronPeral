@@ -23,7 +23,7 @@ public class DetallesPedidosController {
 	@GetMapping("/detalles_pedido")
 	public String index(Model model) {
 		model.addAttribute("lista_detalles_pedido", sc.getListaDetallesPedidos());
-		return "index";
+		return "Listado_DetallesPedidos";
 	}
 	
 	@GetMapping("/detalles_pedido/registro")
