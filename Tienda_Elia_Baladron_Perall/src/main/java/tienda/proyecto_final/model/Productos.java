@@ -1,6 +1,7 @@
 package tienda.proyecto_final.model;
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.sql.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -27,6 +28,10 @@ public class Productos {
 	private String imagen;
 
 	public Productos() {
+	}
+	public Productos(boolean b) {
+		this.fechaAlta = Date.valueOf(LocalDate.of(2021, 5, 14));
+		this.fechaBaja = Date.valueOf(LocalDate.of(0000, 1, 1));
 	}
 
 	public Productos(Date fechaAlta, Date fechaBaja) {
@@ -55,6 +60,18 @@ public class Productos {
 		this.stock = stock;
 		this.fechaAlta = fechaAlta;
 		this.fechaBaja = fechaBaja;
+		this.impuesto = impuesto;
+		this.imagen = imagen;
+	}
+	public Productos(Long idCategoria, String nombre, String descripcion, Double precio, Integer stock,
+			Float impuesto, String imagen) {
+		this.idCategoria = idCategoria;
+		this.nombre = nombre;
+		this.descripcion = descripcion;
+		this.precio = precio;
+		this.stock = stock;
+		this.fechaAlta = Date.valueOf(LocalDate.of(2021, 5, 14));
+		this.fechaBaja = Date.valueOf(LocalDate.of(0000, 1, 1));
 		this.impuesto = impuesto;
 		this.imagen = imagen;
 	}

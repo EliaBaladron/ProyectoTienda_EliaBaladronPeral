@@ -9,9 +9,14 @@ public class ProductosAgrupadosCategoria {
 	ArrayList<Productos> productos;
 	
 	
-	public ProductosAgrupadosCategoria() {
+	/*public ProductosAgrupadosCategoria() {
 		super();
 		productos = new ArrayList<Productos>();
+	}*/
+	public ProductosAgrupadosCategoria(Long categoria) {
+		super();
+		this.categoria = categoria;
+		this.productos = new ArrayList<Productos>();
 	}
 	public ProductosAgrupadosCategoria(Long categoria, ArrayList<Productos> productos) {
 		super();

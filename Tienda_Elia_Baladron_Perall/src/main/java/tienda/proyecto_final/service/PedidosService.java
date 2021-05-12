@@ -1,7 +1,5 @@
 package tienda.proyecto_final.service;
 
-import java.util.Date;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,13 +19,13 @@ public class PedidosService {
 		this.pedidosRepository = pedidosRepository;
 		
 		this.pedidosRepository.save(new Pedidos(
-				0l, 1l, new Date(), "metodo1", "estado1", "2020-10", 12.1d
+				1l, "metodo1", "estado1", "2020-10", 12.1d
 			));
 		this.pedidosRepository.save(new Pedidos(
-				0l, 1l, new Date(), "metodo2", "estado2", "2020-20", 22.1d
+				1l, "metodo2", "estado2", "2020-20", 22.1d
 			));
 		this.pedidosRepository.save(new Pedidos(
-				0l, 1l, new Date(), "metodo3", "estado3", "2020-30", 32.1d
+				1l, "metodo3", "estado3", "2020-30", 32.1d
 			));
 		
 	}

@@ -69,11 +69,27 @@ public class ProductosController {
 		return "index";
 	}
 	*/
+	@GetMapping("/productos_admin")
+	public String indexAdmin(Model model) {
+		return "redirect:/";
+	}
+	@GetMapping("/productos_emple")
+	public String indexEmple(Model model) {
+		return "redirect:/";
+	}
+	@GetMapping("/productos_cliente")
+	public String indexCliente(Model model) {
+		return "redirect:/";
+	}
+	@GetMapping("/productos_anonimo")
+	public String indexAnonimo(Model model) {
+		return "redirect:/";
+	}
 	
 	@GetMapping("/productos/registro")
 	public String getRegistro(Model model) {
 		
-		model.addAttribute("producto", new Productos());
+		model.addAttribute("producto", new Productos(true));
 		
 		return "Productos";
 	}
@@ -128,8 +144,7 @@ public class ProductosController {
 			
 			//Si no existe un ProductosAgrupadosCategoria en el array con la misma categoría se crea y se añade el producto
 			if(!existe) {
-				ProductosAgrupadosCategoria pxc = new ProductosAgrupadosCategoria();
-				pxc.setCategoria(p.getIdCategoria());
+				ProductosAgrupadosCategoria pxc = new ProductosAgrupadosCategoria(p.getIdCategoria());
 				pxc.addProducto(p);
 				arrayList.add(pxc);
 			}

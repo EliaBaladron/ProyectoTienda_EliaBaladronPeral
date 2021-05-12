@@ -26,7 +26,7 @@
 				<div class="form-group">
 					<label class="col-md-4 control-label" for="pedido_fecha">Fecha</label>
 					<div class="col-md-4">
-						<input th:field="*{fecha}" id="pedido_fecha" name="pedido_fecha" type="date"
+						<input th:field="*{fecha}" id="pedido_fecha" name="pedido_fecha" type="text"
 							class="form-control input-md" required="required">
 						<span class="help-block">Introduce la fecha</span>
 					</div>
@@ -42,8 +42,7 @@
 				</div>
 
 				<div class="form-group">
-					<label class="col-md-4 control-label" for="pedido_estado">Primer
-						apellido</label>
+					<label class="col-md-4 control-label" for="pedido_estado">Estado</label>
 					<div class="col-md-4">
 						<input th:field="*{estado}" id="pedido_estado" name="pedido_estado" type="text"
 							placeholder="García" class="form-control input-md"> <span
@@ -52,8 +51,7 @@
 				</div>
 
 				<div class="form-group">
-					<label class="col-md-4 control-label" for="pedido_num_factura">Segundo
-						apellido</label>
+					<label class="col-md-4 control-label" for="pedido_num_factura">Número de factura</label>
 					<div class="col-md-4">
 						<input th:field="*{numFactura}" id="pedido_num_factura" name="pedido_num_factura" type="text"
 							placeholder="García" class="form-control input-md"> <span

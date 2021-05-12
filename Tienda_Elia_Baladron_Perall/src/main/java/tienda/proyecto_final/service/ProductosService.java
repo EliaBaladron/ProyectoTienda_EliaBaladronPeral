@@ -3,8 +3,6 @@ package tienda.proyecto_final.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
-
 import tienda.proyecto_final.model.Productos;
 import tienda.proyecto_final.repository.ProductosRepository;;
 
@@ -21,16 +19,16 @@ public class ProductosService {
 		this.productosRepository = productosRepository;
 		
 		this.productosRepository.save(new Productos(
-				0l, 1l, "Producto1", "Descripcion1", 12.3d, 7, new Date(), null, 12.0f, ""
+				1l, "Producto1", "Descripcion1", 12.3d, 7, 12.0f, ""
 			));
 		this.productosRepository.save(new Productos(
-				0l, 1l, "Producto2", "Descripcion2", 22.3d, 8, new Date(), null, 22.0f, ""
+				1l, "Producto2", "Descripcion2", 22.3d, 8, 22.0f, ""
 			));
 		this.productosRepository.save(new Productos(
-				0l, 2l, "Producto3", "Descripcion3", 32.3d, 9, new Date(), null, 32.0f, ""
+				2l, "Producto3", "Descripcion3", 32.3d, 9, 32.0f, ""
 			));
 		this.productosRepository.save(new Productos(
-				0l, 2l, "Producto4", "Descripcion4", 42.3d, 10, new Date(), null, 42.0f, ""
+				2l, "Producto4", "Descripcion4", 42.3d, 10, 42.0f, ""
 			));
 		
 	}

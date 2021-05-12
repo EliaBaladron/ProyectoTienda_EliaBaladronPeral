@@ -1,5 +1,7 @@
 package tienda.proyecto_final.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import tienda.proyecto_final.model.Pedidos;
+import tienda.proyecto_final.model.Roles;
 import tienda.proyecto_final.service.PedidosService;
 
 
@@ -20,6 +23,16 @@ public class PedidosController {
 	@Autowired
 	private PedidosService sc;
 	
+	@GetMapping("/pedidos")
+	public String indexPedidos(Model model, HttpSession session) {
+		Long rol = (Long)session.getAttribute("rol");
+		if(rol == Roles.ADMIN)
+			return indexPedidosAdmin(model);
+		else if(rol == Roles.CLIENTE)
+			return indexPedidosEmple(model);
+		else
+			return indexPedidosCliente(model);
+	}
 	@GetMapping("/pedidos_admin")
 	public String indexPedidosAdmin(Model model) {
 		model.addAttribute("lista_pedidos", sc.getListaPedidos());
@@ -48,7 +61,7 @@ public class PedidosController {
 		
 		sc.addPedido(pedido);
 		
-		return "redirect:/";
+		return "redirect:/pedidos";
 	}
 	
 	@GetMapping("/pedidos/delete")
@@ -56,7 +69,7 @@ public class PedidosController {
 		
 		sc.deletePedido(Long.parseLong(id));
 		
-		return "redirect:/";
+		return "redirect:/pedidos";
 	}
 	
 	@GetMapping("/pedidos/edit")
@@ -70,6 +83,6 @@ public class PedidosController {
 	public String editSubmit(Model model, @ModelAttribute Pedidos pedido) {
 		sc.editPedido(pedido);
 		
-		return "redirect:/";
+		return "redirect:/pedidos";
 	}
 }
