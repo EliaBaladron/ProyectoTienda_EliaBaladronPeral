@@ -1,0 +1,36 @@
+1
+2
+3	Mostrar productos dividos por categorias
+4	Filtro de búsqueda
+5
+6
+7
+8	Simular proceso de compra, obligando a un usuario con rol cliente estar logado
+9	Estados de los pedidos
+10	Métodos de pago iniciales "tarjeta" y "paypal"
+11	Asociar pedidos y detallesPedidos
+12
+
+Anónimo
+13	Ver productos
+14	Ver detalles productos desde catálogo
+15	Añadir productos al carrito desde ambas vistas
+
+Cliente
+16	Realizar pedido
+17	Ver historial pedidos
+18	Ver detalles pedido
+19	Pedir cancelación pedido (historial pedidos)
+20	Ver perfil
+
+Empleado
+21	Productos	altas, bajas, actualizaciones
+22	Clientes	altas, bajas, actualizaciones
+23	Ver perfil
+24	Procesar pedidos	de pendiente a enviado
+
+Admin
+25	Productos	altas, bajas, actualizaciones, eliminaciones
+26	Clientes	altas, bajas, actualizaciones, eliminaciones
+27	Empleados	altas, bajas, actualizaciones, eliminaciones
+28	Procesar cancelaciones	de pendiente a cancelado

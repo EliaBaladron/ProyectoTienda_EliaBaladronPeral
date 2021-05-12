@@ -28,7 +28,7 @@ public class UsuariosController {
 		model.addAttribute("lista_usuarios", sc.getListaUsuarios());
 		return "Listado_Usuarios";
 	}
-	//TODO: añadir solo los clientes y no todos los usuarios
+	
 	@GetMapping("/clientes_admin")
 	public String indexClientesAdmin(Model model) {
 		model.addAttribute("lista_usuarios", sc.getListaUsuariosRol(Roles.CLIENTE));
@@ -39,7 +39,7 @@ public class UsuariosController {
 		model.addAttribute("lista_usuarios", sc.getListaUsuariosRol(Roles.CLIENTE));
 		return "Listado_Usuarios";
 	}
-	//TODO: añadir solo los empleados y no todos los usuarios
+	
 	@GetMapping("/empleados_admin")
 	public String indexEmpleadosAdmin(Model model) {
 		model.addAttribute("lista_usuarios", sc.getListaUsuariosRol(Roles.EMPLEADO));
@@ -49,7 +49,7 @@ public class UsuariosController {
 	@GetMapping("/usuarios/registro")
 	public String getRegistro(Model model) {
 		
-		model.addAttribute("usuario", new Usuarios());
+		model.addAttribute("usuario", new Usuarios(Roles.CLIENTE));
 		
 		return "Usuarios";
 	}
@@ -113,8 +113,6 @@ public class UsuariosController {
 		
 		if(correcto) {
 			Long idRol = usuarioCorrecto.getIdRol();
-			System.out.println(idRol);
-			//session.setAttribute("rol", usuarioCorrecto.getIdRol());
 			session.setAttribute("rol", idRol);
 			session.setAttribute("usuarioLogeado", usuarioCorrecto);
 			return "redirect:/";

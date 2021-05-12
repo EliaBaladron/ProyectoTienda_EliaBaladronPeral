@@ -23,9 +23,6 @@ public class OpcionesMenuController {
 	public String index(Model model, HttpSession session) {
 		
 		if(session.getAttribute("usuarioLogeado") == null) {
-			//Usuarios usuarioLogeado = null;
-			//session.setAttribute("usuarioLogeado", usuarioLogeado);
-			//session.setAttribute("usuarioLogeado", null);
 			iniciarRol(session, 0l);
 		}else {
 			Usuarios usuarioLogeado = (Usuarios)session.getAttribute("usuarioLogeado");
@@ -33,6 +30,10 @@ public class OpcionesMenuController {
 		}
 		
 		return "redirect:/productos_anonimo";
+	}
+	@GetMapping("/Tienda_Elia_Baladron_Peral")
+	public String index() {
+		return "redirect:/";
 	}
 	
 	public void iniciarRol(HttpSession session, Long rol) {
@@ -42,10 +43,7 @@ public class OpcionesMenuController {
 			Object r = session.getAttribute("rol");
 			
 			if(r != null) {
-				//idRol = Integer.getInteger(r.toString());
 				idRol = (Long)r;
-				//idRol = Long.getLong(r.toString());
-				System.out.println(idRol);
 			}
 			else
 				session.setAttribute("rol", idRol);
@@ -53,9 +51,6 @@ public class OpcionesMenuController {
 			idRol = rol;
 			session.setAttribute("rol", idRol);
 		}
-		/*ArrayList<OpcionesMenu> op = OpcionesMenuService.getRoles(4);
-		for(OpcionesMenu o: op)
-			System.out.println(o.toString());*/
 		
 		Iterable<OpcionesMenu> op = sc.getListaOpcionesMenuRol(idRol);
 		

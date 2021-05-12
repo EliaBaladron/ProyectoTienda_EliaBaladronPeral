@@ -28,6 +28,9 @@ public class Usuarios{
 
 	public Usuarios() {
 	}
+	public Usuarios(Long idRol) {
+		this.idRol = idRol;
+	}
 	public Usuarios(Long id, Long idRol, String email, String clave, String nombre, String apellido1, String apellido2,
 			String direccion, String provincia, String localidad, String telefono, String dni) {
 		this.id = id;
