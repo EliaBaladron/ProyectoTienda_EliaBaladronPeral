@@ -2,7 +2,7 @@ INSERT INTO `opciones_menu` (`id`, `id_rol`, `nombre_opcion`, `url_opcion`) VALU
 	('1', '1', 'Productos', '/productos_admin'),
 	('2', '2', 'Productos', '/productos_emple'),
 	('3', '3', 'Productos', '/productos_cliente'),
-	('4', '4', 'Productos', '/productos'),
+	('4', '4', 'Productos', '/productos_anonimo'),
 	
 	('5', '1', 'Clientes', '/clientes_admin'),
 	('6', '2', 'Clientes', '/clientes_emple'),
