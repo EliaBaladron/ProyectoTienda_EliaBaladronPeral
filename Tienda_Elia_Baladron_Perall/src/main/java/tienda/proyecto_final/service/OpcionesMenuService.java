@@ -70,6 +70,9 @@ public class OpcionesMenuService {
 	public Iterable<OpcionesMenu> getListaOpcionesMenu() {
         return opcionesMenuRepository.findAll();
     }
+	public Iterable<OpcionesMenu> getListaOpcionesMenuRol(Long rol) {
+		return opcionesMenuRepository.findByIdRol(rol);
+    }
 
     public void addOpcionesMenu(OpcionesMenu opcionesMenu) {
     	opcionesMenuRepository.save(opcionesMenu);

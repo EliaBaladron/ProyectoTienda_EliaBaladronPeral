@@ -16,6 +16,7 @@ import tienda.proyecto_final.service.PedidosService;
 @Controller
 @RequestMapping("")
 public class PedidosController {
+	
 	@Autowired
 	private PedidosService sc;
 	
