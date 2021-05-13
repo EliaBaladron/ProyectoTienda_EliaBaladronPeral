@@ -16,65 +16,120 @@
 
 			<legend>Datos del pedido</legend>
 			
-			<input id="pedido_id" th:field="*{id}" name="pedido_id" type="hidden" placeholder=""
+			<input id="carrito_id" th:field="*{id}" name="carrito_id" type="hidden" placeholder=""
 					class="form-control input-md">
 
 			<div class="form-group">
-				<label class="col-md-4 control-label" for="pedido_id_usuario">Usuario</label>
+				<label class="col-md-4 control-label" for="carrito_id_usuario">Usuario</label>
 				<div class="col-md-4">
-					<input th:field="*{idUsuario}" id="pedido_id_usuario" name="pedido_id_usuario" type="text" placeholder="1"
+					<input th:field="*{idUsuario}" id="carrito_id_usuario" name="carrito_id_usuario" type="text" placeholder="1"
 						class="form-control input-md" required="required">
 				</div>
 			</div>
 
 			<div class="form-group">
-				<label class="col-md-4 control-label" for="pedido_fecha">Fecha</label>
+				<label class="col-md-4 control-label" for="carrito_fecha">Fecha</label>
 				<div class="col-md-4">
-					<input th:field="*{fecha}" id="pedido_fecha" name="pedido_fecha" type="text"
+					<input th:field="*{fecha}" id="carrito_fecha" name="carrito_fecha" type="text"
 						class="form-control input-md" required="required">
 				</div>
 			</div>
 
 			<div class="form-group">
-				<label class="col-md-4 control-label" for="pedido_metodo_pago">Método de pago</label>
+				<label class="col-md-4 control-label" for="carrito_metodo_pago">Método de pago</label>
 				<div class="col-md-4">
-					<input th:field="*{metodoPago}" id="pedido_metodo_pago" name="pedido_metodo_pago" type="text" placeholder="Pepe"
+					<input th:field="*{metodoPago}" id="carrito_metodo_pago" name="carrito_metodo_pago" type="text" placeholder="Pepe"
 						class="form-control input-md" required="required">
 				</div>
 			</div>
 
 			<div class="form-group">
-				<label class="col-md-4 control-label" for="pedido_estado">Estado</label>
+				<label class="col-md-4 control-label" for="carrito_estado">Estado</label>
 				<div class="col-md-4">
-					<input th:field="*{estado}" id="pedido_estado" name="pedido_estado" type="text"
+					<input th:field="*{estado}" id="carrito_estado" name="carritopedido_estado" type="text"
 						placeholder="García" class="form-control input-md">
 				</div>
 			</div>
 
 			<div class="form-group">
-				<label class="col-md-4 control-label" for="pedido_num_factura">Número de factura</label>
+				<label class="col-md-4 control-label" for="carrito_num_factura">Número de factura</label>
 				<div class="col-md-4">
-					<input th:field="*{numFactura}" id="pedido_num_factura" name="pedido_num_factura" type="text"
+					<input th:field="*{numFactura}" id="carrito_num_factura" name="carrito_num_factura" type="text"
 						placeholder="García" class="form-control input-md">
 				</div>
 			</div>
 
 			<div class="form-group">
-				<label class="col-md-4 control-label" for="pedido_total">Total</label>
+				<label class="col-md-4 control-label" for="carrito_total">Total</label>
 				<div class="col-md-4">
-					<input th:field="*{total}" id="pedido_total" name="pedido_total" type="text"
+					<input th:field="*{total}" id="carrito_total" name="carrito_total" type="text"
 						placeholder="Avd. Requejo" class="form-control input-md">
 				</div>
 			</div>
 
 		</fieldset>
-	</form>
-	 -->
+	</form>-->
+	<fieldset>
+
+		<legend>Datos del pedido</legend>
+		
+		<input id="carrito_id" th:field="${session.carrito.id}" name="carrito_id" type="hidden" placeholder=""
+				class="form-control input-md">
+
+		<div class="form-group">
+			<label class="col-md-4 control-label" for="carrito_id_usuario">Usuario</label>
+			<div class="col-md-4">
+				<input th:field="${session.carrito.idUsuario}" id="carrito_id_usuario" name="carrito_id_usuario" type="text" placeholder="1"
+					class="form-control input-md" required="required">
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="col-md-4 control-label" for="carrito_fecha">Fecha</label>
+			<div class="col-md-4">
+				<input th:field="${session.carrito.fecha}" id="carrito_fecha" name="carrito_fecha" type="text"
+					class="form-control input-md" required="required">
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="col-md-4 control-label" for="carrito_metodo_pago">Método de pago</label>
+			<div class="col-md-4">
+				<input th:field="${session.carrito.metodoPago}" id="carrito_metodo_pago" name="carrito_metodo_pago" type="text" placeholder="Pepe"
+					class="form-control input-md" required="required">
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="col-md-4 control-label" for="carrito_estado">Estado</label>
+			<div class="col-md-4">
+				<input th:field="${session.carrito.estado}" id="carrito_estado" name="carritopedido_estado" type="text"
+					placeholder="García" class="form-control input-md">
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="col-md-4 control-label" for="carrito_num_factura">Número de factura</label>
+			<div class="col-md-4">
+				<input th:field="${session.carrito.numFactura}" id="carrito_num_factura" name="carrito_num_factura" type="text"
+					placeholder="García" class="form-control input-md">
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="col-md-4 control-label" for="carrito_total">Total</label>
+			<div class="col-md-4">
+				<input th:field="${session.carrito.total}" id="carrito_total" name="carrito_total" type="text"
+					placeholder="Avd. Requejo" class="form-control input-md">
+			</div>
+		</div>
+
+	</fieldset>
 	
 	<table class="table table-striped">
 		<tr>
-			<th>Id</th>
-			<th>Pedido</th>
+			<!-- <th>Id</th> -->
+			<!-- <th>Pedido</th> -->
 			<th>Producto</th>
 			<th>Precio unidad</th>
 			<th>Unidades</th>
@@ -82,8 +137,8 @@
 			<th>Total</th>
 		</tr>
 		<tr th:each="detalle : ${session.carrito_detalles}">
-			<td th:text="${detalle.id}"></td>
-			<td th:text="${detalle.idPedido}"></td>
+			<!-- <td th:text="${detalle.id}"></td> -->
+			<!-- <td th:text="${detalle.idPedido}"></td> -->
 			<td th:text="${detalle.idProducto}"></td>
 			<td th:text="${detalle.precioUnidad}"></td>
 			<td th:text="${detalle.unidades}"></td>
