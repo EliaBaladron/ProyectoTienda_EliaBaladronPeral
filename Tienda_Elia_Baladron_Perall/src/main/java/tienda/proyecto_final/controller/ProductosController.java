@@ -45,7 +45,8 @@ public class ProductosController {
 		
 		model.addAttribute("lista_productosXcategoria", iniciarProductosXCategoria());
 		model.addAttribute("titulo", "Productos");
-		return "index";
+		//return "index";
+		return "Listado_Productos";
 	}
 	@GetMapping("/productos_admin")
 	public String indexAdmin(Model model) {

@@ -3,9 +3,13 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Mostrar productos</title>
-	<!-- <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet"> -->
+	<th:block th:replace="fragments/menu_footer_cabecera :: head">
 </head>
 <body>
+
+	<header th:replace="fragments/menu_footer_cabecera :: menu"></header>
+	<div th:insert="fragments/menu_footer_cabecera :: cabecera"></div>
+	
 	<div  th:each="productosXcategoria : ${lista_productosXcategoria}">
 		
 		<table class="table table-striped">
@@ -64,5 +68,8 @@
 			</tr>
 		</table>
 	</div>
+	
+	<footer th:replace="fragments/menu_footer_cabecera :: footer"></footer>
+	
 </body>
 </html>

@@ -4,27 +4,17 @@
 	<meta charset="ISO-8859-1">
 	<title>Inicioo</title>
 	
-	<th:block th:replace="fragments/menu_footer_cabecera :: head">
+	<!-- <th:block th:replace="fragments/menu_footer_cabecera :: head"> -->
 	
 </head>
 <body>
 
-	<header th:insert="fragments/menu_footer_cabecera :: menu"></header>
-	<div th:insert="fragments/menu_footer_cabecera :: cabecera"></div>
+	<!-- <header th:insert="fragments/menu_footer_cabecera :: menu"></header> -->
+	<!-- <div th:insert="fragments/menu_footer_cabecera :: cabecera"></div> -->
 	
-	<form class="form-horizontal">
-		<fieldset>
+	<th:block th:insert="Listado_Productos.html"/>
 			
-			<!-- <th:block th:insert="Listado_Usuarios.html"/> -->
-			<th:block th:insert="Listado_Productos.html"/>
-			<!-- <th:block th:insert="Listado_Pedidos.html"/> -->
-			<!-- <th:block th:insert="Listado_DetallesPedidos.html"/> -->
-			
-			<!-- <th:block th:insert="Listado_OpcionesMenu.html"/> -->
-		</fieldset>
-	</form>
-			
-	<footer th:insert="fragments/menu_footer_cabecera :: footer"></footer>
+	<!-- <footer th:replace="fragments/menu_footer_cabecera :: footer"></footer> -->
 	
 </body>
 </html>
