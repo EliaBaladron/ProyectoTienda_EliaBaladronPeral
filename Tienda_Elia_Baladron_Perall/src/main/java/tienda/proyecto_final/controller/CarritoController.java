@@ -79,14 +79,19 @@ public class CarritoController {
 	}
 	
 	@GetMapping("/carrito/realizar_pedido")
-	public String realizarPedido(HttpSession session) {
+	public String realizarPedido(HttpSession session, Model model) {
 		
 		Usuarios usuarioLogeado = (Usuarios)session.getAttribute("usuarioLogeado");
 		if(usuarioLogeado == null) {
 			//TODO: redireccionar desde el login
-			return "redirect:/login";
+			return "redirect:/login_carrito";
 		}else if(usuarioLogeado.getIdRol() != Roles.CLIENTE) {
-			return "ErrorLoginPedido";
+			//return "ErrorLoginPedido";
+			session.removeAttribute("usuarioLogeado");
+			session.setAttribute("rol", Roles.ANONIMO);
+			model.addAttribute("usuario", new Usuarios());
+			session.setAttribute("error", "El usuario debe ser un cliente para realizar un pedido");
+			return "redirect:/login_carrito";
 		}
 		
 		return "redirect:/pedidos/registrar_pedido_carrito";

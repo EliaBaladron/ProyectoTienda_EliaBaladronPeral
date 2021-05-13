@@ -87,7 +87,7 @@ public class DetallesPedidosController {
 		session.removeAttribute("carrito_detalles");
 		session.removeAttribute("idPedido");
 		
-		return "redirect:/pedidos";
+		return "redirect:/";
 	}
 	
 }

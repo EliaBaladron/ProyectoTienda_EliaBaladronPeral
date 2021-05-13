@@ -10,7 +10,7 @@
 	</head>
 	<body class="text-center">
 		<main class="form-signin">
-			<form th:action="@{/login/comprobar}" th:object="${usuario}" method="post">
+			<form th:action="${session.login_carrito == 'login_carrito'} ? @{/login/comprobar_carrito} : @{/login/comprobar}"  th:object="${usuario}" method="post">
 				<h1 class="h3 mb-3 fw-normal">Datos de acceso</h1>
 
 				<div class="form-floating">
@@ -22,9 +22,14 @@
 					<input th:field="*{clave}" type="password" name="password" id="password" class="form-control" />
 				</div>
 				
-				<div class="form-floating">
+				<div class="checkbox mb-3">
+			      <label th:text="${error}"></label>
+					<label th:text="${session.error}"></label>
+			    </div>
+				<!-- <div class="form-floating">
 					<label th:text="${error}"></label>
-				</div>
+					<label th:text="${session.error}"></label>
+				</div> -->
 				
 				<button id="button-login" name="button-login" class="w-100 btn btn-lg btn-primary">Iniciar sesion</button>
 				
