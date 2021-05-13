@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import tienda.proyecto_final.model.DetallesPedido;
-import tienda.proyecto_final.model.MetodosPago;
 import tienda.proyecto_final.model.Pedidos;
 import tienda.proyecto_final.model.Roles;
 import tienda.proyecto_final.model.Usuarios;
@@ -142,7 +141,9 @@ public class PedidosController {
 		
 		Usuarios usuarioLogeado = (Usuarios)session.getAttribute("usuarioLogeado");
 		
-		Pedidos p = new Pedidos(usuarioLogeado.getId(), MetodosPago.PAYPAL, Pedidos.PENDIENTE, numeroFactura(), 0d);
+		String metodoPago = (String)session.getAttribute("pago");
+		
+		Pedidos p = new Pedidos(usuarioLogeado.getId(), metodoPago, Pedidos.PENDIENTE, numeroFactura(), 0d);
 		p.calcularTotal(detalles);
 		p = sc.addPedido(p);
 		

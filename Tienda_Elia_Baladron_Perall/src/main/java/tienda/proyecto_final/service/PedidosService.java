@@ -3,6 +3,7 @@ package tienda.proyecto_final.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import tienda.proyecto_final.model.MetodosPago;
 import tienda.proyecto_final.model.Pedidos;
 import tienda.proyecto_final.repository.PedidosRepository;
 
@@ -19,16 +20,16 @@ public class PedidosService {
 		this.pedidosRepository = pedidosRepository;
 		
 		this.pedidosRepository.save(new Pedidos(
-				28l, "metodo1", Pedidos.ENVIADO, "2020-10", 12.1d
+				28l, MetodosPago.PAYPAL, Pedidos.ENVIADO, "2020-10", 12.1d
 			));
 		this.pedidosRepository.save(new Pedidos(
-				28l, "metodo2", Pedidos.PENDIENTE, "2020-20", 22.1d
+				28l, MetodosPago.TARJETA, Pedidos.PENDIENTE, "2020-20", 22.1d
 			));
 		this.pedidosRepository.save(new Pedidos(
-				28l, "metodo3", Pedidos.CANCELADO, "2020-30", 32.1d
+				28l, MetodosPago.PAYPAL, Pedidos.CANCELADO, "2020-30", 32.1d
 			));
 		this.pedidosRepository.save(new Pedidos(
-				28l, "metodo4", Pedidos.PENDIENTE, "2020-40", 42.1d
+				28l, MetodosPago.TARJETA, Pedidos.PENDIENTE, "2020-40", 42.1d
 			));
 		
 	}

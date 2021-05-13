@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import tienda.proyecto_final.model.DetallesPedido;
+import tienda.proyecto_final.model.MetodosPago;
 import tienda.proyecto_final.model.Pedidos;
 import tienda.proyecto_final.model.Productos;
 import tienda.proyecto_final.model.Roles;
@@ -78,12 +79,25 @@ public class CarritoController {
 		return "redirect:/carrito";
 	}
 	
+	@GetMapping("/carrito/realizar_pedido/paypal")
+	public String realizarPedidoPaypal(HttpSession session) {
+		
+		session.setAttribute("pago", MetodosPago.PAYPAL);
+		return "redirect:/carrito/realizar_pedido";
+		
+	}
+	@GetMapping("/carrito/realizar_pedido/tarjeta")
+	public String realizarPedidoTarjeta(HttpSession session) {
+		
+		session.setAttribute("pago", MetodosPago.TARJETA);
+		return "redirect:/carrito/realizar_pedido";
+		
+	}
 	@GetMapping("/carrito/realizar_pedido")
 	public String realizarPedido(HttpSession session, Model model) {
 		
 		Usuarios usuarioLogeado = (Usuarios)session.getAttribute("usuarioLogeado");
 		if(usuarioLogeado == null) {
-			//TODO: redireccionar desde el login
 			return "redirect:/login_carrito";
 		}else if(usuarioLogeado.getIdRol() != Roles.CLIENTE) {
 			//return "ErrorLoginPedido";
