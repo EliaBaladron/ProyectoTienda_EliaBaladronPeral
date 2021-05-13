@@ -21,6 +21,7 @@
 			<th>Factura</th>
 			<th>Total</th>
 			<th></th>
+			<th></th>
 		</tr>
 		<tr th:each="pedido : ${lista_pedidos}">
 			<td th:text="${pedido.id}">Id</td>
@@ -31,6 +32,9 @@
 			<td th:text="${pedido.numFactura}">Factura</td>
 			<td th:text="${pedido.total}">Total</td>
 			
+			<td>
+				<a th:href="@{/detalles_pedido(id=${pedido.id})}">Ver detalles</a>
+			</td>
 			<td th:if="${session.rol == 1}">
 				<a th:if="${pedido.estado == 'Pendiente de cancelar' OR pedido.estado == 'Pendiente'}" th:href="@{/pedidos/cancelar(id=${pedido.id})}">Cancelar</a>
 			</td>

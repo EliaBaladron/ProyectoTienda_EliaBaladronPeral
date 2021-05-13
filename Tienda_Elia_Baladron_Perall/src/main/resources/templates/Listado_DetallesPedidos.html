@@ -3,9 +3,13 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Mostrar detalles pedidos</title>
-	<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+	<th:block th:replace="fragments/menu_footer_cabecera :: head">
 </head>
 <body>
+	
+	<header th:insert="fragments/menu_footer_cabecera :: menu"></header>
+	<div th:insert="fragments/menu_footer_cabecera :: cabecera"></div>
+	
 	<table class="table table-striped">
 		<tr>
 			<th>Id</th>
@@ -24,6 +28,7 @@
 			<td th:text="${detalle.unidades}"></td>
 			<td th:text="${detalle.impuesto}"></td>
 			<td th:text="${detalle.total}"></td>
+			<!-- 
 			<td>
 				<a th:href="@{/detalles_pedido/delete(id=${detalle.id})}">Eliminar detalles de pedido</a>
 			</td>
@@ -36,6 +41,10 @@
 				<a th:href="@{/detalles_pedido/registro}">Añadir detalles de pedido</a>
 			</td>
 		</tr>
+		 -->
 	</table>
+	
+	<footer th:insert="fragments/menu_footer_cabecera :: footer"></footer>
+	
 </body>
 </html>

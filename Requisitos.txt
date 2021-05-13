@@ -18,22 +18,22 @@ Anónimo
 
 Cliente
 16	Realizar pedido
-17	Ver historial pedidos
-18	Ver detalles pedido
-19	Pedir cancelación pedido (historial pedidos)
+17
+18
+19
 20	Ver perfil
 
 Empleado
 21	Productos	altas, actualizaciones
 22
 23	Ver perfil
-24	Procesar pedidos	de pendiente a enviado
+24
 
 Admin
 25	Productos	altas, actualizaciones
 26
 27
-28	Procesar cancelaciones	de pendiente a cancelado
+28
 
 
 
