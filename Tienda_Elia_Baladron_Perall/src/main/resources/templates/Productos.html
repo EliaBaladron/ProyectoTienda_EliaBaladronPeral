@@ -2,9 +2,15 @@
 <html xmlns:th="https://www.thymeleaf.org/">
 	<head>
 		<meta charset="ISO-8859-1">
-		<title>Editar usuario</title>
+		<title>Editar producto</title>
+	
+		<th:block th:replace="fragments/menu_footer_cabecera :: head">
 	</head>
 	<body>
+	
+	<header th:insert="fragments/menu_footer_cabecera :: menu"></header>
+	<div th:insert="fragments/menu_footer_cabecera :: cabecera"></div>
+	
 		<form class="form-horizontal" th:action="${producto.id !=0} ? @{/productos/edit/editar} : @{/productos/registro/registrar}" th:object="${producto}" method="post">
 			<fieldset>
 	
@@ -127,5 +133,8 @@
 	
 			</fieldset>
 		</form>
+			
+		<footer th:insert="fragments/menu_footer_cabecera :: footer"></footer>
+	
 	</body>
 </html>

@@ -2,9 +2,15 @@
 <html xmlns:th="https://www.thymeleaf.org/">
 	<head>
 		<meta charset="ISO-8859-1">
-		<title>Pedido</title>
+		<title>Detalles pedido</title>
+	
+		<th:block th:replace="fragments/menu_footer_cabecera :: head">
 	</head>
 	<body>
+	
+	<header th:insert="fragments/menu_footer_cabecera :: menu"></header>
+	<div th:insert="fragments/menu_footer_cabecera :: cabecera"></div>
+	
 		<form class="form-horizontal" th:action="${detalles_pedido.id !=0} ? @{/detalles_pedido/edit/editar} : @{/detalles_pedido/registro/registrar}" th:object="${detalles_pedido}" method="post">
 			<fieldset>
 	
@@ -105,5 +111,8 @@
 	
 			</fieldset>
 		</form>
+			
+	<footer th:insert="fragments/menu_footer_cabecera :: footer"></footer>
+	
 	</body>
 </html>

@@ -139,4 +139,23 @@ public class UsuariosController {
 		session.setAttribute("usuarioLogeado", null);
 		return "redirect:/";
 	}
+	
+	@GetMapping("/perfil")
+	public String perfil(Model model, HttpSession session) {
+		
+		Usuarios usuario = (Usuarios)session.getAttribute("usuarioLogeado");
+		
+		
+		model.addAttribute("usuario", usuario);
+		
+		return "Perfil";
+	}
+	@GetMapping("/perfil_emple")
+	public String perfilEmpleado() {
+		return "redirect:/perfil";
+	}
+	@GetMapping("/perfil_cliente")
+	public String perfilCliente() {
+		return "redirect:/perfil";
+	}
 }

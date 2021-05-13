@@ -88,7 +88,7 @@ public class Productos {
 		return this.idCategoria;
 	}
 
-	public void setCategorias(Long idCategoria) {
+	public void setIdCategoria(Long idCategoria) {
 		this.idCategoria = idCategoria;
 	}
 

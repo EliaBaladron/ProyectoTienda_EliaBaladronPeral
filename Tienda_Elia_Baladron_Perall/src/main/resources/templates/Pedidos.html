@@ -3,8 +3,14 @@
 	<head>
 		<meta charset="ISO-8859-1">
 		<title>Pedido</title>
+	
+		<th:block th:replace="fragments/menu_footer_cabecera :: head">
 	</head>
 	<body>
+	
+	<header th:insert="fragments/menu_footer_cabecera :: menu"></header>
+	<div th:insert="fragments/menu_footer_cabecera :: cabecera"></div>
+	
 		<form class="form-horizontal" th:action="${pedido.id !=0} ? @{/pedidos/edit/editar} : @{/pedidos/registro/registrar}" th:object="${pedido}" method="post">
 			<fieldset>
 	
@@ -78,5 +84,8 @@
 	
 			</fieldset>
 		</form>
+			
+		<footer th:insert="fragments/menu_footer_cabecera :: footer"></footer>
+	
 	</body>
 </html>

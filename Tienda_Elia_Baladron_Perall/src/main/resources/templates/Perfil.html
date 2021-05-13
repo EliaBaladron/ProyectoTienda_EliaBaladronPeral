@@ -19,14 +19,22 @@
 				
 				<input id="id" th:field="*{id}" name="id" type="hidden" placeholder=""
 						class="form-control input-md">
+				
+				<!-- Text input-->
+				<div class="form-group">
+					<label class="col-md-4 control-label" for="id">ID</label>
+					<div class="col-md-4">
+						<input th:field="*{id}" id="id" name="id" type="text" placeholder="1"
+							class="form-control input-md" disabled>
+					</div>
+				</div>
 	
 				<!-- Text input-->
 				<div class="form-group">
 					<label class="col-md-4 control-label" for="id_rol">Rol</label>
 					<div class="col-md-4">
 						<input th:field="*{idRol}" id="id_rol" name="id_rol" type="text" placeholder="1"
-							class="form-control input-md" required="required"> <span
-							class="help-block">Introduce el rol del usuario</span>
+							class="form-control input-md" disabled>
 					</div>
 				</div>
 	
@@ -35,9 +43,7 @@
 					<label class="col-md-4 control-label" for="emial">Email</label>
 					<div class="col-md-4">
 						<input th:field="*{email}" id="email" name="email" type="text"
-							placeholder="email@mail.com" class="form-control input-md"
-							required="required"> <span class="help-block">Introduce un
-							email</span>
+							placeholder="email@mail.com" class="form-control input-md" disabled>
 					</div>
 				</div>
 	
@@ -46,8 +52,7 @@
 					<label class="col-md-4 control-label" for="clave">Contraseña</label>
 					<div class="col-md-4">
 						<input th:field="*{clave}" id="clave" name="clave" type="password" placeholder="1234"
-							class="form-control input-md" required="required"> <span
-							class="help-block">Introduce una contraseña</span>
+							class="form-control input-md" disabled>
 					</div>
 				</div>
 	
@@ -56,8 +61,7 @@
 					<label class="col-md-4 control-label" for="nombre">Nombre</label>
 					<div class="col-md-4">
 						<input th:field="*{nombre}" id="nombre" name="nombre" type="text" placeholder="Pepe"
-							class="form-control input-md" required="required"> <span
-							class="help-block">Introduce un nombre</span>
+							class="form-control input-md"  disabled>
 					</div>
 				</div>
 	
@@ -67,8 +71,7 @@
 						apellido</label>
 					<div class="col-md-4">
 						<input th:field="*{apellido1}" id="apellido1" name="apellido1" type="text"
-							placeholder="García" class="form-control input-md"> <span
-							class="help-block">Introduce el primer apellido</span>
+							placeholder="García" class="form-control input-md" disabled>
 					</div>
 				</div>
 	
@@ -78,8 +81,7 @@
 						apellido</label>
 					<div class="col-md-4">
 						<input th:field="*{apellido2}" id="apellido2" name="apellido2" type="text"
-							placeholder="García" class="form-control input-md"> <span
-							class="help-block">Introduce el segundo apellido</span>
+							placeholder="García" class="form-control input-md" disabled>
 					</div>
 				</div>
 	
@@ -88,8 +90,7 @@
 					<label class="col-md-4 control-label" for="direccion">Direccion</label>
 					<div class="col-md-4">
 						<input th:field="*{direccion}" id="direccion" name="direccion" type="text"
-							placeholder="Avd. Requejo" class="form-control input-md">
-						<span class="help-block">Introduce la dirección</span>
+							placeholder="Avd. Requejo" class="form-control input-md" disabled>
 					</div>
 				</div>
 	
@@ -98,8 +99,7 @@
 					<label class="col-md-4 control-label" for="localidad">Localidad</label>
 					<div class="col-md-4">
 						<input th:field="*{localidad}" id="localidad" name="localidad" type="text"
-							placeholder="Zamora" class="form-control input-md"> <span
-							class="help-block">Introduce la localidad</span>
+							placeholder="Zamora" class="form-control input-md" disabled>
 					</div>
 				</div>
 	
@@ -108,8 +108,7 @@
 					<label class="col-md-4 control-label" for="provincia">Provincia</label>
 					<div class="col-md-4">
 						<input th:field="*{provincia}" id="provincia" name="provincia" type="text"
-							placeholder="Zamora" class="form-control input-md"> <span
-							class="help-block">Introduce la provincia</span>
+							placeholder="Zamora" class="form-control input-md" disabled>
 					</div>
 				</div>
 	
@@ -118,8 +117,7 @@
 					<label class="col-md-4 control-label" for="telefono">Teléfono</label>
 					<div class="col-md-4">
 						<input th:field="*{telefono}" id="telefono" name="telefono" type="text"
-							placeholder="987654321" class="form-control input-md"> <span
-							class="help-block">Introduce el teléfono</span>
+							placeholder="987654321" class="form-control input-md" disabled>
 					</div>
 				</div>
 	
@@ -128,24 +126,14 @@
 					<label class="col-md-4 control-label" for="dni">DNI</label>
 					<div class="col-md-4">
 						<input th:field="*{dni}" id="dni" name="dni" type="text" placeholder="98765432D"
-							class="form-control input-md"> <span class="help-block">Introduce
-							el dni</span>
-					</div>
-				</div>
-				
-				<!-- Button -->
-				<div class="form-group">
-					<label class="col-md-4 control-label" for="registrar_bt"></label>
-					<div class="col-md-4">
-						<button id="registrar_bt" name="registrar_bt"
-							class="btn btn-primary">Guardar</button>
+							class="form-control input-md" disabled>
 					</div>
 				</div>
 	
 			</fieldset>
 		</form>
 			
-	<footer th:insert="fragments/menu_footer_cabecera :: footer"></footer>
+		<footer th:insert="fragments/menu_footer_cabecera :: footer"></footer>
 	
 	</body>
 </html>

@@ -6,9 +6,9 @@
 6
 7
 8	Simular proceso de compra, obligando a un usuario con rol cliente estar logado
-9	Estados de los pedidos
+9
 10	Métodos de pago iniciales "tarjeta" y "paypal"
-11	Asociar pedidos y detallesPedidos
+11
 12
 
 Anónimo
