@@ -10,9 +10,20 @@
 	<header th:insert="fragments/menu_footer_cabecera :: menu"></header>
 	<div th:insert="fragments/menu_footer_cabecera :: cabecera"></div>
 	
-	<h2 th:text="${total}"></h2>
+	
 	
 	<table class="table table-striped">
+		<tr>
+			<td><h2 th:text="'Total: ' + ${total}"></h2></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td>
+				<h3><a th:href="@{/carrito/realizar_pedido}">Realizar pedido</a></h3>
+			</td>
+		</tr>
+		
 		<tr>
 			<!-- <th>Id</th> -->
 			<!-- <th>Pedido</th> -->
@@ -21,6 +32,7 @@
 			<th>Unidades</th>
 			<th>Impuesto</th>
 			<th>Total</th>
+			<th></th>
 		</tr>
 		<tr th:each="detalle : ${session.carrito_detalles}">
 			<!-- <td th:text="${detalle.id}"></td> -->
