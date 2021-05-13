@@ -131,10 +131,15 @@ public class Pedidos {
 	}
 
 	public void calcularTotal(ArrayList<DetallesPedido> detalles) {
-		total = 0d;
+		total = Pedidos.calcularTotalDetalles(detalles);
+	}
+	public static Double calcularTotalDetalles(ArrayList<DetallesPedido> detalles) {
+		Double total = 0d;
 		
 		for(DetallesPedido d: detalles)
 			total += d.getTotal();
+		
+		return total;
 	}
 	
 }

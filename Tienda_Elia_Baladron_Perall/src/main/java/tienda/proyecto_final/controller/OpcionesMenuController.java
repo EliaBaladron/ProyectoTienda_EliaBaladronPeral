@@ -29,7 +29,7 @@ public class OpcionesMenuController {
 			iniciarRol(session, usuarioLogeado.getIdRol());
 		}
 		
-		CarritoController.iniciarCarrito(session);
+		CarritoController.iniciarCarrito(session, model);
 		
 		return "redirect:/productos";
 	}

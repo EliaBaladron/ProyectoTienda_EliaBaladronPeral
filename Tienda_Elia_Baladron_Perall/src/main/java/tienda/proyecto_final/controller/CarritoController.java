@@ -5,15 +5,14 @@ import java.util.ArrayList;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import tienda.proyecto_final.model.DetallesPedido;
-import tienda.proyecto_final.model.MetodosPago;
 import tienda.proyecto_final.model.Pedidos;
 import tienda.proyecto_final.model.Productos;
-import tienda.proyecto_final.model.Usuarios;
 
 
 @Controller
@@ -21,24 +20,18 @@ import tienda.proyecto_final.model.Usuarios;
 public class CarritoController {
 	
 	@GetMapping("/carrito")
-	public String carrito(HttpSession session) {
+	public String carrito(HttpSession session, Model model) {
 		
-		iniciarCarrito(session);
+		iniciarCarrito(session, model);
 		
 		return "Carrito";
 	}
 	@GetMapping("/carrito_cliente")
 	public String carritoCliente(HttpSession session) {
-		
-		iniciarCarrito(session);
-		
 		return "redirect:/carrito";
 	}
 	@GetMapping("/carrito_anonimo")
 	public String carritoAnonimo(HttpSession session) {
-		
-		iniciarCarrito(session);
-		
 		return "redirect:/carrito";
 	}
 	
@@ -68,9 +61,11 @@ public class CarritoController {
 		
 		session.setAttribute("carrito_detalles", detalles);
 		
-		Pedidos carrito = (Pedidos)session.getAttribute("carrito");
-		carrito.calcularTotal(detalles);
-		session.setAttribute("carrito", carrito);
+		//Pedidos carrito = (Pedidos)session.getAttribute("carrito");
+		//carrito.calcularTotal(detalles);
+		//session.setAttribute("carrito", carrito);
+		
+		
 	}
 
 	@GetMapping("/carrito/delete")
@@ -91,8 +86,8 @@ public class CarritoController {
 			}
 		}
 	}
-	public static void iniciarCarrito(HttpSession session) {
-		if(session.getAttribute("carrito") == null) {
+	public static void iniciarCarrito(HttpSession session, Model model) {
+		/*if(session.getAttribute("carrito") == null) {
 			
 			Usuarios usuario = (Usuarios)session.getAttribute("usuarioLogeado");
 			
@@ -102,9 +97,18 @@ public class CarritoController {
 			
 			session.setAttribute("carrito", new Pedidos(0l, idUsuario, null, MetodosPago.PAYPAL, Pedidos.SIN_REALIZAR, "", 0d));
 			
+		}*/
+		
+		@SuppressWarnings("unchecked")
+		ArrayList<DetallesPedido> detalles = (ArrayList<DetallesPedido>)session.getAttribute("carrito_detalles");
+		
+		if(detalles == null) {
+			detalles = new ArrayList<DetallesPedido>();
+			session.setAttribute("carrito_detalles", detalles);
 		}
-		if(session.getAttribute("carrito_detalles") == null)
-			session.setAttribute("carrito_detalles", new ArrayList<DetallesPedido>());
+		
+		//model.addAttribute("total", Math.round(Pedidos.calcularTotalDetalles(detalles)));
+		model.addAttribute("total", String.format("%.2f", Pedidos.calcularTotalDetalles(detalles)));
 	}
 	
 }
