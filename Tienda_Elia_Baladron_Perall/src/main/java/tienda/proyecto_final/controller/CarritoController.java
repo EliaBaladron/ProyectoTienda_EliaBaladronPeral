@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import tienda.proyecto_final.model.DetallesPedido;
 import tienda.proyecto_final.model.Pedidos;
 import tienda.proyecto_final.model.Productos;
+import tienda.proyecto_final.model.Roles;
+import tienda.proyecto_final.model.Usuarios;
 
 
 @Controller
@@ -74,6 +76,20 @@ public class CarritoController {
 		delete(session, Long.parseLong(idProducto));
 		
 		return "redirect:/carrito";
+	}
+	
+	@GetMapping("/carrito/realizar_pedido")
+	public String realizarPedido(HttpSession session) {
+		
+		Usuarios usuarioLogeado = (Usuarios)session.getAttribute("usuarioLogeado");
+		if(usuarioLogeado == null) {
+			//TODO: redireccionar desde el login
+			return "redirect:/login";
+		}else if(usuarioLogeado.getIdRol() != Roles.CLIENTE) {
+			return "ErrorLoginPedido";
+		}
+		
+		return "redirect:/pedidos/registrar_pedido_carrito";
 	}
 	public static void delete(HttpSession session, Long idProducto) {
 		@SuppressWarnings("unchecked")

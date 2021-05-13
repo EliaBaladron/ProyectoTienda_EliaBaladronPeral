@@ -101,7 +101,7 @@ public class UsuariosController {
 	
 	
 	
-	@GetMapping("login")
+	@GetMapping("/login")
 	public String login(Model model) {
 		
 		model.addAttribute("usuario", new Usuarios());
@@ -111,6 +111,13 @@ public class UsuariosController {
 	
 	@PostMapping("/login/comprobar")
 	public String comprobarLogin(Model  model, @ModelAttribute Usuarios usuario, HttpSession session) {
+		if(loginCorrecto(model, usuario, session)) {
+			return "redirect:/";
+		}else {
+			return "login_form";
+		}
+	}
+	boolean loginCorrecto(Model  model, Usuarios usuario, HttpSession session) {
 		boolean correcto = false;
 		
 		Usuarios usuarioCorrecto = null;
@@ -129,13 +136,11 @@ public class UsuariosController {
 			Long idRol = usuarioCorrecto.getIdRol();
 			session.setAttribute("rol", idRol);
 			session.setAttribute("usuarioLogeado", usuarioCorrecto);
-			return "redirect:/";
-		}
-		else {
+		}else {
 			model.addAttribute("usuario", usuario);
 			model.addAttribute("error", "El usuario o la contraseña no es correcto");
-			return "login_form";
 		}
+		return correcto;
 	}
 	
 	@GetMapping("/logout")

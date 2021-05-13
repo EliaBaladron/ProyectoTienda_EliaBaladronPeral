@@ -1,5 +1,9 @@
 package tienda.proyecto_final.controller;
 
+import java.util.ArrayList;
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -66,4 +70,24 @@ public class DetallesPedidosController {
 		
 		return "redirect:/";
 	}
+	
+	
+	@GetMapping("/detalles_pedido/registrar_detalles_carrito")
+	public String registrarDetallesPedidoCarrito(HttpSession session) {
+		
+		@SuppressWarnings("unchecked")
+		ArrayList<DetallesPedido> detalles = (ArrayList<DetallesPedido>)session.getAttribute("carrito_detalles");
+		Long idPedido = (Long)session.getAttribute("idPedido");
+		
+		for(DetallesPedido d: detalles) {
+			d.setIdPedido(idPedido);
+			sc.addDetallePedido(d);
+		}
+		
+		session.removeAttribute("carrito_detalles");
+		session.removeAttribute("idPedido");
+		
+		return "redirect:/pedidos";
+	}
+	
 }

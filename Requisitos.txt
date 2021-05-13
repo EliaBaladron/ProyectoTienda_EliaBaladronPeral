@@ -17,7 +17,7 @@ Anónimo
 15
 
 Cliente
-16	Realizar pedido
+16
 17
 18
 19

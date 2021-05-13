@@ -1,5 +1,7 @@
 package tienda.proyecto_final.controller;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import tienda.proyecto_final.model.DetallesPedido;
+import tienda.proyecto_final.model.MetodosPago;
 import tienda.proyecto_final.model.Pedidos;
 import tienda.proyecto_final.model.Roles;
 import tienda.proyecto_final.model.Usuarios;
@@ -128,4 +132,35 @@ public class PedidosController {
 		
 		return "redirect:/pedidos";
 	}
+	
+
+	@GetMapping("/pedidos/registrar_pedido_carrito")
+	public String registrarPedidoCarrito(HttpSession session) {
+		
+		@SuppressWarnings("unchecked")
+		ArrayList<DetallesPedido> detalles = (ArrayList<DetallesPedido>)session.getAttribute("carrito_detalles");
+		
+		Usuarios usuarioLogeado = (Usuarios)session.getAttribute("usuarioLogeado");
+		
+		Pedidos p = new Pedidos(usuarioLogeado.getId(), MetodosPago.PAYPAL, Pedidos.PENDIENTE, numeroFactura(), 0d);
+		p.calcularTotal(detalles);
+		p = sc.addPedido(p);
+		
+		session.setAttribute("idPedido", p.getId());
+		
+		return "redirect:/detalles_pedido/registrar_detalles_carrito";
+	}
+	
+	public String numeroFactura(){
+		ArrayList<Pedidos> pedidos = (ArrayList<Pedidos>)sc.getListaPedidos();
+		String num = pedidos.get(pedidos.size()-1).getNumFactura();
+		
+		String factura = num.substring(0, 5);
+		
+		int n = Integer.parseInt(num.substring(5));
+		factura+= Integer.toString(n);
+		
+		return factura;
+	}
+	
 }

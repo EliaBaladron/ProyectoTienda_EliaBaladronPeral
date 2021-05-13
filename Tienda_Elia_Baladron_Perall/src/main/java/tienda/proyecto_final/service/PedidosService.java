@@ -40,8 +40,8 @@ public class PedidosService {
         return pedidosRepository.findByIdUsuario(idCliente);
     }
 
-    public void addPedido(Pedidos pedido) {
-    	pedidosRepository.save(pedido);
+    public Pedidos addPedido(Pedidos pedido) {
+    	return pedidosRepository.save(pedido);
     }
     
     public void deletePedido(long id) {
@@ -53,7 +53,7 @@ public class PedidosService {
     	return pedidosRepository.findById(id).get();
     }
     
-    public void editPedido(Pedidos pedido) {
-    	pedidosRepository.save(pedido);
+    public Pedidos editPedido(Pedidos pedido) {
+    	return pedidosRepository.save(pedido);
     }
 }

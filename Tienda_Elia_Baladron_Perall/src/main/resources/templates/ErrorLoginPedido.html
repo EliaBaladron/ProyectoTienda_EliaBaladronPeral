@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+	<head>
+	
+		<meta charset="utf-8">
+		<title>Error</title>
+		<link href="/css/signin.css" rel="stylesheet">
+		<link href="/css/bootstrap.min.css" rel="stylesheet">
+		
+	</head>
+	<body class="text-center">
+		<main class="form-signin">
+			<form th:action="@{/logout}" method="post">
+				<h1 class="h3 mb-3 fw-normal">Error</h1>
+
+				<div class="form-floating">
+					<input type="text" class="form-control" th:text="El usuario logeado para realizar un pedido debe ser un cliente" disabled/>
+				</div>
+				
+				<button id="button-login" name="button-login" class="w-100 btn btn-lg btn-primary">Cerrar sesión</button>
+				
+				<a th:href="@{/usuarios/registro}">Crear una cuenta</a>
+				<br/>
+				<a th:href="@{/}">Volver</a>
+			</form>
+		</main>
+	</body>
+</html>
