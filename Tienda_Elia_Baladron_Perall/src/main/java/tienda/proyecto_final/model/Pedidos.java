@@ -14,6 +14,12 @@ import javax.persistence.Id;
 @Entity
 public class Pedidos {
 	
+	public static String ENVIADO = "Enviado";
+	public static String PENDIENTE = "Pendiente";
+	public static String PENDIENTE_CANCELAR = "Pendiente de cancelar";
+	public static String CANCELADO = "Cancelado";
+	
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;

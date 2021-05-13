@@ -25,7 +25,6 @@ public class ProductosController {
 	@Autowired
 	private ProductosService sc;
 	
-	//TODO: cambiar las opciones de los productos según el rol
 	@GetMapping("/productos")
 	public String index(Model model, HttpSession session) {
 		/*

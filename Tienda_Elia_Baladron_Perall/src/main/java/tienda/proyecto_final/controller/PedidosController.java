@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import tienda.proyecto_final.model.Pedidos;
 import tienda.proyecto_final.model.Roles;
+import tienda.proyecto_final.model.Usuarios;
 import tienda.proyecto_final.service.PedidosService;
 
 
@@ -28,10 +29,13 @@ public class PedidosController {
 		Long rol = (Long)session.getAttribute("rol");
 		if(rol == Roles.ADMIN)
 			return indexPedidosAdmin(model);
-		else if(rol == Roles.CLIENTE)
+			//return "redirect:/pedidos_admin";
+		else if(rol == Roles.EMPLEADO)
 			return indexPedidosEmple(model);
+			//return "redirect:/pedidos_emple";
 		else
-			return indexPedidosCliente(model);
+			return indexPedidosCliente(model, session);
+			//return "redirect:/pedidos_cliente";
 	}
 	@GetMapping("/pedidos_admin")
 	public String indexPedidosAdmin(Model model) {
@@ -44,8 +48,11 @@ public class PedidosController {
 		return "Listado_Pedidos";
 	}
 	@GetMapping("/pedidos_cliente")
-	public String indexPedidosCliente(Model model) {
-		model.addAttribute("lista_pedidos", sc.getListaPedidos());
+	public String indexPedidosCliente(Model model, HttpSession session) {
+		
+		Usuarios usuario = (Usuarios)session.getAttribute("usuarioLogeado");
+		
+		model.addAttribute("lista_pedidos", sc.getListaPedidosCliente(usuario.getId()));
 		return "Listado_Pedidos";
 	}
 	
@@ -81,6 +88,37 @@ public class PedidosController {
 	}
 	@PostMapping("/pedidos/edit/editar")
 	public String editSubmit(Model model, @ModelAttribute Pedidos pedido) {
+		sc.editPedido(pedido);
+		
+		return "redirect:/pedidos";
+	}
+	
+	@GetMapping("/pedidos/cancelar")
+	public String cancelar(Model model, @RequestParam String id) {
+		
+		Pedidos pedido = sc.getPedido(Long.parseLong(id));
+		pedido.setEstado(Pedidos.CANCELADO);
+		
+		sc.editPedido(pedido);
+		
+		return "redirect:/pedidos";
+	}
+	@GetMapping("/pedidos/enviar")
+	public String enviar(Model model, @RequestParam String id) {
+		
+		Pedidos pedido = sc.getPedido(Long.parseLong(id));
+		pedido.setEstado(Pedidos.ENVIADO);
+		
+		sc.editPedido(pedido);
+		
+		return "redirect:/pedidos";
+	}
+	@GetMapping("/pedidos/solicitar_cancelacion")
+	public String solicitarCancelación(Model model, @RequestParam String id) {
+				
+		Pedidos pedido = sc.getPedido(Long.parseLong(id));
+		pedido.setEstado(Pedidos.PENDIENTE_CANCELAR);
+		
 		sc.editPedido(pedido);
 		
 		return "redirect:/pedidos";

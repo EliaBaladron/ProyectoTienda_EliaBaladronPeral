@@ -20,6 +20,7 @@
 			<th>Estado</th>
 			<th>Factura</th>
 			<th>Total</th>
+			<th></th>
 		</tr>
 		<tr th:each="pedido : ${lista_pedidos}">
 			<td th:text="${pedido.id}">Id</td>
@@ -29,7 +30,18 @@
 			<td th:text="${pedido.estado}">Estado</td>
 			<td th:text="${pedido.numFactura}">Factura</td>
 			<td th:text="${pedido.total}">Total</td>
-			<td>
+			
+			<td th:if="${session.rol == 1}">
+				<a th:if="${pedido.estado == 'Pendiente de cancelar' OR pedido.estado == 'Pendiente'}" th:href="@{/pedidos/cancelar(id=${pedido.id})}">Cancelar</a>
+			</td>
+			<td th:if="${session.rol == 2}">
+				<a th:if="${pedido.estado == 'Pendiente de cancelar' OR pedido.estado == 'Pendiente'}" th:href="@{/pedidos/enviar(id=${pedido.id})}">Enviar</a>
+			</td>
+			<td th:if="${session.rol == 3}">
+				<a th:if="${pedido.estado == 'Pendiente'}" th:href="@{/pedidos/solicitar_cancelacion(id=${pedido.id})}">Solicitar cancelación</a>
+			</td>
+			
+			<!-- <td>
 				<a th:href="@{/pedidos/delete(id=${pedido.id})}">Eliminar pedido</a>
 			</td>
 			<td>
@@ -40,7 +52,7 @@
 			<td>
 				<a th:href="@{/pedidos/registro}">Añadir pedido</a>
 			</td>
-		</tr>
+		</tr> -->
 	</table>
 	
 	<footer th:insert="fragments/menu_footer_cabecera :: footer"></footer>
