@@ -40,11 +40,13 @@ public class PedidosController {
 	@GetMapping("/pedidos_admin")
 	public String indexPedidosAdmin(Model model) {
 		model.addAttribute("lista_pedidos", sc.getListaPedidos());
+		model.addAttribute("titulo", "Pedidos");
 		return "Listado_Pedidos";
 	}
 	@GetMapping("/pedidos_emple")
 	public String indexPedidosEmple(Model model) {
 		model.addAttribute("lista_pedidos", sc.getListaPedidos());
+		model.addAttribute("titulo", "Pedidos");
 		return "Listado_Pedidos";
 	}
 	@GetMapping("/pedidos_cliente")
@@ -53,6 +55,7 @@ public class PedidosController {
 		Usuarios usuario = (Usuarios)session.getAttribute("usuarioLogeado");
 		
 		model.addAttribute("lista_pedidos", sc.getListaPedidosCliente(usuario.getId()));
+		model.addAttribute("titulo", "Pedidos");
 		return "Listado_Pedidos";
 	}
 	
@@ -60,6 +63,7 @@ public class PedidosController {
 	public String getRegistro(Model model) {
 		
 		model.addAttribute("pedido", new Pedidos());
+		model.addAttribute("titulo", "Pedidos");
 		
 		return "Pedidos";
 	}
@@ -83,6 +87,7 @@ public class PedidosController {
 	public String editar(Model model, @RequestParam String id) {
 		
 		model.addAttribute("pedido", sc.getPedido(Long.parseLong(id)));
+		model.addAttribute("titulo", "Pedidos");
 		
 		return "Pedidos";
 	}

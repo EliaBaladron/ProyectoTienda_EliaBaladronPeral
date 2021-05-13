@@ -24,6 +24,7 @@ public class DetallesPedidosController {
 	public String index(Model model, @RequestParam String id) {
 		Long idPedido = Long.parseLong(id);
 		model.addAttribute("lista_detalles_pedido", sc.getListaDetallesPedidosXPedido(idPedido));
+		model.addAttribute("titulo", "Detalles pedido");
 		return "Listado_DetallesPedidos";
 	}
 	
@@ -31,6 +32,7 @@ public class DetallesPedidosController {
 	public String getRegistro(Model model) {
 		
 		model.addAttribute("detalles_pedido", new DetallesPedido());
+		model.addAttribute("titulo", "Detalles pedido");
 		
 		return "DetallesPedidos";
 	}
@@ -54,6 +56,7 @@ public class DetallesPedidosController {
 	public String editar(Model model, @RequestParam String id) {
 		
 		model.addAttribute("detalles_pedido", sc.getDetallePedido(Long.parseLong(id)));
+		model.addAttribute("titulo", "Detalles pedido");
 		
 		return "DetallesPedidos";
 	}

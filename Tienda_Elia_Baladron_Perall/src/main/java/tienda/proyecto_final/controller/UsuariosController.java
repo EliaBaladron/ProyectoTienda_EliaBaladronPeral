@@ -26,23 +26,27 @@ public class UsuariosController {
 	@GetMapping("/usuarios")
 	public String index(Model model) {
 		model.addAttribute("lista_usuarios", sc.getListaUsuarios());
+		model.addAttribute("titulo", "Usuarios");
 		return "Listado_Usuarios";
 	}
 	
 	@GetMapping("/clientes_admin")
 	public String indexClientesAdmin(Model model) {
 		model.addAttribute("lista_usuarios", sc.getListaUsuariosRol(Roles.CLIENTE));
+		model.addAttribute("titulo", "Clientes");
 		return "Listado_Usuarios";
 	}
 	@GetMapping("/clientes_emple")
 	public String indexClientesEmple(Model model) {
 		model.addAttribute("lista_usuarios", sc.getListaUsuariosRol(Roles.CLIENTE));
+		model.addAttribute("titulo", "EMpelados");
 		return "Listado_Usuarios";
 	}
 	
 	@GetMapping("/empleados_admin")
 	public String indexEmpleadosAdmin(Model model) {
 		model.addAttribute("lista_usuarios", sc.getListaUsuariosRol(Roles.EMPLEADO));
+		model.addAttribute("titulo", "Empleados");
 		return "Listado_Usuarios";
 	}
 	
@@ -50,6 +54,7 @@ public class UsuariosController {
 	public String getRegistro(Model model) {
 		
 		model.addAttribute("usuario", new Usuarios(Roles.CLIENTE));
+		model.addAttribute("titulo", "Añadir usuario");
 		
 		return "Usuarios";
 	}
@@ -83,6 +88,7 @@ public class UsuariosController {
 		
 		model.addAttribute("usuario", sc.getUsuario(Long.parseLong(id)));
 		//model.addAttribute("usuario", sc.getUsuario(Integer.parseInt(id)));
+		model.addAttribute("titulo", "Editar");
 		
 		return "Usuarios";
 	}
@@ -147,6 +153,7 @@ public class UsuariosController {
 		
 		
 		model.addAttribute("usuario", usuario);
+		model.addAttribute("titulo", "Perfil");
 		
 		return "Perfil";
 	}

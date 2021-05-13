@@ -21,7 +21,7 @@ import tienda.proyecto_final.service.ProductosService;;
 @Controller
 @RequestMapping("")
 public class ProductosController {
-
+	
 	@Autowired
 	private ProductosService sc;
 	
@@ -44,6 +44,7 @@ public class ProductosController {
 		*/
 		
 		model.addAttribute("lista_productosXcategoria", iniciarProductosXCategoria());
+		model.addAttribute("titulo", "Productos");
 		return "index";
 	}
 	@GetMapping("/productos_admin")
@@ -67,6 +68,7 @@ public class ProductosController {
 	public String getRegistro(Model model) {
 		
 		model.addAttribute("producto", new Productos(true));
+		model.addAttribute("titulo", "Producto");
 		
 		return "Productos";
 	}
@@ -91,6 +93,7 @@ public class ProductosController {
 	public String editar(Model model, @RequestParam String id) {
 		
 		model.addAttribute("producto", sc.getProducto(Long.parseLong(id)));
+		model.addAttribute("titulo", "Producto");
 		
 		return "Productos";
 	}
@@ -116,6 +119,7 @@ public class ProductosController {
 	public String detalles(Model model, @RequestParam String id) {
 		
 		model.addAttribute("producto", sc.getProducto(Long.parseLong(id)));
+		model.addAttribute("titulo", "Producto");
 		
 		return "ProductosMostrar";
 	}

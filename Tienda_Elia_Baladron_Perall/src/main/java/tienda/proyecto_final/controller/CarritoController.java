@@ -23,7 +23,7 @@ public class CarritoController {
 	public String carrito(HttpSession session, Model model) {
 		
 		iniciarCarrito(session, model);
-		
+		model.addAttribute("titulo", "Carrito");
 		return "Carrito";
 	}
 	@GetMapping("/carrito_cliente")
