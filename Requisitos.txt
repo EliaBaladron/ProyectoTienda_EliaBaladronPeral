@@ -21,16 +21,16 @@ Cliente
 17
 18
 19
-20	Ver perfil
+20
 
 Empleado
-21	Productos	altas, actualizaciones
+21
 22
-23	Ver perfil
+23
 24
 
 Admin
-25	Productos	altas, actualizaciones
+25
 26
 27
 28

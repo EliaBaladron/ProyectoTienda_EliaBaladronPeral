@@ -50,7 +50,7 @@
 				
 				
 				<td th:if="${session.rol == 3 OR session.rol == 4}">
-					<a th:href="@{/productos/carrito(id=${producto.id})}">Añadir al carrito</a>
+					<a th:href="@{/carrito/add(id=${producto.id})}">Añadir al carrito</a>
 				</td>
 				<td th:if="${session.rol == 1 OR session.rol == 2}">
 					<a th:href="@{/productos/baja(id=${producto.id})}">Dar de baja</a>

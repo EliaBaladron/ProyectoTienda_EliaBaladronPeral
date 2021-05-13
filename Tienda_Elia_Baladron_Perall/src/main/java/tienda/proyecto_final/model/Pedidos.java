@@ -2,6 +2,7 @@ package tienda.proyecto_final.model;
 
 import java.sql.Date;
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,6 +14,8 @@ import javax.persistence.Id;
  */
 @Entity
 public class Pedidos {
+	
+	public static String SIN_REALIZAR = "Sin realizar";
 	
 	public static String ENVIADO = "Enviado";
 	public static String PENDIENTE = "Pendiente";
@@ -34,7 +37,7 @@ public class Pedidos {
 	}
 
 	public Pedidos(Date fecha) {
-		this.fecha = Date.valueOf(LocalDate.of(2021, 5, 14));
+		this.fecha = Date.valueOf(LocalDate.now());
 	}
 	public Pedidos(Long id, Long idUsuario, Date fecha, String metodoPago, String estado, String numFactura, Double total) {
 		this.id = id;
@@ -85,6 +88,9 @@ public class Pedidos {
 	public void setFecha(Date fecha) {
 		this.fecha = fecha;
 	}
+	public void setFechaActual() {
+		this.fecha = Date.valueOf(LocalDate.now());
+	}
 
 	public String getMetodoPago() {
 		return this.metodoPago;
@@ -124,6 +130,11 @@ public class Pedidos {
 				+ ", estado=" + estado + ", numFactura=" + numFactura + ", total=" + total + "]";
 	}
 
-	
+	public void calcularTotal(ArrayList<DetallesPedido> detalles) {
+		total = 0d;
+		
+		for(DetallesPedido d: detalles)
+			total += d.getTotal();
+	}
 	
 }

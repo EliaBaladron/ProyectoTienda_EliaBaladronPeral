@@ -29,6 +29,8 @@ public class OpcionesMenuController {
 			iniciarRol(session, usuarioLogeado.getIdRol());
 		}
 		
+		CarritoController.iniciarCarrito(session);
+		
 		return "redirect:/productos";
 	}
 	@GetMapping("/Tienda_Elia_Baladron_Peral")

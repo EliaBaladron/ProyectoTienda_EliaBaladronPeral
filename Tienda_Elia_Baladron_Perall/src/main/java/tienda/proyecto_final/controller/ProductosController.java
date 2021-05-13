@@ -101,12 +101,6 @@ public class ProductosController {
 		return "redirect:/";
 	}
 	
-	@GetMapping("/productos/carrito")
-	public String carrito(Model model, @RequestParam String id) {
-		//TODO: implementar carrito
-		return "redirect:/";
-	}
-	
 	@GetMapping("/productos/baja")
 	public String baja(Model model, @RequestParam String id) {
 		
@@ -156,5 +150,15 @@ public class ProductosController {
 		return arrayList;
 	}
 	
+	
+	
+	//Carrito
+	@GetMapping("/carrito/add")
+	public String add(HttpSession session, @RequestParam String id) {
+		
+		CarritoController.add(session, sc.getProducto(Long.parseLong(id)));
+		
+		return "redirect:/";
+	}
 	
 }

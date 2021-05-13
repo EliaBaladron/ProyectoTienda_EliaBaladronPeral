@@ -16,15 +16,15 @@ public class DetallesPedido {
 	private Long id;
 	private Long idPedido;
 	private Long idProducto;
-	private Float precioUnidad;
+	private Double precioUnidad;
 	private Integer unidades;
 	private Float impuesto;
 	private Double total;
 
 	public DetallesPedido() {
 	}
-	public DetallesPedido(Long id, Long idPedido, Long idProducto, Float precioUnidad, Integer unidades, Float impuesto,
-			Double total) {
+	public DetallesPedido(Long id, Long idPedido, Long idProducto, Double precioUnidad,
+			Integer unidades, Float impuesto, Double total) {
 		this.id = id;
 		this.idPedido = idPedido;
 		this.idProducto = idProducto;
@@ -33,8 +33,8 @@ public class DetallesPedido {
 		this.impuesto = impuesto;
 		this.total = total;
 	}
-	public DetallesPedido(Long idPedido, Long idProducto, Float precioUnidad, Integer unidades, Float impuesto,
-			Double total) {
+	public DetallesPedido(Long idPedido, Long idProducto, Double precioUnidad,
+			Integer unidades, Float impuesto, Double total) {
 		this.idPedido = idPedido;
 		this.idProducto = idProducto;
 		this.precioUnidad = precioUnidad;
@@ -67,11 +67,11 @@ public class DetallesPedido {
 		this.idProducto = idProducto;
 	}
 
-	public Float getPrecioUnidad() {
+	public Double getPrecioUnidad() {
 		return this.precioUnidad;
 	}
 
-	public void setPrecioUnidad(Float precioUnidad) {
+	public void setPrecioUnidad(Double precioUnidad) {
 		this.precioUnidad = precioUnidad;
 	}
 
@@ -105,6 +105,9 @@ public class DetallesPedido {
 				+ precioUnidad + ", unidades=" + unidades + ", impuesto=" + impuesto + ", total=" + total + "]";
 	}
 	
+	public void calcularTotal() {
+		total = precioUnidad*unidades;
+	}
 	
 
 }
