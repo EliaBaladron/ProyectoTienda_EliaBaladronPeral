@@ -14,7 +14,7 @@
 Anónimo
 13
 14
-15	Añadir productos al carrito desde ambas vistas
+15
 
 Cliente
 16	Realizar pedido

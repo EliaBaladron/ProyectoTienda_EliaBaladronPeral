@@ -154,7 +154,14 @@ public class ProductosController {
 	
 	//Carrito
 	@GetMapping("/carrito/add")
-	public String add(HttpSession session, @RequestParam String id) {
+	public String addGet(HttpSession session, @RequestParam String id) {
+		
+		CarritoController.add(session, sc.getProducto(Long.parseLong(id)));
+		
+		return "redirect:/";
+	}
+	@PostMapping("/carrito/add")
+	public String addPost(HttpSession session, @RequestParam String id) {
 		
 		CarritoController.add(session, sc.getProducto(Long.parseLong(id)));
 		

@@ -11,7 +11,7 @@
 	<header th:insert="fragments/menu_footer_cabecera :: menu"></header>
 	<div th:insert="fragments/menu_footer_cabecera :: cabecera"></div>
 	
-		<form class="form-horizontal" th:action="@{/productos}" th:object="${producto}" method="get">
+		<form class="form-horizontal" th:object="${producto}" method="get">
 			<fieldset>
 	
 				<!-- Form Name -->
@@ -120,17 +120,30 @@
 							th:field="*{imagen}" disabled>
 					</div>
 				</div>
-				
-				<!-- Button -->
-				<div class="form-group">
-					<label class="col-md-4 control-label" for="registrar_bt"></label>
-					<div class="col-md-4">
-						<button id="registrar_bt" name="registrar_bt"
-							class="btn btn-primary">Volver</button>
-					</div>
-				</div>
 	
 			</fieldset>
+		</form>
+				
+		<form th:action="@{/productos}" method="get">
+			<!-- Button -->
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="registrar_bt"></label>
+				<div class="col-md-4">
+					<button id="registrar_bt" name="registrar_bt"
+						class="btn btn-primary">Volver</button>
+				</div>
+			</div>
+		</form>
+		
+		<form th:action="@{/carrito/add(id=${producto.id})}" method="post">
+			<!-- Button -->
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="anadir_bt"></label>
+				<div class="col-md-4">
+					<button id="anadir_bt" name="anadir_bt"
+						class="btn btn-primary">Añadir al carrito</button>
+				</div>
+			</div>
 		</form>
 	
 		<footer th:insert="fragments/menu_footer_cabecera :: footer"></footer>
