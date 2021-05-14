@@ -21,33 +21,36 @@
 						class="form-control input-md">
 	
 				<!-- Text input-->
-				<div class="form-group">
+				<div class="form-group" th:classappend="${#fields.hasErrors('idRol')} ? 'alert-danger' : null">
 					<label class="col-md-4 control-label" for="id_rol">Rol</label>
 					<div class="col-md-4">
 						<input th:field="*{idRol}" id="id_rol" name="id_rol" type="text" placeholder="1"
 							class="form-control input-md" required="required"> <span
 							class="help-block">Introduce el rol del usuario</span>
+							<span class="alert-danger" th:if="${#fields.hasErrors('idRol')}" th:errors="*{idRol}">Errores</span>
 					</div>
 				</div>
 	
 				<!-- Text input-->
-				<div class="form-group">
+				<div class="form-group" th:classappend="${#fields.hasErrors('email')} ? 'alert-danger' : null">
 					<label class="col-md-4 control-label" for="emial">Email</label>
 					<div class="col-md-4">
 						<input th:field="*{email}" id="email" name="email" type="email"
 							placeholder="email@mail.com" class="form-control input-md"
 							required="required"> <span class="help-block">Introduce un
 							email</span>
+							<span class="alert-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Errores</span>
 					</div>
 				</div>
 	
 				<!-- Password input-->
-				<div class="form-group">
+				<div class="form-group" th:classappend="${#fields.hasErrors('clave')} ? 'alert-danger' : null">
 					<label class="col-md-4 control-label" for="clave">Contrase&#241;a</label>
 					<div class="col-md-4">
 						<input th:field="*{clave}" id="clave" name="clave" type="password" placeholder="1234"
 							class="form-control input-md" required="required"> <span
 							class="help-block">Introduce una contrase&#241;a</span>
+							<span class="alert-danger" th:if="${#fields.hasErrors('clave')}" th:errors="*{clave}">Errores</span>
 					</div>
 				</div>
 	
@@ -56,7 +59,7 @@
 					<label class="col-md-4 control-label" for="nombre">Nombre</label>
 					<div class="col-md-4">
 						<input th:field="*{nombre}" id="nombre" name="nombre" type="text" placeholder="Pepe"
-							class="form-control input-md" required="required"> <span
+							class="form-control input-md"> <span
 							class="help-block">Introduce un nombre</span>
 					</div>
 				</div>
@@ -67,7 +70,7 @@
 						apellido</label>
 					<div class="col-md-4">
 						<input th:field="*{apellido1}" id="apellido1" name="apellido1" type="text"
-							placeholder="García" class="form-control input-md"> <span
+							placeholder="Garcia" class="form-control input-md"> <span
 							class="help-block">Introduce el primer apellido</span>
 					</div>
 				</div>
@@ -78,7 +81,7 @@
 						apellido</label>
 					<div class="col-md-4">
 						<input th:field="*{apellido2}" id="apellido2" name="apellido2" type="text"
-							placeholder="García" class="form-control input-md"> <span
+							placeholder="Garcia" class="form-control input-md"> <span
 							class="help-block">Introduce el segundo apellido</span>
 					</div>
 				</div>
@@ -89,7 +92,7 @@
 					<div class="col-md-4">
 						<input th:field="*{direccion}" id="direccion" name="direccion" type="text"
 							placeholder="Avd. Requejo" class="form-control input-md">
-						<span class="help-block">Introduce la dirección</span>
+						<span class="help-block">Introduce la direccion</span>
 					</div>
 				</div>
 	
@@ -115,11 +118,11 @@
 	
 				<!-- Text input-->
 				<div class="form-group">
-					<label class="col-md-4 control-label" for="telefono">Teléfono</label>
+					<label class="col-md-4 control-label" for="telefono">Telefono</label>
 					<div class="col-md-4">
 						<input th:field="*{telefono}" id="telefono" name="telefono" type="text"
 							placeholder="987654321" class="form-control input-md"> <span
-							class="help-block">Introduce el teléfono</span>
+							class="help-block">Introduce el telefono</span>
 					</div>
 				</div>
 	

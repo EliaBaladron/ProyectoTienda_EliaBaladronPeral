@@ -61,10 +61,14 @@ public class UsuariosController {
 		return "Usuarios";
 	}
 	@PostMapping("/usuarios/registro/registrar")
-	public String registrar(Model model, @ModelAttribute Usuarios usuario) {
-		
+	public String registrar(Model model, @Valid @ModelAttribute Usuarios usuario, BindingResult bindingResult) {
+		if(bindingResult.hasErrors()) {
+			return "Usuarios";
+		}
+		else {
 			sc.addUsuario(usuario);
 			return "redirect:/";
+		}
 		
 	}
 	
