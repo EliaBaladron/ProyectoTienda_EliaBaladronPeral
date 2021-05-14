@@ -1,6 +1,8 @@
-package tienda.proyecto_final.model;
+package tienda.proyecto_final.otro;
 
 import java.util.ArrayList;
+
+import tienda.proyecto_final.model.Productos;
 
 
 public class ProductosAgrupadosCategoria {

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/" class="h-100">
+	<head>
+		<meta charset="UTF-8">
+		<title>Filtro</title>
+		
+		
+	</head>
+	<body class="d-flex flex-column h-100">
+	
+		<div class="flex-shrink-0 cabecera" th:fragment="filtro">
+			<div class="container">
+			    <h2 class="mt-5">Ordenar los productos por: </h2>
+			    <ul>
+			    	<li><a th:href="@{/filtro/categoria}">Categoria</a></li>
+			    	<li><a th:href="@{/filtro/precio}">De menor a mayor precio</a></li>
+			    	<!-- <li><a th:href="@{/filtro/mejor_valorados}">Mejor valorados</a></li> -->
+			    	<!-- <li><a th:href="@{/filtro/mas_comprados}">Mas comprados</a></li> -->
+			    	<li><a th:href="@{/filtro/stock}">De mayor a menor stock</a></li>
+			    </ul>
+		  	</div>
+		</div>
+		
+		<!--
+		<form id="fomulario" th:fragment="filtro" th:action="@{/filtro/precio}" method="post">
+			<div class="flex-shrink-0 cabecera">
+				<div class="container">
+				    <h2 class="mt-5">Filtro de búsqueda</h2>
+				    
+				    <select name="filtro_busqueda" id="filtro_busqueda">
+						<option value="precio">Precio</option>
+						<option value="categoria" selected="selected">Categoria</option>
+						<option value="mejor_valorados">Mejor valorados</option>
+						<option value="mas_comprados">Más comprados</option>
+					</select>
+				    
+				    <button type="submit" id="bt_buscar" name="bt_buscar" class="w-100 btn btn-lg btn-primary">Buscar</button>
+				    
+			  	</div>
+			</div>
+		</form>
+		 -->
+		
+		<!--<script type="text/javascript">
+		
+			/* var select = document.getElementById('filtro_busqueda');
+			select.addEventListener("change", function() {
+				var formulario = document.getElementById('fomulario');
+				
+				var opcion = '@{/filtro/';
+				opcion += document.getElementById('filtro_busqueda').value;
+				opcion += '}';
+				
+				//formulario.setAttribute('th:action', opcion);
+				formulario.setAttribute('th:action', opcion);
+			}); */
+		
+		
+			function actualizarAction(){
+				var formulario = document.getElementById('fomulario');
+				
+				var opcion = '@{/filtro/';
+				opcion += document.getElementById('filtro_busqueda').value;
+				opcion += '}';
+				
+				formulario.setAttribute('action', opcion);
+			}
+			
+			var select = document.getElementById('filtro_busqueda');
+			select.addEventListener("change", actualizarAction());
+			
+		</script> -->
+		
+	</body>
+</html>

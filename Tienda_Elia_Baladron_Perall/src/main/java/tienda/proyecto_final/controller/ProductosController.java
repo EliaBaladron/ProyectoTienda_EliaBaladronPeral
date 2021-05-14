@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import tienda.proyecto_final.model.Productos;
-import tienda.proyecto_final.model.ProductosAgrupadosCategoria;
+import tienda.proyecto_final.otro.ProductosAgrupadosCategoria;
 import tienda.proyecto_final.service.ProductosService;;
 
 
@@ -22,31 +22,50 @@ import tienda.proyecto_final.service.ProductosService;;
 @RequestMapping("")
 public class ProductosController {
 	
+	
 	@Autowired
 	private ProductosService sc;
 	
-	@GetMapping("/productos")
-	public String index(Model model, HttpSession session) {
-		/*
-		Usuarios usuarioLogeado = (Usuarios)session.getAttribute("usuarioLogeado");
-		if(usuarioLogeado.getIdRol().equals(Roles.ADMIN)) {
-			return "redirect:/productos_admin";
-		}
-		else if(usuarioLogeado.getIdRol().equals(Roles.EMPLEADO)) {
-			return "redirect:/productos_emple";
-		}
-		else if(usuarioLogeado.getIdRol().equals(Roles.CLIENTE)) {
-			return "redirect:/productos_cliente";
-		}
-		else {
-			return "redirect:/productos_anonimo";
-		}
-		*/
+	/*@GetMapping("/productos/sin_categorias")
+	public String indexProductos(Model model, HttpSession session) {
 		
-		model.addAttribute("lista_productosXcategoria", iniciarProductosXCategoria());
+		model.addAttribute("lista_productos", sc.getListaProductos());
 		model.addAttribute("titulo", "Productos");
 		//return "index";
 		return "Listado_Productos";
+	}*/
+	@GetMapping("/productos")
+	public String indexProductosCategorias(Model model, HttpSession session) {
+
+		model.addAttribute("titulo", "Productos");
+		
+		String orden = (String)session.getAttribute("orden");
+		session.removeAttribute("orden");
+		
+		if(orden == null)
+			orden = "categoria";
+		
+		switch(orden) {
+		case "precio":
+			model.addAttribute("lista_productos", sc.getListaProductosOrderByPrecio());
+			return "Listado_Productos";
+			
+		/*case "mejor_valorados":
+			return "Listado_Productos";*/
+			
+		case "stock":
+			model.addAttribute("lista_productos", sc.getListaProductosOrderByStock());
+			return "Listado_Productos";
+			
+		/*case "mas_comprados":
+			return "Listado_Productos";*/
+			
+		case "categoria":
+		default:
+			model.addAttribute("lista_productosXcategoria", iniciarProductosXCategoria());
+			return "Listado_ProductosCategorias";
+		}
+		
 	}
 	@GetMapping("/productos_admin")
 	public String indexAdmin(Model model) {
@@ -129,7 +148,7 @@ public class ProductosController {
 	ArrayList<ProductosAgrupadosCategoria> iniciarProductosXCategoria() {
 		ArrayList<ProductosAgrupadosCategoria> arrayList = new ArrayList<ProductosAgrupadosCategoria>();
 		
-		ArrayList<Productos> productos = (ArrayList<Productos>)sc.getListaProductos();
+		ArrayList<Productos> productos = (ArrayList<Productos>)sc.getListaProductosOrderByCategoria();
 		for(Productos p: productos) {
 			boolean existe = false;
 			for(ProductosAgrupadosCategoria pxc: arrayList) {

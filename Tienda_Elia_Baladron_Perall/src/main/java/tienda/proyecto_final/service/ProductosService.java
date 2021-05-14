@@ -17,7 +17,10 @@ public class ProductosService {
     public ProductosService(ProductosRepository productosRepository) {
 		super();
 		this.productosRepository = productosRepository;
-		
+
+		this.productosRepository.save(new Productos(
+				2l, "Producto4", "Descripcion4", 42.3d, 10, 42.0f, ""
+			));
 		this.productosRepository.save(new Productos(
 				1l, "Producto1", "Descripcion1", 12.3d, 7, 12.0f, ""
 			));
@@ -27,14 +30,20 @@ public class ProductosService {
 		this.productosRepository.save(new Productos(
 				2l, "Producto3", "Descripcion3", 32.3d, 9, 32.0f, ""
 			));
-		this.productosRepository.save(new Productos(
-				2l, "Producto4", "Descripcion4", 42.3d, 10, 42.0f, ""
-			));
 		
 	}
 
 	public Iterable<Productos> getListaProductos() {
         return productosRepository.findAll();
+    }
+	public Iterable<Productos> getListaProductosOrderByPrecio() {
+        return productosRepository.findAllByOrderByPrecioAsc();
+    }
+	public Iterable<Productos> getListaProductosOrderByStock() {
+        return productosRepository.findAllByOrderByStockDesc();
+    }
+	public Iterable<Productos> getListaProductosOrderByCategoria() {
+        return productosRepository.findAllByOrderByIdCategoriaAsc();
     }
 
     public void addProducto(Productos producto) {
