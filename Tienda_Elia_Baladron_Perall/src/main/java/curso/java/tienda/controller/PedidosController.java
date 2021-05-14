@@ -159,6 +159,7 @@ public class PedidosController {
 		String factura = num.substring(0, 5);
 		
 		int n = Integer.parseInt(num.substring(5));
+		n = n+1;
 		factura+= Integer.toString(n);
 		
 		return factura;
