@@ -26,7 +26,7 @@
 					<div class="collapse navbar-collapse" id="navbarCollapse">
 						<ul class="navbar-nav me-auto mb-2 mb-md-0">
 							<li class="nav-item" th:each="opcion : ${session.opciones_menu}">
-								<a class="nav-link" th:href="${opcion.urlOpcion}" th:text="${opcion.nombreOpcion}">Opcion</a>
+								<a class="nav-link" th:href="${opcion.urlOpcion}" th:text="${opcion.nombreOpcion}">Opci&#243;n</a>
 							</li>
 							
 							<li class="nav-item" th:if="${session.usuarioLogeado == null}">
@@ -56,7 +56,7 @@
 		<!-- Footer -->
 		<footer class="footer mt-auto py-3 bg-light"  th:fragment="footer">
 			<div class="container">
-		    	<span class="text-muted">&#174;Elia Baladrón Peral 2021</span>
+		    	<span class="text-muted">&#174;Elia Baladr&#243;n Peral 2021</span>
 			</div>
 			<script src="/js/bootstrap.bundle.min.js"></script>
 		</footer>

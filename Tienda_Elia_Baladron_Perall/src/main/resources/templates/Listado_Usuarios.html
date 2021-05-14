@@ -26,7 +26,7 @@
 				<th></th>
 				<th></th>
 				<th></th>
-				<th><a th:href="@{/usuarios/registro}">Añadir usuario</a></th>
+				<th><a th:href="@{/usuarios/registro}">A&#241;adir usuario</a></th>
 				<th th:if="${session.rol == 1}"></th>
 			</tr>
 		<tr>
@@ -37,10 +37,10 @@
 			<th>Nombre</th>
 			<th>Primer apellido</th>
 			<th>Segundo apellido</th>
-			<th>Dirección</th>
+			<th>Direcci&#243;n</th>
 			<th>Localidad</th>
 			<th>Provincia</th>
-			<th>Teléfono</th>
+			<th>Tel&#233;fono</th>
 			<th>DNI</th>
 		</tr>
 		<tr th:each="usuario : ${lista_usuarios}">
@@ -51,7 +51,7 @@
 			<td th:text="${usuario.nombre}">Nombre</td>
 			<td th:text="${usuario.apellido1}">Primer apellido</td>
 			<td th:text="${usuario.apellido2}">Segundo apellido</td>
-			<td th:text="${usuario.direccion}">Dirección</td>
+			<td th:text="${usuario.direccion}">Direccion</td>
 			<td th:text="${usuario.localidad}">Localidad</td>
 			<td th:text="${usuario.provincia}">Provincia</td>
 			<td th:text="${usuario.telefono}">Teléfono</td>
