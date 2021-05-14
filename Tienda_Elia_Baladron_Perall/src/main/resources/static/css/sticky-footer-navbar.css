@@ -15,7 +15,8 @@ main > .container {
   padding: 60px 15px 0;
 }
 footer{
-	position: fixed;
+/* 	position: fixed; */
+	position: relative;
     bottom: 0;
     width: -webkit-fill-available;
 }

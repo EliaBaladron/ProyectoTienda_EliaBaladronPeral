@@ -1,10 +1,12 @@
 package tienda.proyecto_final.controller;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -39,7 +41,7 @@ public class UsuariosController {
 	@GetMapping("/clientes_emple")
 	public String indexClientesEmple(Model model) {
 		model.addAttribute("lista_usuarios", sc.getListaUsuariosRol(Roles.CLIENTE));
-		model.addAttribute("titulo", "EMpelados");
+		model.addAttribute("titulo", "Empleados");
 		return "Listado_Usuarios";
 	}
 	
@@ -61,9 +63,9 @@ public class UsuariosController {
 	@PostMapping("/usuarios/registro/registrar")
 	public String registrar(Model model, @ModelAttribute Usuarios usuario) {
 		
-		sc.addUsuario(usuario);
+			sc.addUsuario(usuario);
+			return "redirect:/";
 		
-		return "redirect:/";
 	}
 	
 	@GetMapping("/usuarios/delete")
@@ -93,10 +95,14 @@ public class UsuariosController {
 		return "Usuarios";
 	}
 	@PostMapping("/usuarios/edit/editar")
-	public String editSubmit(Model model, @ModelAttribute Usuarios usuario) {
-		sc.editUsuario(usuario);
-		
-		return "redirect:/";
+	public String editSubmit(Model model, @Valid @ModelAttribute Usuarios usuario, BindingResult bindingResult) {
+		if(bindingResult.hasErrors()) {
+			return "Usuarios";
+		}
+		else {
+			sc.editUsuario(usuario);
+			return "redirect:/";
+		}
 	}
 	
 	
