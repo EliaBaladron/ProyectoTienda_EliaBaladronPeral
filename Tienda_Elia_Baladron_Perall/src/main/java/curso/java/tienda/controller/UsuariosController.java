@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import curso.java.tienda.model.CambiarClave;
 import curso.java.tienda.model.Roles;
 import curso.java.tienda.model.Usuarios;
 import curso.java.tienda.service.UsuariosService;
@@ -108,6 +109,52 @@ public class UsuariosController {
 			session.setAttribute("usuarioLogeado", usuario);
 			return "redirect:/";
 		}
+	}
+	
+	@GetMapping("/usuarios/edit_pass")
+	public String editarContraseña(Model model) {
+		
+		model.addAttribute("cambiarClave", new CambiarClave());
+		model.addAttribute("titulo", "Editar la contraseña");
+		
+		return "EditPassword";
+	}
+	@PostMapping("/usuarios/edit_pass/editar")
+	public String editSubmitContraseña(HttpSession session, Model model, @Valid @ModelAttribute CambiarClave cambiarClave, BindingResult bindingResult) {
+		if(bindingResult.hasErrors()) {
+			model.addAttribute("cambiarClave", cambiarClave);
+			model.addAttribute("titulo", "Editar la contraseña");
+			return "EditPassword";
+		}
+		else {
+			String mensaje = comprobarClave(session, cambiarClave);
+			if(mensaje == ""){
+				return "redirect:/perfil";
+			}else {
+				model.addAttribute("error", mensaje);
+				model.addAttribute("cambiarClave", cambiarClave);
+				model.addAttribute("titulo", "Editar la contraseña");
+				return "EditPassword";
+			}
+		}
+	}
+	String comprobarClave(HttpSession session, CambiarClave cambiarClave) {
+		String mensaje = "";
+		
+		Usuarios usuarioLogeado = (Usuarios)session.getAttribute("usuarioLogeado");
+		
+		if(cambiarClave.getAntigua().equals(usuarioLogeado.getClave())) {
+			if(cambiarClave.getNueva().equals(cambiarClave.getRepetida())) {
+				usuarioLogeado.setClave(cambiarClave.getNueva());
+				sc.editUsuario(usuarioLogeado);
+			}else {
+				mensaje = "La contraseña nueva no coincide en ambos campos";
+			}
+		}else {
+			mensaje = "La contraseña antigua es incorrecta";
+		}
+		
+		return mensaje;
 	}
 	
 	

@@ -2,7 +2,7 @@
 <html xmlns:th="https://www.thymeleaf.org/">
 	<head>
 		<meta charset="ISO-8859-1">
-		<title>Editar usuario</title>
+		<title>Perfil</title>
 	
 		<th:block th:replace="fragments/menu_footer_cabecera :: head">
 	</head>
@@ -53,7 +53,7 @@
 					<div class="col-md-4">
 						<input th:field="*{clave}" id="clave" name="clave" type="password"
 							class="form-control input-md" disabled>
-						<a th:href="@{/usuario/editar/pass(id=${usuario.id})}">Editar contrase&#241;a</a>
+						<a th:href="@{/usuarios/edit_pass}">Editar contrase&#241;a</a>
 					</div>
 				</div>
 	

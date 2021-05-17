@@ -54,12 +54,9 @@
 					</div>
 				</div>
 				<div class="form-group" th:classappend="${#fields.hasErrors('clave')} ? 'alert-danger' : null" th:if="${usuario.id != 0}">
-					<label class="col-md-4 control-label" for="clave">Contrase&#241;a</label>
 					<div class="col-md-4">
-						<input th:field="*{clave}" id="clave" name="clave" type="text" placeholder="1234"
-							class="form-control input-md" required="required"> <span
-							class="help-block">Introduce una contrase&#241;a</span>
-							<span class="alert-danger" th:if="${#fields.hasErrors('clave')}" th:errors="*{clave}">Errores</span>
+						<input th:field="*{clave}" id="clave" name="clave" type="hidden"
+							class="form-control input-md" required="required">
 					</div>
 				</div>
 	
