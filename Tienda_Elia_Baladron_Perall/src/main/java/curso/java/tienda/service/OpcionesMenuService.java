@@ -1,5 +1,7 @@
 package curso.java.tienda.service;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,6 +11,8 @@ import curso.java.tienda.repository.OpcionesMenuRepository;
 
 @Service
 public class OpcionesMenuService {
+	
+	Logger logger = LogManager.getLogger(OpcionesMenuService.class.getName());
 	
 	@Autowired
     private OpcionesMenuRepository opcionesMenuRepository;
@@ -53,7 +57,6 @@ public class OpcionesMenuService {
 				Roles.CLIENTE, "Pedidos", "/pedidos_cliente"
 			));
 		
-		//TODO: añadir opciones de ver perfil
 		this.opcionesMenuRepository.save(new OpcionesMenu(
 				Roles.EMPLEADO, "Perfil", "/perfil_emple"
 			));
@@ -61,42 +64,54 @@ public class OpcionesMenuService {
 				Roles.CLIENTE, "Perfil", "/perfil_cliente"
 			));
 		
-		//TODO: añadir opciones carrito
 		this.opcionesMenuRepository.save(new OpcionesMenu(
 				Roles.CLIENTE, "Carrito", "/carrito_cliente"
 			));
 		this.opcionesMenuRepository.save(new OpcionesMenu(
 				Roles.ANONIMO, "Carrito", "/carrito_anonimo"
 			));
+    	
+    	logger.info("Insertando OpcionesMenu de prueba");
 	}
 
 	public Iterable<OpcionesMenu> getListaOpcionesMenu() {
+    	
+    	logger.info("Obteniendo todos los datos de OpcionesMenu");
+    	
         return opcionesMenuRepository.findAll();
     }
 	public Iterable<OpcionesMenu> getListaOpcionesMenuRol(Long rol) {
+    	
+    	logger.info("Obteniendo los datos de OpcionesMenu según el rol "+rol);
+    	
 		return opcionesMenuRepository.findByIdRol(rol);
     }
 
     public void addOpcionesMenu(OpcionesMenu opcionesMenu) {
+    	
+    	logger.info("Añadir datos de OpcionesMenu "+opcionesMenu.toString());
+    	
     	opcionesMenuRepository.save(opcionesMenu);
     }
     
-    /*public void deleteContacto(Contacto contacto) {
-        contactoRepository.delete(contacto);
-    }*/
-    
-    
-    
     public void deleteOpcionesMenu(long id) {
+    	
+    	logger.info("Borrando las OpcionesMenu con el id "+id);
+    	
     	opcionesMenuRepository.deleteById(id);
     }
     
     public OpcionesMenu getOpcionesMenu(long id) {
     	
+    	logger.info("Obtener las OpcionesMenu según el ID "+id);
+    	
     	return opcionesMenuRepository.findById(id).get();
     }
     
     public void editOpcionesMenu(OpcionesMenu opcionesMenu) {
+    	
+    	logger.info("Editar datos de OpcionesMenu "+opcionesMenu.toString());
+    	
     	opcionesMenuRepository.save(opcionesMenu);
     }
 }
