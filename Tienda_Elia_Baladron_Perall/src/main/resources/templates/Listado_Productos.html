@@ -91,8 +91,8 @@
 	      
 	        <div class="col" th:each="producto : ${lista_productos}">
 	          <div class="card shadow-sm">
-	            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
-	            role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+	          	<svg class="bd-placeholder-img card-img-top" style="width: 100%; heigth=225"
+	            	role="img" aria-label="Placeholder: Thumbnail">
 		            <title th:text="${producto.idCategoria}">Categoría</title>
 		            <rect width="100%" height="100%" fill="#55595c"/>
 		            <text x="50%" y="50%" fill="#eceeef" dy=".3em"
@@ -103,13 +103,15 @@
 	              <p th:text="${producto.descripcion}" class="card-text">Descripcion.Descripcion.Descripcion.Descripcion.Descripcion.Descripcion.Descripcion.Descripcion.Descripcion.Descripcion.Descripcion.Descripcion.</p>
 	              <div class="d-flex justify-content-between align-items-center">
 	                <div class="btn-group">
-	                  <button type="button" class="btn btn-sm btn-outline-secondary">Editar</button>
-	                  <button type="button" class="btn btn-sm btn-outline-secondary">Ver</button>
-	                  <button type="button" class="btn btn-sm btn-outline-secondary"
-	                  	th:href="@{/carrito/add(id=${producto.id})}">Añadir al carrito</button>
-	                  <button type="button" class="btn btn-sm btn-outline-secondary">Eliminar</button>
+	                	<a type="button" class="btn btn-sm btn-outline-secondary" th:href="@{/productos/detalles(id=${producto.id})}">Ver</a>
+	                	<a type="button" class="btn btn-sm btn-outline-secondary" th:href="@{/carrito/add(id=${producto.id})}"
+	                		th:if="${session.rol == 3 OR session.rol == 4}">A&#241;adir al carrito</a>
+	                	<a type="button" class="btn btn-sm btn-outline-secondary" th:href="@{/productos/edit(id=${producto.id})}"
+	                		th:if="${session.rol == 1 OR session.rol == 2}">Editar</a>
+	                	<a type="button" class="btn btn-sm btn-outline-secondary" th:href="@{/productos/delete(id=${producto.id})}"
+	                		th:if="${session.rol == 1}">Eliminar</a>
 	                </div>
-	                <small class="text-muted">Precio</small>
+	                <small class="text-muted" th:text="${producto.precio}">Precio</small>
 	              </div>
 	            </div>
 	          </div>
