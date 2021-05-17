@@ -99,12 +99,13 @@ public class UsuariosController {
 		return "Usuarios";
 	}
 	@PostMapping("/usuarios/edit/editar")
-	public String editSubmit(Model model, @Valid @ModelAttribute Usuarios usuario, BindingResult bindingResult) {
+	public String editSubmit(HttpSession session, Model model, @Valid @ModelAttribute Usuarios usuario, BindingResult bindingResult) {
 		if(bindingResult.hasErrors()) {
 			return "Usuarios";
 		}
 		else {
 			sc.editUsuario(usuario);
+			session.setAttribute("usuarioLogeado", usuario);
 			return "redirect:/";
 		}
 	}

@@ -11,7 +11,7 @@
 	<header th:insert="fragments/menu_footer_cabecera :: menu"></header>
 	<div th:insert="fragments/menu_footer_cabecera :: cabecera"></div>
 	
-		<form class="form-horizontal" th:action="${usuario.id !=0} ? @{/usuarios/edit/editar} : @{/usuarios/registro/registrar}" th:object="${usuario}" method="post">
+		<form class="form-horizontal" th:action="@{/usuarios/edit(id=${usuario.id})}" th:object="${usuario}" method="get">
 			<fieldset>
 	
 				<!-- Form Name -->
@@ -51,8 +51,9 @@
 				<div class="form-group">
 					<label class="col-md-4 control-label" for="clave">Contrase&#241;a</label>
 					<div class="col-md-4">
-						<input th:field="*{clave}" id="clave" name="clave" type="password" placeholder="1234"
+						<input th:field="*{clave}" id="clave" name="clave" type="password"
 							class="form-control input-md" disabled>
+						<a th:href="@{/usuario/editar/pass(id=${usuario.id})}">Editar contrase&#241;a</a>
 					</div>
 				</div>
 	
@@ -127,6 +128,15 @@
 					<div class="col-md-4">
 						<input th:field="*{dni}" id="dni" name="dni" type="text" placeholder="98765432D"
 							class="form-control input-md" disabled>
+					</div>
+				</div>
+				
+				<!-- Button -->
+				<div class="form-group">
+					<label class="col-md-4 control-label" for="editar_bt"></label>
+					<div class="col-md-4">
+						<button id="editar_bt" name="editar_bt"
+							class="btn btn-primary">Editar</button>
 					</div>
 				</div>
 	
