@@ -15,19 +15,10 @@
 			<fieldset>
 	
 				<!-- Form Name -->
-				<legend>Registro usuario</legend>
+				<legend>Perfil</legend>
 				
 				<input id="id" th:field="*{id}" name="id" type="hidden" placeholder=""
 						class="form-control input-md">
-				
-				<!-- Text input-->
-				<div class="form-group">
-					<label class="col-md-4 control-label" for="id">ID</label>
-					<div class="col-md-4">
-						<input th:field="*{id}" id="id" name="id" type="text" placeholder="1"
-							class="form-control input-md" disabled>
-					</div>
-				</div>
 	
 				<!-- Text input-->
 				<div class="form-group">
@@ -51,7 +42,7 @@
 				<div class="form-group">
 					<label class="col-md-4 control-label" for="clave">Contrase&#241;a</label>
 					<div class="col-md-4">
-						<input th:field="*{clave}" id="clave" name="clave" type="password"
+						<input th:field="*{clave}" id="clave" name="clave" type="hidden"
 							class="form-control input-md" disabled>
 						<a th:href="@{/usuarios/edit_pass}">Editar contrase&#241;a</a>
 					</div>
