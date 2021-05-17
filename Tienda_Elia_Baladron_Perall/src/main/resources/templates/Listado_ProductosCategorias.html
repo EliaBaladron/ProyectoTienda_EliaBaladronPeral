@@ -14,7 +14,7 @@
 	
 	<h2 th:text="${session.orden}">select</h2>
 	
-	<div  th:each="productosXcategoria : ${lista_productosXcategoria}">
+	<div th:if="${session.rol == 1 OR session.rol == 2}" th:each="productosXcategoria : ${lista_productosXcategoria}">
 		
 		<table class="table table-striped">
 			<tr>
@@ -71,6 +71,52 @@
 				</td>
 			</tr>
 		</table>
+	</div>
+	
+	<div class="album py-5 bg-light" th:each="productosXcategoria : ${lista_productosXcategoria}">
+	    <div class="container">
+	      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+			<div class="col">
+	          <div class="card shadow-sm">
+	          	<svg class="bd-placeholder-img card-img-top" style="width: 100%; heigth=225"
+	            	role="img" aria-label="Placeholder: Thumbnail">
+		            <title>Categoría</title>
+		            <rect width="100%" height="100%" fill="#1A2090"/>
+		            <text x="50%" y="50%" fill="#eceeef" dy=".3em"
+		            	th:text="${productosXcategoria.categoria}"></text>
+	            </svg>
+	          </div>
+	        </div>
+			
+	        <div class="col" th:each="producto : ${productosXcategoria.productos}">
+	          <div class="card shadow-sm">
+	          	<svg class="bd-placeholder-img card-img-top" style="width: 100%; heigth=225"
+	            	role="img" aria-label="Placeholder: Thumbnail">
+		            <title th:text="${producto.idCategoria}">Categoría</title>
+		            <rect width="100%" height="100%" fill="#55595c"/>
+		            <text x="50%" y="50%" fill="#eceeef" dy=".3em"
+		             th:text="${producto.nombre}">Nombre</text>
+	            </svg>
+	
+	            <div class="card-body">
+	              <p th:text="${producto.descripcion}" class="card-text">Descripcion.Descripcion.Descripcion.Descripcion.Descripcion.Descripcion.Descripcion.Descripcion.Descripcion.Descripcion.Descripcion.Descripcion.</p>
+	              <div class="d-flex justify-content-between align-items-center">
+	                <div class="btn-group">
+	                	<a type="button" class="btn btn-sm btn-outline-secondary" th:href="@{/productos/detalles(id=${producto.id})}">Ver</a>
+	                	<a type="button" class="btn btn-sm btn-outline-secondary" th:href="@{/carrito/add(id=${producto.id})}"
+	                		th:if="${session.rol == 3 OR session.rol == 4}">A&#241;adir al carrito</a>
+	                	<a type="button" class="btn btn-sm btn-outline-secondary" th:href="@{/productos/edit(id=${producto.id})}"
+	                		th:if="${session.rol == 1 OR session.rol == 2}">Editar</a>
+	                	<a type="button" class="btn btn-sm btn-outline-secondary" th:href="@{/productos/delete(id=${producto.id})}"
+	                		th:if="${session.rol == 1}">Eliminar</a>
+	                </div>
+	                <small class="text-muted" th:text="${producto.precio}">Precio</small>
+	              </div>
+	            </div>
+	          </div>
+	        </div>
+	      </div>
+	    </div>
 	</div>
 	
 	<footer th:replace="fragments/menu_footer_cabecera :: footer"></footer>

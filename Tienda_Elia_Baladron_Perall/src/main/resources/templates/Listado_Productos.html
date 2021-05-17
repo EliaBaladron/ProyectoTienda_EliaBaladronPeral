@@ -28,7 +28,7 @@
 	
 	<form th:replace="fragments/filtro :: filtro"></form>
 		
-	<table class="table table-striped">
+	<table class="table table-striped" th:if="${session.rol == 1 OR session.rol == 2}">
 		<tr th:if="${session.rol == 1 OR session.rol == 2}">
 			<th></th>
 			<th></th>
@@ -88,7 +88,6 @@
 	<div class="album py-5 bg-light">
 	    <div class="container">
 	      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-	      
 	        <div class="col" th:each="producto : ${lista_productos}">
 	          <div class="card shadow-sm">
 	          	<svg class="bd-placeholder-img card-img-top" style="width: 100%; heigth=225"
