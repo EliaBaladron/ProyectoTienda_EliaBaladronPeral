@@ -1,0 +1,61 @@
+h2{
+    padding-bottom: 20px;
+    margin: 10px 20px;
+    font-size: 24px;
+}
+
+hr{
+    margin-top: 38px;
+    margin-bottom: 54px;
+    margin-left:3px;
+    border: 1px solid #cccccc;
+
+}
+
+.form-group{
+	margin-bottom: 20px;
+    margin-left:20px;
+	width: 30%;
+    float:left;
+    text-align: left;
+}
+
+.form-control{
+    padding: 12px 20px;
+    height: auto;
+    border-radius: 2px;
+}
+
+.radio-inline{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.btn{
+    width: 46%;
+    margin: 20px auto 0;
+    display: block;
+    outline: none;
+}
+
+@media screen and (max-width: 800px){
+    .form-group{
+        width: 45%;
+    }
+
+    body{
+        margin-top: 0;
+    }
+}
+
+@media screen and (max-width: 560px){
+    .form-group{
+        width: 100%;
+        margin-left: 0;
+    }
+
+    h2{
+        text-align: center;
+    }
+}
+

@@ -3,6 +3,8 @@
 	<head>
 		<meta charset="ISO-8859-1">
 		<title>Editar producto</title>
+		
+		<link href="/css/styles.css" rel="stylesheet">
 	
 		<th:block th:replace="fragments/menu_footer_cabecera :: head">
 	</head>
@@ -22,9 +24,9 @@
 	
 				<!-- Text input-->
 				<div class="form-group">
-					<label class="col-md-4 control-label" for="producto_id_categoria">ID
+					<label class="control-label" for="producto_id_categoria">ID
 						categoria</label>
-					<div class="col-md-4">
+					<div>
 						<input id="producto_id_categoria" name="producto_id_categoria"
 							type="text" placeholder="" class="form-control input-md"
 							th:field="*{idCategoria}">
@@ -34,8 +36,8 @@
 	
 				<!-- Text input-->
 				<div class="form-group">
-					<label class="col-md-4 control-label" for="producto_nombre">Nombre</label>
-					<div class="col-md-4">
+					<label class="control-label" for="producto_nombre">Nombre</label>
+					<div>
 						<input id="producto_nombre" name="producto_nombre" type="text"
 							placeholder="" class="form-control input-md"
 							th:field="*{nombre}">
@@ -45,8 +47,8 @@
 	
 				<!-- Text input-->
 				<div class="form-group">
-					<label class="col-md-4 control-label" for="producto_descripcion">Descripci&#243;n</label>
-					<div class="col-md-4">
+					<label class="control-label" for="producto_descripcion">Descripci&#243;n</label>
+					<div>
 						<input id="producto_descripcion" name="producto_descripcion"
 							type="text" placeholder="" class="form-control input-md"
 							th:field="*{descripcion}">
@@ -56,8 +58,8 @@
 	
 				<!-- Text input-->
 				<div class="form-group">
-					<label class="col-md-4 control-label" for="producto_precio">Precio</label>
-					<div class="col-md-4">
+					<label class="control-label" for="producto_precio">Precio</label>
+					<div>
 						<input id="producto_precio" name="producto_precio" type="text"
 							placeholder="" class="form-control input-md"
 							th:field="*{precio}">
@@ -68,7 +70,7 @@
 				<!-- Text input-->
 				<div class="form-group">
 					<label class="col-md-4 control-label" for="producto_stock">Stock</label>
-					<div class="col-md-4">
+					<div>
 						<input id="producto_stock" name="producto_stock" type="text"
 							placeholder="" class="form-control input-md"
 							th:field="*{stock}">
@@ -80,7 +82,7 @@
 				<div class="form-group">
 					<label class="col-md-4 control-label" for="producto_fecha_alta">Fecha
 						de alta</label>
-					<div class="col-md-4">
+					<div>
 						<input id="producto_fecha_alta" name="producto_fecha_alta"
 							type="text" placeholder="" class="form-control input-md"
 							th:field="*{fechaAlta}">
@@ -92,7 +94,7 @@
 				<div class="form-group">
 					<label class="col-md-4 control-label" for="producto_fecha_baja">Fecha
 						de baja</label>
-					<div class="col-md-4">
+					<div>
 						<input id="producto_fecha_baja" name="producto_fecha_baja"
 							type="text" placeholder="" class="form-control input-md"
 							th:field="*{fechaBaja}">
@@ -103,7 +105,7 @@
 				<!-- Text input-->
 				<div class="form-group">
 					<label class="col-md-4 control-label" for="producto_impuesto">Impuesto</label>
-					<div class="col-md-4">
+					<div>
 						<input id="producto_impuesto" name="producto_impuesto" type="text"
 							placeholder="" class="form-control input-md"
 							th:field="*{impuesto}">
@@ -114,7 +116,7 @@
 				<!-- Text input-->
 				<div class="form-group">
 					<label class="col-md-4 control-label" for="producto_imagen">Imagen</label>
-					<div class="col-md-4">
+					<div>
 						<input id="producto_imagen" name="producto_imagen" type="text"
 							placeholder="" class="form-control input-md"
 							th:field="*{imagen}">
@@ -125,7 +127,7 @@
 				<!-- Button -->
 				<div class="form-group">
 					<label class="col-md-4 control-label" for="registrar_bt"></label>
-					<div class="col-md-4">
+					<div>
 						<button id="registrar_bt" name="registrar_bt"
 							class="btn btn-primary">Guardar</button>
 					</div>
