@@ -31,7 +31,7 @@ public class OpcionesMenuController {
 		
 		CarritoController.iniciarCarrito(session, model);
 		
-		return "redirect:/productos";
+		return "redirect:/datos_tienda";
 	}
 	@GetMapping("/Tienda_Elia_Baladron_Peral")
 	public String index() {
