@@ -1,8 +1,6 @@
 package curso.java.tienda.controller;
 
 
-
-import java.util.ArrayList;
 import java.util.Formatter;
 
 import javax.servlet.http.HttpSession;
@@ -13,7 +11,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import curso.java.tienda.model.Configuracion;
-import curso.java.tienda.model.Pedidos;
 import curso.java.tienda.service.ConfiguracionService;
 
 

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Valoracion</title>
+		
+		<link href="/css/styles.css" rel="stylesheet">
+	
+		<th:block th:replace="fragments/menu_footer_cabecera :: head">
+	</head>
+	<body>
+	
+		<header th:replace="fragments/menu_footer_cabecera :: menu"></header>
+		<div th:replace="fragments/menu_footer_cabecera :: cabecera"></div>
+		
+		<form class="form-horizontal" th:action="${valoracion.id !=0} ? @{/valoracion/edit/editar} : @{/valoracion/add/registrar}" th:object="${valoracion}" method="post">
+			<fieldset>
+	
+				<!-- Form Name -->
+				<legend>Registro producto</legend>
+				
+				<input id="producto_id" th:field="*{id}" name="producto_id" type="hidden"
+						class="form-control input-md">
+	
+				<!-- Text input-->
+				<div class="form-group">
+					<label class="control-label" for="valoracion_idProducto">ID producto</label>
+					<div>
+						<input id="valoracion_idProducto" name="valoracion_idProducto"
+							type="text" placeholder="" class="form-control input-md"
+							th:field="*{idProducto}">
+						<span class="help-block">Introduce el producto</span>
+					</div>
+				</div>
+	
+				<!-- Text input-->
+				<div class="form-group">
+					<label class="control-label" for="valoracion_idUsuario">ID del usuario</label>
+					<div>
+						<input id="valoracion_idUsuario" name="valoracion_idUsuario" type="text"
+							placeholder="" class="form-control input-md"
+							th:field="*{idUsuario}">
+						<span class="help-block">Introduce el id del usuario</span>
+					</div>
+				</div>
+	
+				<!-- Text input-->
+				<div class="form-group">
+					<label class="control-label" for="valoracion_valoracion">Valoracion</label>
+					<div>
+						<input id="valoracion_valoracion" name="valoracion_valoracion"
+							type="text" placeholder="" class="form-control input-md"
+							th:field="*{valoracion}">
+						<span class="help-block">Introduce la valoracion, entre 0 y 5</span>
+					</div>
+				</div>
+	
+				<!-- Text input-->
+				<div class="form-group">
+					<label class="control-label" for="valoracion_comentario">Comentario</label>
+					<div>
+						<input id="valoracion_comentario" name="valoracion_comentario" type="text"
+							placeholder="" class="form-control input-md"
+							th:field="*{comentario}">
+						<span class="help-block">Introduce el comentario</span>
+					</div>
+				</div>
+				
+				<!-- Button -->
+				<div class="form-group">
+					<label class="col-md-4 control-label" for="registrar_bt"></label>
+					<div>
+						<button id="registrar_bt" name="registrar_bt"
+							class="btn btn-primary">Guardar</button>
+					</div>
+				</div>
+	
+			</fieldset>
+		</form>
+			
+		<footer th:replace="fragments/menu_footer_cabecera :: footer"></footer>
+	
+	</body>
+</html>

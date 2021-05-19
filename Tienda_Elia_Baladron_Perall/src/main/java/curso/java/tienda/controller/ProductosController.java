@@ -85,7 +85,7 @@ public class ProductosController {
 	}
 	
 	@GetMapping("/productos/registro")
-	public String getRegistro(Model model) {
+	public String addRegistro(Model model) {
 		
 		model.addAttribute("producto", new Productos(true));
 		model.addAttribute("titulo", "Producto");
@@ -93,7 +93,7 @@ public class ProductosController {
 		return "Productos";
 	}
 	@PostMapping("/productos/registro/registrar")
-	public String registrar(Model model, @ModelAttribute Productos producto) {
+	public String registrar(@ModelAttribute Productos producto) {
 		
 		sc.addProducto(producto);
 		

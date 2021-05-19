@@ -7,43 +7,43 @@ public class Valoraciones implements java.io.Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
-	private Integer id;
-	private Integer idProducto;
-	private Integer idUsuario;
+	private Long id;
+	private Long idProducto;
+	private Long idUsuario;
 	private Integer valoracion;
 	private String comentario;
 
 	public Valoraciones() {
 	}
 
-	public Valoraciones(Integer idProducto, Integer idUsuario, Integer valoracion, String comentario) {
+	public Valoraciones(Long idProducto, Long idUsuario, Integer valoracion, String comentario) {
 		this.idProducto = idProducto;
 		this.idUsuario = idUsuario;
 		this.valoracion = valoracion;
 		this.comentario = comentario;
 	}
 
-	public Integer getId() {
+	public Long getId() {
 		return this.id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
-	public Integer getIdProducto() {
+	public Long getIdProducto() {
 		return this.idProducto;
 	}
 
-	public void setIdProducto(Integer idProducto) {
+	public void setIdProducto(Long idProducto) {
 		this.idProducto = idProducto;
 	}
 
-	public Integer getIdUsuario() {
+	public Long getIdUsuario() {
 		return this.idUsuario;
 	}
 
-	public void setIdUsuario(Integer idUsuario) {
+	public void setIdUsuario(Long idUsuario) {
 		this.idUsuario = idUsuario;
 	}
 
