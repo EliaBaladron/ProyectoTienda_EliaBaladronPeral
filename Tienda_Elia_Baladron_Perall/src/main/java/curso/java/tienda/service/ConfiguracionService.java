@@ -33,6 +33,9 @@ public class ConfiguracionService {
 		this.repository.save(new Configuracion(
 				Configuracion.DIRECCION, "Zamora", "texto"
 			));
+		this.repository.save(new Configuracion(
+				Configuracion.NUM_FACTURA, "2021-0002", "texto"
+			));
     	
     	logger.info("Insertando Configuracion de prueba");
 	}

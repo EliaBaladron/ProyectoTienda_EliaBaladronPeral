@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import curso.java.tienda.model.Configuracion;
 import curso.java.tienda.model.DetallesPedido;
 import curso.java.tienda.model.Pedidos;
 import curso.java.tienda.model.Roles;
@@ -112,14 +113,16 @@ public class PedidosController {
 		return "redirect:/pedidos";
 	}
 	@GetMapping("/pedidos/enviar")
-	public String enviar(Model model, @RequestParam String id) {
+	public String enviar(HttpSession session, Model model, @RequestParam String id) {
 		
 		Pedidos pedido = sc.getPedido(Long.parseLong(id));
 		pedido.setEstado(Pedidos.ENVIADO);
+		pedido.setNumFactura((String)session.getAttribute(Configuracion.NUM_FACTURA));
 		
 		sc.editPedido(pedido);
 		
-		return "redirect:/pedidos";
+		//return "redirect:/pedidos";
+		return "redirect:/actualizar/num_factura";
 	}
 	@GetMapping("/pedidos/solicitar_cancelacion")
 	public String solicitarCancelación(Model model, @RequestParam String id) {
@@ -143,26 +146,13 @@ public class PedidosController {
 		
 		String metodoPago = (String)session.getAttribute("pago");
 		
-		Pedidos p = new Pedidos(usuarioLogeado.getId(), metodoPago, Pedidos.PENDIENTE, numeroFactura(), 0d);
+		Pedidos p = new Pedidos(usuarioLogeado.getId(), metodoPago, Pedidos.PENDIENTE, "", 0d);
 		p.calcularTotal(detalles);
 		p = sc.addPedido(p);
 		
 		session.setAttribute("idPedido", p.getId());
 		
 		return "redirect:/detalles_pedido/registrar_detalles_carrito";
-	}
-	
-	public String numeroFactura(){
-		ArrayList<Pedidos> pedidos = (ArrayList<Pedidos>)sc.getListaPedidos();
-		String num = pedidos.get(pedidos.size()-1).getNumFactura();
-		
-		String factura = num.substring(0, 5);
-		
-		int n = Integer.parseInt(num.substring(5));
-		n = n+1;
-		factura+= Integer.toString(n);
-		
-		return factura;
 	}
 	
 }

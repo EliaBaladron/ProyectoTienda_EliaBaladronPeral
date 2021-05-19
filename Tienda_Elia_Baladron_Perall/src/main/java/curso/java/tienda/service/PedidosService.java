@@ -24,16 +24,16 @@ public class PedidosService {
 		this.pedidosRepository = pedidosRepository;
 		
 		this.pedidosRepository.save(new Pedidos(
-				28l, MetodosPago.PAYPAL, Pedidos.ENVIADO, "2020-10", 12.1d
+				32l, MetodosPago.PAYPAL, Pedidos.ENVIADO, "2021-0001", 12.1d
 			));
 		this.pedidosRepository.save(new Pedidos(
-				28l, MetodosPago.TARJETA, Pedidos.PENDIENTE, "2020-20", 22.1d
+				32l, MetodosPago.TARJETA, Pedidos.PENDIENTE, "", 22.1d
 			));
 		this.pedidosRepository.save(new Pedidos(
-				28l, MetodosPago.PAYPAL, Pedidos.CANCELADO, "2020-30", 32.1d
+				32l, MetodosPago.PAYPAL, Pedidos.CANCELADO, "", 32.1d
 			));
 		this.pedidosRepository.save(new Pedidos(
-				28l, MetodosPago.TARJETA, Pedidos.PENDIENTE, "2020-40", 42.1d
+				32l, MetodosPago.TARJETA, Pedidos.PENDIENTE, "", 42.1d
 			));
     	
     	logger.info("Insertando Pedidos de prueba");

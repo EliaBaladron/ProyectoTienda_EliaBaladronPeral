@@ -14,6 +14,7 @@ public class Configuracion implements java.io.Serializable {
 	public static String NOMBRE = "Nombre";
 	public static String CIF = "CIF";
 	public static String DIRECCION = "Direccion";
+	public static String NUM_FACTURA = "NumFactura";
 
 	private static final long serialVersionUID = 1L;
 	
