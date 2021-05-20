@@ -13,22 +13,27 @@
 				<td>
 					<h2>Valoraciones</h2>
 					<!--  th:if="${session.pedido_enviado = 'enviado'}" -->
-					<a th:href="#">A&#241;adir una valoraci&#243;n</a>
+					<!--  <a th:href="@{/valoracion/add(idProducto=${producto.id})}">A&#241;adir una valoraci&#243;n</a> -->
 				</td>
-				<td></td>
+				<td></td><td></td>
 			</tr>
 			<tr>
-				<td></td>
-				<td></td>
+				<td></td><td></td><td></td>
 			</tr>
 			
 			<th:block th:each="valoracion : ${listado_valoraciones}">
 				<tr>
 					<th th:text="${valoracion.idUsuario}">Usuario</th>
 					<th th:text="${valoracion.valoracion}">Valoraci&#243;n</th>
+					
+					<th th:if="${session.usuarioLogeado != null}"><a th:if="${session.usuarioLogeado.id == valoracion.idUsuario}" th:href="@{/valoracion/edit(id=${valoracion.id})}">Editar valoraci&#243;n</a></th>
+					<th th:else></th>
+					
+					<th th:if="${session.usuarioLogeado != null}"><a th:if="${session.usuarioLogeado.id == valoracion.idUsuario}" th:href="@{/valoracion/delete(id=${valoracion.id})}">Eliminar valoraci&#243;n</a></th>
+					<th th:else></th>
 				</tr>
 				<tr>
-					<td th:text="${valoracion.comentario}" colspan="2">Comentario</td>
+					<td th:text="${valoracion.comentario}" colspan="3">Comentario</td>
 				</tr>
 			</th:block>
 		</table>

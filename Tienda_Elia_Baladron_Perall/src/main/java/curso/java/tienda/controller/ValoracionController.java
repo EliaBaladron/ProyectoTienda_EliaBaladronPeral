@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import curso.java.tienda.model.Productos;
+import curso.java.tienda.model.Usuarios;
 import curso.java.tienda.model.Valoraciones;
 import curso.java.tienda.service.ValoracionService;
 
@@ -39,10 +40,16 @@ public class ValoracionController {
 	}
 	
 	@GetMapping("/add")
-	public String add(HttpSession session, Model model) {
+	public String add(HttpSession session, Model model, @RequestParam String idProducto) {
 		
-		model.addAttribute("valoracion", new Valoraciones());
-		model.addAttribute("titulo", "Valoracion");
+		Valoraciones valoracion = new Valoraciones();
+		valoracion.setIdProducto(Long.parseLong(idProducto));
+		Usuarios usuario = (Usuarios)session.getAttribute("usuarioLogeado");
+		valoracion.setIdUsuario(usuario.getId());
+		
+		model.addAttribute("valoracion", valoracion);
+		
+		model.addAttribute("titulo", "Valoración");
 		
 		return "Valoracion";
 	}
@@ -66,6 +73,14 @@ public class ValoracionController {
 	public String editar(@ModelAttribute Valoraciones valoracion) {
 		
 		sc.edit(valoracion);
+		
+		return "redirect:/";
+	}
+	
+	@GetMapping("/delete")
+	public String delete(Model model, @RequestParam String id) {
+		
+		sc.delete(Long.parseLong(id));
 		
 		return "redirect:/";
 	}

@@ -25,16 +25,16 @@ public class ValoracionService {
 		this.repository = repository;
 		
 		this.repository.save(new Valoraciones(
-				28l, 1l, 4, "Valoracion 1"
+				28l, 32l, 4, "Valoracion 1"
 			));
 		this.repository.save(new Valoraciones(
-				28l, 1l, 4, "Valoracion 2"
+				28l, 32l, 4, "Valoracion 2"
 			));
 		this.repository.save(new Valoraciones(
-				29l, 1l, 4, "Valoracion 3"
+				29l, 32l, 4, "Valoracion 3"
 			));
 		this.repository.save(new Valoraciones(
-				30l, 1l, 4, "Valoracion 4"
+				30l, 32l, 4, "Valoracion 4"
 			));
     	
     	logger.info("Insertando Valoraciones de prueba");

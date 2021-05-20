@@ -28,6 +28,8 @@
 			<td th:text="${detalle.unidades}"></td>
 			<td th:text="${detalle.impuesto}"></td>
 			<td th:text="${detalle.total}"></td>
+			<!--  th:if="${enviado == 'enviado'}" -->
+			<td><a th:if="${session.rol == 3}" a th:href="@{/valoracion/add(idProducto=${detalle.idProducto})}">A&#241;adir una valoraci&#243;n</a></td>
 			<!-- 
 			<td>
 				<a th:href="@{/detalles_pedido/delete(id=${detalle.id})}">Eliminar detalles de pedido</a>

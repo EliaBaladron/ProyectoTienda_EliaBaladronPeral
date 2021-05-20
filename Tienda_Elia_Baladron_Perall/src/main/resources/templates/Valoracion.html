@@ -17,9 +17,9 @@
 			<fieldset>
 	
 				<!-- Form Name -->
-				<legend>Registro producto</legend>
+				<legend>Valoraci&#243;n</legend>
 				
-				<input id="producto_id" th:field="*{id}" name="producto_id" type="hidden"
+				<input id="valoracion_id" th:field="*{id}" name="valoracion_id" type="hidden"
 						class="form-control input-md">
 	
 				<!-- Text input-->
@@ -28,8 +28,7 @@
 					<div>
 						<input id="valoracion_idProducto" name="valoracion_idProducto"
 							type="text" placeholder="" class="form-control input-md"
-							th:field="*{idProducto}">
-						<span class="help-block">Introduce el producto</span>
+							th:field="*{idProducto}" disabled>
 					</div>
 				</div>
 	
@@ -39,8 +38,7 @@
 					<div>
 						<input id="valoracion_idUsuario" name="valoracion_idUsuario" type="text"
 							placeholder="" class="form-control input-md"
-							th:field="*{idUsuario}">
-						<span class="help-block">Introduce el id del usuario</span>
+							th:field="*{idUsuario}" disabled>
 					</div>
 				</div>
 	
