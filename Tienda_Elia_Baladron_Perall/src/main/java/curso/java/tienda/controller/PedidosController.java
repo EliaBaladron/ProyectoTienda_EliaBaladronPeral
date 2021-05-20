@@ -155,4 +155,16 @@ public class PedidosController {
 		return "redirect:/detalles_pedido/registrar_detalles_carrito";
 	}
 	
+	
+	@GetMapping("/detalles_pedido")
+	public String index(HttpSession session, @RequestParam String id) {
+		Long idPedido = Long.parseLong(id);
+		Pedidos pedido = (Pedidos)sc.getPedido(idPedido);
+		
+		if(pedido.getEstado() == Pedidos.ENVIADO)
+			session.setAttribute("pedido_enviado", "enviado");
+		
+		
+		return "redirect:/detalles_pedido/mostrar?id="+id;
+	}
 }

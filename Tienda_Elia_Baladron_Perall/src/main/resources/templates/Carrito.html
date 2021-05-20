@@ -39,7 +39,7 @@
 		<tr th:each="detalle : ${session.carrito_detalles}">
 			<!-- <td th:text="${detalle.id}"></td> -->
 			<!-- <td th:text="${detalle.idPedido}"></td> -->
-			<td th:text="${detalle.idProducto}"></td>
+			<td><a th:text="${detalle.idProducto}" th:href="@{/productos/detalles(id=${detalle.idProducto})}"></a></td>
 			<td th:text="${detalle.precioUnidad}"></td>
 			<td th:text="${detalle.unidades}"></td>
 			<td th:text="${detalle.impuesto}"></td>

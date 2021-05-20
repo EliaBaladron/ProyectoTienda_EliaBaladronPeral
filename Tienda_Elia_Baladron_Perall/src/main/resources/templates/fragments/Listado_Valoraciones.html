@@ -7,14 +7,30 @@
 </head>
 <body>
 	<div th:fragment="valoracion">
-		<table class="table table-striped" th:each="valoracion : ${listado_valoraciones}">
+		<table class="table table-striped">
+			
 			<tr>
-				<th th:text="${valoracion.idUsuario}">Usuario</th>
-				<th th:text="${valoracion.valoracion}">Valoraci&#243;n</th>
+				<td>
+					<h2>Valoraciones</h2>
+					<!--  th:if="${session.pedido_enviado = 'enviado'}" -->
+					<a th:href="#">A&#241;adir una valoraci&#243;n</a>
+				</td>
+				<td></td>
 			</tr>
 			<tr>
-				<td th:text="${valoracion.comentario}" colspan="2">Comentario</td>
+				<td></td>
+				<td></td>
 			</tr>
+			
+			<th:block th:each="valoracion : ${listado_valoraciones}">
+				<tr>
+					<th th:text="${valoracion.idUsuario}">Usuario</th>
+					<th th:text="${valoracion.valoracion}">Valoraci&#243;n</th>
+				</tr>
+				<tr>
+					<td th:text="${valoracion.comentario}" colspan="2">Comentario</td>
+				</tr>
+			</th:block>
 		</table>
 	</div>
 </body>

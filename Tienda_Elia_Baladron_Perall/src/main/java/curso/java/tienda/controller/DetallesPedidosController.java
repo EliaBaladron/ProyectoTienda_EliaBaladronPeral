@@ -24,7 +24,7 @@ public class DetallesPedidosController {
 	@Autowired
 	private DetallesPedidosService sc;
 	
-	@GetMapping("/detalles_pedido")
+	@GetMapping("/detalles_pedido/mostrar")
 	public String index(Model model, @RequestParam String id) {
 		Long idPedido = Long.parseLong(id);
 		model.addAttribute("lista_detalles_pedido", sc.getListaDetallesPedidosXPedido(idPedido));

@@ -50,13 +50,6 @@ public class ValoracionService {
     	
     	logger.info("Obteniendo los datos de Valoraciones con el idProducto "+idProducto);
     	
-    	/*ArrayList<Valoraciones> listadoValoraciones = new ArrayList<>();
-		ArrayList<Valoraciones> valoraciones = repository.findByIdProducto(idProducto);
-		if(valoraciones.size() > 0)
-			listadoValoraciones.addAll(valoraciones);
-    	
-        return listadoValoraciones;*/
-    	
     	return repository.findByIdProducto(idProducto);
     }
 
