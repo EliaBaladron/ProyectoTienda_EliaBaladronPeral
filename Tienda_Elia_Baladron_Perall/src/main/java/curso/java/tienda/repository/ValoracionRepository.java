@@ -8,5 +8,5 @@ import curso.java.tienda.model.Valoraciones;
 
 
 public interface ValoracionRepository extends JpaRepository<Valoraciones, Long> {
-	ArrayList<Valoraciones> findByClave(String clave);
+	ArrayList<Valoraciones> findByIdProducto(long idProducto);
 }

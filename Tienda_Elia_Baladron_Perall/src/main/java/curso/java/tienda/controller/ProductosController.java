@@ -136,12 +136,11 @@ public class ProductosController {
 	}
 	
 	@GetMapping("/productos/detalles")
-	public String detalles(Model model, @RequestParam String id) {
+	public String detalles(HttpSession session, @RequestParam String id) {
 		
-		model.addAttribute("producto", sc.getProducto(Long.parseLong(id)));
-		model.addAttribute("titulo", "Producto");
+		session.setAttribute("producto", sc.getProducto(Long.parseLong(id)));
 		
-		return "ProductosMostrar";
+		return "redirect:/valoracion/mostrar";
 	}
 	
 	

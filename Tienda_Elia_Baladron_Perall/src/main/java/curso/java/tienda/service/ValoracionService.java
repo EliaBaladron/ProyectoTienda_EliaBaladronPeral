@@ -20,12 +20,21 @@ public class ValoracionService {
 
     
     
-    public ValoracionService(ValoracionRepository valoracionRepository) {
+    public ValoracionService(ValoracionRepository repository) {
 		super();
-		this.repository = valoracionRepository;
+		this.repository = repository;
 		
 		this.repository.save(new Valoraciones(
-				1l, 1l, 4, "Valoracion 1"
+				28l, 1l, 4, "Valoracion 1"
+			));
+		this.repository.save(new Valoraciones(
+				28l, 1l, 4, "Valoracion 2"
+			));
+		this.repository.save(new Valoraciones(
+				29l, 1l, 4, "Valoracion 3"
+			));
+		this.repository.save(new Valoraciones(
+				30l, 1l, 4, "Valoracion 4"
 			));
     	
     	logger.info("Insertando Valoraciones de prueba");
@@ -37,11 +46,18 @@ public class ValoracionService {
     	
         return (ArrayList<Valoraciones>)repository.findAll();
     }
-	public ArrayList<Valoraciones> getListaByIdProducto(String idProducto) {
+	public ArrayList<Valoraciones> getListaByIdProducto(long idProducto) {
     	
     	logger.info("Obteniendo los datos de Valoraciones con el idProducto "+idProducto);
     	
-        return (ArrayList<Valoraciones>)repository.findByClave(idProducto);
+    	/*ArrayList<Valoraciones> listadoValoraciones = new ArrayList<>();
+		ArrayList<Valoraciones> valoraciones = repository.findByIdProducto(idProducto);
+		if(valoraciones.size() > 0)
+			listadoValoraciones.addAll(valoraciones);
+    	
+        return listadoValoraciones;*/
+    	
+    	return repository.findByIdProducto(idProducto);
     }
 
     public void add(Valoraciones valoracion) {

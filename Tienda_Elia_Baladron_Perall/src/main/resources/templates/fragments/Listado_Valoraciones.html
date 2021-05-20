@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+<head>
+	<meta charset="UTF-8">
+	<title>Valoraciones</title>
+	<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+</head>
+<body>
+	<div th:fragment="valoracion">
+		<table class="table table-striped" th:each="valoracion : ${listado_valoraciones}">
+			<tr>
+				<th th:text="${valoracion.idUsuario}">Usuario</th>
+				<th th:text="${valoracion.valoracion}">Valoraci&#243;n</th>
+			</tr>
+			<tr>
+				<td th:text="${valoracion.comentario}" colspan="2">Comentario</td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

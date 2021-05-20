@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import curso.java.tienda.model.Productos;
 import curso.java.tienda.model.Valoraciones;
 import curso.java.tienda.service.ValoracionService;
 
@@ -23,6 +24,19 @@ public class ValoracionController {
 	
 	@Autowired
 	private ValoracionService sc;
+	
+	@GetMapping("/mostrar")
+	public String registrar(HttpSession session, Model model) {
+		
+		Productos p = (Productos)session.getAttribute("producto");
+		model.addAttribute("producto", p);
+		session.removeAttribute("producto");
+		
+		model.addAttribute("titulo", "Producto");
+		model.addAttribute("listado_valoraciones", sc.getListaByIdProducto(p.getId()));
+		
+		return "ProductosMostrar";
+	}
 	
 	@GetMapping("/add")
 	public String add(HttpSession session, Model model) {
