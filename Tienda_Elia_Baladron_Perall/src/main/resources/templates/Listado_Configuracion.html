@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+<head>
+	<meta charset="UTF-8">
+	<title>Mostrar pedidos</title>
+	
+	<th:block th:replace="fragments/menu_footer_cabecera :: head">
+</head>
+<body>
+	
+	<header th:insert="fragments/menu_footer_cabecera :: menu"></header>
+	<div th:insert="fragments/menu_footer_cabecera :: cabecera"></div>
+	
+	<table class="table table-striped">
+		<tr>
+			<th>ID</th>
+			<th>Clave</th>
+			<th>Valor</th>
+			<th>Tipo</th>
+			<th></th>
+		</tr>
+		<tr th:each="configuracion : ${lista_configuraciones}">
+			<td th:text="${configuracion.id}"></td>
+			<td th:text="${configuracion.clave}"></td>
+			<td th:text="${configuracion.valor}"></td>
+			<td th:text="${configuracion.tipo}"></td>
+			
+			<td>
+				<a th:href="@{/configuracion/edit(id=${configuracion.id})}">Editar configuracion</a>
+			</td>
+	</table>
+	
+	<footer th:insert="fragments/menu_footer_cabecera :: footer"></footer>
+	
+</body>
+</html>

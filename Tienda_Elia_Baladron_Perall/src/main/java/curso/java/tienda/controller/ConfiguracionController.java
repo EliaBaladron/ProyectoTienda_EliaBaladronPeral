@@ -7,19 +7,48 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import curso.java.tienda.model.Configuracion;
 import curso.java.tienda.service.ConfiguracionService;
 
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("")
 public class ConfiguracionController {
 	
 	@Autowired
 	private ConfiguracionService sc;
+	
+	@GetMapping("/configuracion")
+	public String mostrar(Model model) {
+		
+		model.addAttribute("lista_configuraciones", sc.getLista());
+		model.addAttribute("titulo", "Configuración");
+		
+		return "Listado_Configuracion";
+	}
+	
+	@GetMapping("/configuracion/edit")
+	public String editar(Model model, @RequestParam String id) {
+		
+		model.addAttribute("configuracion", sc.get(Long.parseLong(id)));
+		model.addAttribute("titulo", "Editar configuración");
+		
+		return "Configuracion";
+	}
+	@PostMapping("/configuracion/edit/editar")
+	public String editarSubmit(Model model, @ModelAttribute Configuracion configuracion) {
+		
+		sc.add(configuracion);
+		
+		return "redirect:/configuracion";
+	}
 	
 	@GetMapping("/datos_tienda")
 	public String registrar(HttpSession session) {

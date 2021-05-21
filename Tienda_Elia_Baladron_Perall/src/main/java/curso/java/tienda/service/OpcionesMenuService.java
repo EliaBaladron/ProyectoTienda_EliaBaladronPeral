@@ -71,11 +71,17 @@ public class OpcionesMenuService {
 				Roles.ANONIMO, "Carrito", "/carrito_anonimo"
 			));
 		
+		//Categorias
 		this.opcionesMenuRepository.save(new OpcionesMenu(
 				Roles.EMPLEADO, "Categorias", "/categorias"
 			));
 		this.opcionesMenuRepository.save(new OpcionesMenu(
 				Roles.ADMIN, "Categorias", "/categorias"
+			));
+		
+		//Configuracion
+		this.opcionesMenuRepository.save(new OpcionesMenu(
+				Roles.ADMIN, "Configuracion", "/configuracion"
 			));
     	
     	logger.info("Insertando OpcionesMenu de prueba");

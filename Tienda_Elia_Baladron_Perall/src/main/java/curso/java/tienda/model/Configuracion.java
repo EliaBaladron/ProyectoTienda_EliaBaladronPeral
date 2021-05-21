@@ -20,7 +20,7 @@ public class Configuracion implements java.io.Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer id;
+	private long id;
 	private String clave;
 	private String valor;
 	private String tipo;
@@ -34,11 +34,11 @@ public class Configuracion implements java.io.Serializable {
 		this.tipo = tipo;
 	}
 
-	public Integer getId() {
+	public long getId() {
 		return this.id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
