@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Categoria</title>
+		
+		<link href="/css/styles.css" rel="stylesheet">
+	
+		<th:block th:replace="fragments/menu_footer_cabecera :: head">
+	</head>
+	<body>
+	
+	<header th:insert="fragments/menu_footer_cabecera :: menu"></header>
+	<div th:insert="fragments/menu_footer_cabecera :: cabecera"></div>
+	
+		<form class="form-horizontal" th:action="@{/categorias/add/registrar}" th:object="${categoria}" method="post">
+			<fieldset>
+	
+				<!-- Form Name -->
+				<legend>Registro categoria</legend>
+				
+				<input id="id" th:field="*{id}" name="id" type="hidden"
+						class="form-control input-md">
+	
+				<!-- Text input-->
+				<div class="form-group" th:classappend="${#fields.hasErrors('nombre')} ? 'alert-danger' : null">
+					<label class="control-label" for="categoria_nombre">Nombre</label>
+					<div>
+						<input th:field="*{nombre}" id="categoria_nombre" name="categoria_nombre" type="text" placeholder="Nombre"
+							class="form-control input-md" required="required"> <span
+							class="help-block">Introduce el nombre de la categoria</span>
+							<span class="alert-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}">Errores</span>
+					</div>
+				</div>
+	
+				<!-- Text input-->
+				<div class="form-group" th:classappend="${#fields.hasErrors('descripcion')} ? 'alert-danger' : null">
+					<label class="control-label" for="categoria_descripcion">Descripción</label>
+					<div>
+						<input th:field="*{descripcion}" id="categoria_descripcion" name="categoria_descripcion" type="text"
+							placeholder="Descripcion" class="form-control input-md"
+							required="required"> <span class="help-block">Introduce una descripción de la categoria</span>
+							<span class="alert-danger" th:if="${#fields.hasErrors('descripcion')}" th:errors="*{descripcion}">Errores</span>
+					</div>
+				</div>
+				
+				<!-- Button -->
+				<div class="form-group">
+					<label class="control-label" for="registrar_bt"></label>
+					<div>
+						<button id="registrar_bt" name="registrar_bt"
+							class="btn btn-primary">Guardar</button>
+					</div>
+				</div>
+	
+			</fieldset>
+		</form>
+			
+	<footer th:insert="fragments/menu_footer_cabecera :: footer"></footer>
+	
+	</body>
+</html>
