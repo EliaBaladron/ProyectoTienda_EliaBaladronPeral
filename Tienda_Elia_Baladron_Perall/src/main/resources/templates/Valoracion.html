@@ -13,7 +13,7 @@
 		<header th:replace="fragments/menu_footer_cabecera :: menu"></header>
 		<div th:replace="fragments/menu_footer_cabecera :: cabecera"></div>
 		
-		<form class="form-horizontal" th:action="${valoracion.id !=0} ? @{/valoracion/edit/editar} : @{/valoracion/add/registrar}" th:object="${valoracion}" method="post">
+		<form class="form-horizontal" th:action="${valoracion.id !=0} ? @{/valoracion/add/registrar} : @{/valoracion/edit/editar}" th:object="${valoracion}" method="post">
 			<fieldset>
 	
 				<!-- Form Name -->

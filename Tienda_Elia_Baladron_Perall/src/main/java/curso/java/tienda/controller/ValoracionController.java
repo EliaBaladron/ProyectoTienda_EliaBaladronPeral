@@ -1,5 +1,5 @@
 package curso.java.tienda.controller;
-
+ 
 
 import javax.servlet.http.HttpSession;
 
@@ -56,7 +56,9 @@ public class ValoracionController {
 	@PostMapping("/add/registrar")
 	public String registrar(@ModelAttribute Valoraciones valoracion) {
 		
+		//ArrayList<Valoraciones> v = sc.getLista();
 		sc.add(valoracion);
+		//v = sc.getLista();
 		
 		return "redirect:/";
 	}
